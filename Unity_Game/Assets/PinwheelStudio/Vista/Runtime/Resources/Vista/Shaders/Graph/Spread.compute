@@ -1,0 +1,52 @@
+#pragma kernel Main
+#pragma multi_compile_local _ KEEP_SOURCE_POINTS
+#pragma multi_compile_local _ HAS_DISTANCE_MAP
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Math.hlsl"
+#include "../Includes/Sampling.hlsl"
+#include "../Includes/PatternGenerator.hlsl"
+
+StructuredBuffer<PositionSample> _SrcBuffer;
+RWStructuredBuffer<PositionSample> _DestBuffer;
+int _Count;
+float _Distance;
+#if HAS_DISTANCE_MAP
+	Texture2D _DistanceMap;
+#endif
+
+float4 _Seed;
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	int total = _Count + 1;
+	int srcIndex = id.x + _BaseIndex;
+	PositionSample p0 = _SrcBuffer[srcIndex];
+
+	float d = _Distance;
+	#if HAS_DISTANCE_MAP
+		d *= _DistanceMap.SampleLevel(_SamplerLinearClamp, p0.position.xz, 0).r;
+	#endif
+	for (int i = 1; i <= _Count; ++i)
+	{
+		PositionSample p = (PositionSample)0;
+		p.isValid = p0.isValid;
+				
+		float fAngle = simpleNoise_Scale10k(float2(_Seed.x * p0.position.x * i, _Seed.z * p0.position.z / i));
+		float angle = radians(fAngle * 720);
+		float3 dir = float3(cos(angle), 0, sin(angle));
+
+		float fDistance = lerp(0.2, 1, simpleNoise_Scale10k(float2(_Seed.y * p0.position.z * i, _Seed.w * p0.position.x / i)));
+		float3 offset = d * fDistance * dir;
+		p.position = p0.position + offset;
+
+		_DestBuffer[srcIndex * total + i] = p;
+	}
+
+	#if !KEEP_SOURCE_POINTS
+		p0.isValid = false;
+	#endif
+	_DestBuffer[srcIndex * total + 0] = p0;
+}

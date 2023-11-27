@@ -1,0 +1,61 @@
+.sticky-image
+{
+	width: 200px;
+	height: 200px;
+}
+
+#main-container
+{
+	border-radius: 4px;
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#image
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+#selection-border
+{
+	position: absolute;
+	left: -3px;
+	top: -3px;
+	right: -3px;
+	bottom: -3px;
+
+	border-width: 1px;
+	border-radius: 7px;
+}
+
+#selection-border.selected
+{
+	border-width: 1px;
+	border-color: rgba(68,192,255, 1);
+}
+
+#selection-border.selected:hover
+{
+	border-width: 2px;
+	border-color: rgba(68,192,255, 1);
+}
+
+#selection-border
+{
+	border-width: 0px;
+	border-color: rgba(68,192,255, 1);
+}
+
+#selection-border:hover
+{
+	border-width: 1px;
+	border-color: rgba(68,192,255, 0.5);
+}

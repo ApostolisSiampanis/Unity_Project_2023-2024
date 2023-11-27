@@ -1,0 +1,31 @@
+#pragma kernel Main
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Random.hlsl"
+#include "../Includes/Math.hlsl"
+
+RWStructuredBuffer<PositionSample> _Positions;
+float4 _BiomeBounds;
+float2 _LowerLeftPoint;
+float2 _Spacing;
+float2 _GridDimension;
+
+[numthreads(8, 8, 1)]
+void Main(uint3 id: SV_DispatchThreadID)
+{
+	int x = id.x;
+	int y = id.y;
+	
+	float posX = _LowerLeftPoint.x + x * _Spacing.x;
+	float posZ = _LowerLeftPoint.y + y * _Spacing.y;
+	
+	posX = inverseLerp(posX, _BiomeBounds.x, _BiomeBounds.x + _BiomeBounds.z);
+	posZ = inverseLerp(posZ, _BiomeBounds.y, _BiomeBounds.y + _BiomeBounds.w);
+
+	PositionSample p = (PositionSample)0;
+	p.position = float3(posX, 0, posZ);
+	p.isValid = 1;
+
+	int index = _GridDimension.x * y + x;
+	_Positions[index] = p;
+}

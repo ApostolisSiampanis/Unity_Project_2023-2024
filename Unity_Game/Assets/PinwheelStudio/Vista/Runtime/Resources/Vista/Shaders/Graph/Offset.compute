@@ -1,0 +1,47 @@
+#pragma kernel Main
+#pragma multi_compile_local _ HAS_DIRECTION_MAP
+#pragma multi_compile_local _ HAS_INTENSITY_MAP
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Sampling.hlsl"
+
+StructuredBuffer<PositionSample> _SrcBuffer;
+RWStructuredBuffer<PositionSample> _DestBuffer;
+
+float _MinAngle;
+float _MaxAngle;
+float _AngleMultiplier;
+#if HAS_DIRECTION_MAP
+	Texture2D _DirectionMap;
+#endif
+
+float _IntensityMultiplier;
+#if HAS_INTENSITY_MAP
+	Texture2D _IntensityMap;
+#endif
+
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	PositionSample p = _SrcBuffer[id.x + _BaseIndex];
+
+	float fAngle = _AngleMultiplier;
+	#if HAS_DIRECTION_MAP
+		fAngle *= _DirectionMap.SampleLevel(_SamplerLinearClamp, p.position.xz, 0).r;
+	#endif
+	float angle = lerp(_MinAngle, _MaxAngle, fAngle);
+	float2 direction = float2(cos(angle), sin(angle));
+
+	float fIntensity = _IntensityMultiplier;
+	#if HAS_INTENSITY_MAP
+		fIntensity *= _IntensityMap.SampleLevel(_SamplerLinearClamp, p.position.xz, 0).r;
+	#endif
+
+	float2 newXZ = p.position.xz + direction * fIntensity;
+	p.position.x = newXZ.x;
+	p.position.z = newXZ.y;
+
+	_DestBuffer[id.x + _BaseIndex] = p;
+}

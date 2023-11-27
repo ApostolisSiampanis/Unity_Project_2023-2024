@@ -1,0 +1,70 @@
+.properties-view
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+	min-width: 100px;
+	width: auto;
+}
+
+#scroll-view
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+#body
+{
+	padding-left: 11px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;	
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+#tab-container
+{
+	height: 21px;
+	flex-direction: row;
+}
+
+.tab
+{
+	flex-grow: 1;
+	margin: 0px;
+	border-width: 1px;
+	border-radius: 0px;
+	background-color: rgb(50,50,50);
+	color: rgb(100,100,100);
+	margin: -1px;
+	border-color: rgb(35,35,35);
+}
+
+.tab.active
+{
+	background-color: rgb(56,56,56);
+	color: rgb(196,196,196);
+	border-bottom-width: 0px;
+}
+
+.unity-button.tab
+{
+	background-color: rgb(50,50,50);
+}
+
+.unity-button.tab.active
+{
+	background-color: rgb(56,56,56);
+}
+.tab:hover
+{
+	background-color: rgb(65,65,65);
+}
+
+.tab.active:hover
+{
+	background-color: rgb(65,65,65);
+}

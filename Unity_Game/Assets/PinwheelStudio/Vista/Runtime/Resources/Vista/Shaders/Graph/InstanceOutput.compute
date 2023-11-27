@@ -1,0 +1,78 @@
+#pragma kernel Main
+#pragma multi_compile_local _ HAS_DENSITY_MAP
+#pragma multi_compile_local _ HAS_VERTICAL_SCALE_MAP
+#pragma multi_compile_local _ HAS_HORIZONTAL_SCALE_MAP
+#pragma multi_compile_local _ HAS_ROTATION_MAP
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Math.hlsl"
+#include "../Includes/Sampling.hlsl"
+#include "../Includes/PatternGenerator.hlsl"
+
+RWStructuredBuffer<InstanceSample> _InstanceSamples;
+
+StructuredBuffer<PositionSample> _Positions;
+
+float _DensityMultiplier;
+#if HAS_DENSITY_MAP
+	Texture2D<float> _DensityMap;
+#endif
+
+float _VerticalScaleMultiplier;
+#if HAS_VERTICAL_SCALE_MAP
+	Texture2D<float> _VerticalScaleMap;
+#endif
+
+float _HorizontalScaleMultiplier;
+#if HAS_HORIZONTAL_SCALE_MAP
+	Texture2D<float> _HorizontalScaleMap;
+#endif
+
+float _MinRotation;
+float _MaxRotation;
+float _RotationMultiplier;
+#if HAS_ROTATION_MAP
+	Texture2D<float> _RotationMap;
+#endif
+
+float4 _Seed;
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DispatchThreadID)
+{
+	int i = id.x + _BaseIndex;
+	PositionSample pos = _Positions[i];
+
+	InstanceSample t = (InstanceSample)0;
+	float fDensity = _DensityMultiplier;
+	#if HAS_DENSITY_MAP
+		fDensity *= _DensityMap.SampleLevel(_SamplerLinearClamp, pos.position.xz, 0);
+	#endif
+
+	float a = simpleNoise_Scale10k(float2(id.x * 0.01 * _Seed.x, id.x * 0.01 * _Seed.y));
+	float f = simpleNoise_Scale10k(pos.position.xz * a);
+	int isValid = (f < fDensity) * (pos.position.x > 0) * (pos.position.x < 1) * (pos.position.z > 0) * (pos.position.z < 1);
+	t.isValid = isValid * pos.isValid;
+	t.position = pos.position;
+
+	float fHeightScale = _VerticalScaleMultiplier;
+	#if HAS_VERTICAL_SCALE_MAP
+		fHeightScale *= _VerticalScaleMap.SampleLevel(_SamplerLinearClamp, pos.position.xz, 0);
+	#endif
+	t.verticalScale = fHeightScale;
+
+	float fWidthScale = _HorizontalScaleMultiplier;
+	#if HAS_HORIZONTAL_SCALE_MAP
+		fWidthScale *= _HorizontalScaleMap.SampleLevel(_SamplerLinearClamp, pos.position.xz, 0);
+	#endif
+	t.horizontalScale = fHeightScale;
+
+	float fRotation = _RotationMultiplier;
+	#if HAS_ROTATION_MAP
+		fRotation *= _RotationMap.SampleLevel(_SamplerLinearClamp, pos.position.xz, 0);
+	#endif
+	t.rotationY = lerp(_MinRotation, _MaxRotation, fRotation);
+
+	_InstanceSamples[i] = t;
+}

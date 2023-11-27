@@ -1,0 +1,84 @@
+#pragma kernel Main
+#pragma multi_compile_local _ HAS_ROTATION_MAP
+#pragma multi_compile_local _ HAS_SCALE_MAP
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Sampling.hlsl"
+
+StructuredBuffer<PositionSample> _Positions;
+RWStructuredBuffer<float2> _Vertices;
+RWStructuredBuffer<float2> _Texcoords;
+
+float _QuadSize;
+
+float _MinRotation;
+float _MaxRotation;
+float _RotationMultiplier;
+#if HAS_ROTATION_MAP
+	Texture2D _RotationMap;
+#endif
+
+float _ScaleMultiplier;
+#if HAS_SCALE_MAP
+	Texture2D _ScaleMap;
+#endif
+
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	int index = _BaseIndex + id.x;
+	PositionSample p = _Positions[index];
+	float2 center = p.position.xz;
+
+	float fScale = _ScaleMultiplier;
+	#if HAS_SCALE_MAP
+		fScale *= _ScaleMap.SampleLevel(_SamplerLinearClamp, center, 0).r;
+	#endif
+
+	float s = _QuadSize * fScale;
+	float2 bottomLeft = float2(-s * 0.5, -s * 0.5);
+	float2 topLeft = float2(-s * 0.5, s * 0.5);
+	float2 topRight = float2(s * 0.5, s * 0.5);
+	float2 bottomRight = float2(s * 0.5, -s * 0.5);
+	
+	float fRotation = _RotationMultiplier;
+	#if HAS_ROTATION_MAP
+		fRotation *= _RotationMap.SampleLevel(_SamplerLinearClamp, center, 0).r;
+	#endif
+	float angle = lerp(_MinRotation, _MaxRotation, fRotation);
+	float sinAngle = sin(angle);
+	float cosAngle = cos(angle);
+
+	bottomLeft = float2(bottomLeft.x * cosAngle - bottomLeft.y * sinAngle, bottomLeft.y * cosAngle + bottomLeft.x * sinAngle);
+	topLeft = float2(topLeft.x * cosAngle - topLeft.y * sinAngle, topLeft.y * cosAngle + topLeft.x * sinAngle);
+	topRight = float2(topRight.x * cosAngle - topRight.y * sinAngle, topRight.y * cosAngle + topRight.x * sinAngle);
+	bottomRight = float2(bottomRight.x * cosAngle - bottomRight.y * sinAngle, bottomRight.y * cosAngle + bottomRight.x * sinAngle);
+
+	bottomLeft += center;
+	topLeft += center;
+	topRight += center;
+	bottomRight += center;
+
+	float valid = p.isValid;
+	float invalid = 1 - valid;
+	float2 invalidPos = float2(-1, -1);
+
+	uint baseIndex = index * 6;
+	_Vertices[baseIndex + 0] = bottomLeft * valid + invalidPos * invalid;
+	_Vertices[baseIndex + 1] = topLeft * valid + invalidPos * invalid;
+	_Vertices[baseIndex + 2] = topRight * valid + invalidPos * invalid;
+
+	_Vertices[baseIndex + 3] = bottomLeft * valid + invalidPos * invalid;
+	_Vertices[baseIndex + 4] = topRight * valid + invalidPos * invalid;
+	_Vertices[baseIndex + 5] = bottomRight * valid + invalidPos * invalid;
+
+	_Texcoords[baseIndex + 0] = float2(0, 0);
+	_Texcoords[baseIndex + 1] = float2(0, 1);
+	_Texcoords[baseIndex + 2] = float2(1, 1);
+
+	_Texcoords[baseIndex + 3] = float2(0, 0);
+	_Texcoords[baseIndex + 4] = float2(1, 1);
+	_Texcoords[baseIndex + 5] = float2(1, 0);
+}

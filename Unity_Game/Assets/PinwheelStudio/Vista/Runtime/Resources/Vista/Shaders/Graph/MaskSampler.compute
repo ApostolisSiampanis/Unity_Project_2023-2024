@@ -1,0 +1,18 @@
+#pragma kernel Main
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Sampling.hlsl"
+
+StructuredBuffer<PositionSample> _Positions;
+
+Texture2D _MainTex;
+RWStructuredBuffer<float> _Data;
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	PositionSample p = _Positions[id.x + _BaseIndex];
+	float value = _MainTex.SampleLevel(_SamplerLinearClamp, p.position.xz, 0).r;
+	_Data[id.x + _BaseIndex] = value;
+}

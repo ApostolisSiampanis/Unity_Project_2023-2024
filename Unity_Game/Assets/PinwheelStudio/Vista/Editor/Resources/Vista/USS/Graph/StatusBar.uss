@@ -1,0 +1,70 @@
+GraphEditorStatusBar
+{
+	height: 21px;
+	width: auto;
+	background-color: rgb(60,60,60);
+	border-color: rgb(35,35,35);
+	border-top-width: 1px;
+	flex-direction: row;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#left-container
+{
+	position: absolute;
+	left: 4px;
+	top: 0px;
+	bottom: 0px;
+	justify-content: center;
+}
+
+#right-container
+{
+	position: absolute;
+	right: 4px;
+	top: 0px;
+	bottom: 0px;
+	flex-direction: row;
+}
+
+#info-left-label
+{
+	top: 0px;
+	bottom: 0px;
+	-unity-text-align: middle-left;
+}
+
+#info-right-label
+{
+	top: 0px;
+	bottom: 0px;
+	-unity-text-align: middle-right;
+}
+
+.unity-progress-bar
+{
+	margin: 1px;
+	padding: 0px;
+}
+
+.unity-progress-bar__background
+{
+	width: 300px;
+	height: 6px;
+}
+
+.unity-progress-bar__progress
+{
+	background-image: none;
+}
+
+#total-progress .unity-progress-bar__progress
+{
+	background-color: rgb(60,120,170);
+}
+
+#current-progress .unity-progress-bar__progress
+{
+	background-color: rgb(200,120,50);
+}

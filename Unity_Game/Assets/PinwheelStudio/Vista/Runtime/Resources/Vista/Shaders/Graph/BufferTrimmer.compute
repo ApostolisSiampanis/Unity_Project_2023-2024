@@ -1,0 +1,54 @@
+#pragma kernel Main
+#pragma kernel WriteToDest
+#pragma multi_compile_local DATA_TYPE_INSTANCE_SAMPLE DATA_TYPE_POSITION_SAMPLE
+
+#include "../Includes/CommonDataTypes.hlsl"
+
+#if DATA_TYPE_INSTANCE_SAMPLE
+	#define SAMPLE InstanceSample
+#else
+	#define SAMPLE PositionSample
+#endif
+
+RWStructuredBuffer<SAMPLE> _Samples;
+float4 _InBounds;
+float4 _OutBounds;
+
+RWStructuredBuffer<SAMPLE> _DestSamples;
+
+float inverseLerp(float value, float a, float b)
+{
+	return(value - a) / (b - a);
+}
+
+void trim(inout SAMPLE sample)
+{
+	float worldX = lerp(_InBounds.x, _InBounds.x + _InBounds.z, sample.position.x);
+	float worldZ = lerp(_InBounds.y, _InBounds.y + _InBounds.w, sample.position.z);
+
+	float outX = inverseLerp(worldX, _OutBounds.x, _OutBounds.x + _OutBounds.z);
+	float outZ = inverseLerp(worldZ, _OutBounds.y, _OutBounds.y + _OutBounds.w);
+	int isValid = (outX >= 0) * (outX <= 1) * (outZ >= 0) * (outZ <= 1);
+	
+	sample.isValid *= isValid;
+	sample.position.x = outX;
+	sample.position.z = outZ;
+}
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DispatchThreadID)
+{
+	SAMPLE sample = _Samples[id.x];
+	trim(sample);
+
+	_Samples[id.x] = sample;
+}
+
+[numthreads(8, 1, 1)]
+void WriteToDest(uint3 id: SV_DispatchThreadID)
+{
+	SAMPLE sample = _Samples[id.x];
+	trim(sample);
+
+	_DestSamples[id.x] = sample;
+}

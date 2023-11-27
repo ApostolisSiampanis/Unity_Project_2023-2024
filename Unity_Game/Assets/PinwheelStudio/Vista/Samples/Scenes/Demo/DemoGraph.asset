@@ -1,0 +1,270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd3d01eddcedb04c8e9bd76ec8c3819, type: 3}
+  m_Name: DemoGraph
+  m_EditorClassIdentifier: 
+  m_nodeData:
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.NoiseNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"705bb450-44c6-4ea3-871d-0d125aff96f7","m_visualState":{"m_position":{"x":457.0,"y":105.0},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_offset":{"x":0.0,"y":0.0},"m_scale":250.0,"m_lacunarity":3.0,"m_persistence":0.16899999976158143,"m_layerCount":3,"m_mode":1,"m_seed":266,"m_warpMode":1,"m_warpAngleMin":-360.0,"m_warpAngleMax":360.0,"m_warpIntensity":15.0,"m_remapCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.NoiseNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"58f4015a-e75d-4fd7-8d44-2f312c13481d","m_visualState":{"m_position":{"x":457.0,"y":215.0},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_offset":{"x":0.0,"y":0.0},"m_scale":700.0,"m_lacunarity":2.0,"m_persistence":0.3333333432674408,"m_layerCount":1,"m_mode":1,"m_seed":588,"m_warpMode":0,"m_warpAngleMin":-360.0,"m_warpAngleMax":360.0,"m_warpIntensity":1.0,"m_remapCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.3053016662597656,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":2.0,"outSlope":2.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.CombineNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"c9b52e25-80f1-4cde-b36b-1d16f2d890a6","m_visualState":{"m_position":{"x":700.0,"y":105.0},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_mode":2,"m_backgroundMultiplier":1.5399999618530274,"m_foregroundMultiplier":1.0,"m_maskMultiplier":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.HydraulicErosionNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"aa9f7c9a-3975-4edf-8a4e-05434cb8287a","m_visualState":{"m_position":{"x":927.0,"y":105.0},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_detailLevel":0.20000000298023225,"m_iterationCount":10,"m_iterationPerFrame":1,"m_highQualityMode":true,"m_waterSourceAmount":0.5,"m_waterSourceMultiplier":1.0,"m_flowRate":1.0,"m_flowMultiplier":1.0,"m_sedimentCapacity":5.0,"m_sedimentCapacityMultiplier":1.0,"m_erosionRate":1.0,"m_erosionMultiplier":1.0,"m_depositionRate":1.0,"m_depositionMultiplier":1.0,"m_depositionSlopeFactor":1.0,"m_evaporationRate":0.10000000149011612,"m_evaporationMultiplier":1.0,"m_bedRockDepth":20.0,"m_sharpness":0.0,"m_heightScale":1.0,"m_detailHeightScale":1.0,"m_erosionBoost":1.0,"m_depositionBoost":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.HydraulicErosionNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"3861b363-1bda-4181-bc3e-34fd49dd63a3","m_visualState":{"m_position":{"x":2030.999755859375,"y":105.00005340576172},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_detailLevel":1.0,"m_iterationCount":30,"m_iterationPerFrame":1,"m_highQualityMode":true,"m_waterSourceAmount":0.15000000596046449,"m_waterSourceMultiplier":1.0,"m_flowRate":1.0,"m_flowMultiplier":1.0,"m_sedimentCapacity":2.5,"m_sedimentCapacityMultiplier":1.0,"m_erosionRate":0.5,"m_erosionMultiplier":1.0,"m_depositionRate":1.0,"m_depositionMultiplier":1.0,"m_depositionSlopeFactor":1.0,"m_evaporationRate":0.11999999731779099,"m_evaporationMultiplier":1.0,"m_bedRockDepth":10.0,"m_sharpness":1.0,"m_heightScale":1.0,"m_detailHeightScale":1.0,"m_erosionBoost":1.0,"m_depositionBoost":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.RemapNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"bd2e8af9-19df-45af-b6d1-0ccfe9b2cdea","m_visualState":{"m_position":{"x":2297.19970703125,"y":311.4000549316406},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_min":0.0,"m_max":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.TerraceNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"85bd33fa-0ea9-429a-bd20-cc54b2115fb8","m_visualState":{"m_position":{"x":1610.59716796875,"y":105.08257293701172},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_stepHeight":12.039999961853028,"m_remapCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":2.8252511024475099,"outSlope":2.8252511024475099,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0951240211725235},{"serializedVersion":"3","time":0.383941650390625,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"m_useHeightMask":false,"m_minHeight":0.0,"m_maxHeight":1000.0,"m_heightBlend":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"m_useSlopeMask":false,"m_minSlope":0.0,"m_maxSlope":90.0,"m_slopeBlend":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"m_outlinePosition":0,"m_outlineTolerance":0.20000000298023225}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.NoiseNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"76000475-0ff1-41b6-b4df-96a953d3a9a7","m_visualState":{"m_position":{"x":1204.2607421875,"y":279.91302490234377},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_offset":{"x":0.0,"y":0.0},"m_scale":200.0,"m_lacunarity":2.0,"m_persistence":0.3333333432674408,"m_layerCount":1,"m_mode":1,"m_seed":333,"m_warpMode":0,"m_warpAngleMin":-360.0,"m_warpAngleMax":360.0,"m_warpIntensity":1.0,"m_remapCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.4588661193847656,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":0.8025594353675842,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.1790538728237152,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.CombineNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"0366bc70-5dad-40f1-a8ef-762b424f495e","m_visualState":{"m_position":{"x":1385.9998779296875,"y":200.9999237060547},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_mode":2,"m_backgroundMultiplier":1.0,"m_foregroundMultiplier":1.0,"m_maskMultiplier":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.TerraceNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"34c78cad-3f04-4f00-9f30-a86c6c3384c5","m_visualState":{"m_position":{"x":1826.3499755859375,"y":105.30003356933594},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_stepHeight":10.0,"m_remapCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.7568588256835938,"value":0.0,"inSlope":1.6349126100540162,"outSlope":1.6349126100540162,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.06764168292284012},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0822669267654419,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"m_useHeightMask":false,"m_minHeight":0.0,"m_maxHeight":1000.0,"m_heightBlend":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"m_useSlopeMask":false,"m_minSlope":0.0,"m_maxSlope":90.0,"m_slopeBlend":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"m_outlinePosition":0,"m_outlineTolerance":0.20000000298023225}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.SetVariableNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"db9fb535-6391-481b-8720-015a9027108f","m_visualState":{"m_position":{"x":2492.0,"y":105.00008392333985},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_inputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":0,\"m_type\":0,\"m_name\":\"\"}"},"m_varName":"Height
+      Map","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.WeightBlendNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_visualState":{"m_position":{"x":1769.007080078125,"y":668.9173583984375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_inputSlots":[{"m_id":0,"m_type":0,"m_name":"Layer
+      0"},{"m_id":1,"m_type":0,"m_name":"Layer 1"},{"m_id":2,"m_type":0,"m_name":"Layer
+      2"}],"m_outputSlots":[{"m_id":100,"m_type":1,"m_name":"Layer 0"},{"m_id":101,"m_type":1,"m_name":"Layer
+      1"},{"m_id":102,"m_type":1,"m_name":"Layer 2"}],"m_layerCount":3}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.TextureOutputNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"2dc562cf-23f6-4614-9b74-679423674a8b","m_visualState":{"m_position":{"x":1991.9996337890625,"y":538.9998779296875},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_order":0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.GetVariableNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"c25aa0ae-3343-4acd-a9d1-8ab7930340e1","m_visualState":{"m_position":{"x":893.5382080078125,"y":757.8533935546875},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_outputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":100,\"m_type\":1,\"m_name\":\"\"}"},"m_varName":"Height
+      Map","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.ConcaveNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"d714d9c8-d555-4c49-9d39-0419a896ab37","m_visualState":{"m_position":{"x":1095.9998779296875,"y":758.0001220703125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_epsilon":0.28999999165534975,"m_tolerance":2}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.SmoothNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"47651535-67c7-44e3-b0f7-4f8127072a6a","m_visualState":{"m_position":{"x":1297.9998779296875,"y":756.999755859375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_iterationCount":20,"m_iterationPerFrame":10}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.HeightMaskNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"764d093a-1d96-4899-a8f3-344f1b53589c","m_visualState":{"m_position":{"x":1299.677978515625,"y":886.9732666015625},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_minHeight":0.0,"m_maxHeight":150.0,"m_transition":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":0.9530395269393921,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.CombineNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"11b27de1-bc4b-47d4-8afa-93c54ca2e384","m_visualState":{"m_position":{"x":1497.9998779296875,"y":756.9998779296875},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_mode":2,"m_backgroundMultiplier":1.0,"m_foregroundMultiplier":1.0,"m_maskMultiplier":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.TextureOutputNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"80d3a0a9-75d1-4c36-a5b7-6b8c49e23bcf","m_visualState":{"m_position":{"x":1991.3994140625,"y":854.19970703125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_order":0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.TextureOutputNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"7f2479e9-8bce-43db-804b-b72ecd240348","m_visualState":{"m_position":{"x":2209.599609375,"y":538.9996337890625},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_order":0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.SetVariableNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"531cfd33-5afe-427a-8e2c-361c9913a05f","m_visualState":{"m_position":{"x":2494.0,"y":310.9998474121094},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_inputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":0,\"m_type\":0,\"m_name\":\"\"}"},"m_varName":"ErosionMask","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.GetVariableNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"46771b65-81b0-4d1a-aa47-880703d1f1c0","m_visualState":{"m_position":{"x":1339.099853515625,"y":668.5999755859375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_outputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":100,\"m_type\":1,\"m_name\":\"\"}"},"m_varName":"ErosionMask","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.CurveNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"17e8be71-08b9-4193-949e-b2ba2a11ded8","m_visualState":{"m_position":{"x":1533.999755859375,"y":667.9998779296875},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_curve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":2.016392230987549,"outSlope":2.016392230987549,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.054844606667757037},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":0.017631029710173608,"outSlope":0.017631029710173608,"tangentMode":0,"weightedMode":0,"inWeight":0.13345521688461305,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.SetVariableNode
+    jsonData: '{"m_groupId":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_id":"48102131-41ed-4910-a700-f3bb845586e2","m_visualState":{"m_position":{"x":2429.0,"y":866.999755859375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_inputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":0,\"m_type\":0,\"m_name\":\"\"}"},"m_varName":"GreenAreaMask","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.GetVariableNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"c01614a3-35ac-4de2-b53f-54e3566e9761","m_visualState":{"m_position":{"x":1277.5787353515625,"y":1436.00048828125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_outputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":100,\"m_type\":1,\"m_name\":\"\"}"},"m_varName":"GreenAreaMask","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.PointGridNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"2615191b-8c91-41a1-8d71-4c70397feaa8","m_visualState":{"m_position":{"x":1267.1494140625,"y":1212.3939208984375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_density":16,"m_relativeTo":1}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.OffsetNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"afbbbbf1-8c47-4827-9fa4-cefc1a6a1749","m_visualState":{"m_position":{"x":1448.0001220703125,"y":1212.00048828125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_minAngle":-360.0,"m_maxAngle":360.0,"m_angleMultiplier":1.0,"m_intensityMultiplier":0.3140000104904175}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.NoiseNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"56b46bc8-2f56-4795-ac45-61ac212b1030","m_visualState":{"m_position":{"x":1254.1630859375,"y":1321.751953125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_offset":{"x":0.0,"y":0.0},"m_scale":500.0,"m_lacunarity":2.0,"m_persistence":0.3333333432674408,"m_layerCount":4,"m_mode":0,"m_seed":385,"m_warpMode":0,"m_warpAngleMin":-360.0,"m_warpAngleMax":360.0,"m_warpIntensity":1.0,"m_remapCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":1.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":1.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.ThinOutNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"23790800-42d5-4f52-a587-8a2167b63bfc","m_visualState":{"m_position":{"x":1672.4002685546875,"y":1235.2003173828125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_maskMultiplier":1.0,"m_seed":0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.LevelsNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"272ea91b-bf28-4f2b-8575-a6635c821cd0","m_visualState":{"m_position":{"x":1469.19091796875,"y":1435.7340087890625},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_inLow":0.5090000033378601,"m_inMid":0.5690000057220459,"m_inHigh":0.5410000085830689,"m_outLow":0.0,"m_outHigh":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.TreeOutputNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"7a62158c-279c-4864-adbb-8ca6338a7abe","m_visualState":{"m_position":{"x":1941.000244140625,"y":1211.00048828125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_densityMultiplier":1.0,"m_verticalScaleMultiplier":1.0,"m_horizontalScaleMultiplier":1.0,"m_minRotation":-360.0,"m_maxRotation":360.0,"m_rotationMultiplier":1.0,"m_seed":0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.GetVariableNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"43a0d576-162b-4be0-a50f-1178487eef89","m_visualState":{"m_position":{"x":1277.544921875,"y":1568.5277099609375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_outputSlotData":{"typeInfo":{"fullName":"Pinwheel.Vista.Graph.MaskSlot"},"jsonData":"{\"m_id\":100,\"m_type\":1,\"m_name\":\"\"}"},"m_varName":"GreenAreaMask","m_slotTypeName":"Pinwheel.Vista.Graph.MaskSlot"}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.DetailDensityOutputNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"cea869e6-476d-40bd-b5d8-423ce968c232","m_visualState":{"m_position":{"x":1941.0,"y":1569.0001220703125},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_densityMultiplier":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.LevelsNode
+    jsonData: '{"m_groupId":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_id":"75746d97-230c-4f57-84e5-c206f549c0b2","m_visualState":{"m_position":{"x":1468.6600341796875,"y":1569.0150146484375},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_inLow":0.10100000351667404,"m_inMid":0.5,"m_inHigh":1.0,"m_outLow":0.0,"m_outHigh":1.0}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.HeightOutputNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"c3ca7510-6055-4dbe-a13a-14103c6aeca0","m_visualState":{"m_position":{"x":2492.0,"y":201.00009155273438},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.SlopeMaskNode
+    jsonData: '{"m_groupId":"7a145922-c35a-426b-9399-35148acbe3bb","m_id":"8da26aca-f799-4ad4-8841-ffc928c1559f","m_visualState":{"m_position":{"x":1198.0909423828125,"y":200.5034942626953},"m_collapsed":false},"m_shouldSplitExecution":false,"m_isBypassed":false,"m_resolutionOverride":1,"m_resolutionMultiplier":1.0,"m_resolutionAbsolute":1024,"m_minAngle":0.0,"m_maxAngle":75.0,"m_transition":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":34,"weightedMode":0,"inWeight":0.0,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":0.26498180627822878,"value":1.0,"inSlope":-0.020427128300070764,"outSlope":-0.020427128300070764,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.20455044507980348},{"serializedVersion":"3","time":0.48611509799957278,"value":0.0,"inSlope":-0.01745019108057022,"outSlope":-0.01745019108057022,"tangentMode":0,"weightedMode":0,"inWeight":0.5289255976676941,"outWeight":0.20980894565582276},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.022284043952822686,"outSlope":0.022284043952822686,"tangentMode":0,"weightedMode":0,"inWeight":0.1642972230911255,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}'
+  m_edgeData:
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"12e5e8ab-30a1-4e3a-b82a-b7d86be11cc1","m_outputSlot":{"m_nodeId":"58f4015a-e75d-4fd7-8d44-2f312c13481d","m_slotId":100},"m_inputSlot":{"m_nodeId":"c9b52e25-80f1-4cde-b36b-1d16f2d890a6","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"599676ed-8c8a-4681-94ed-51429ae046da","m_outputSlot":{"m_nodeId":"705bb450-44c6-4ea3-871d-0d125aff96f7","m_slotId":100},"m_inputSlot":{"m_nodeId":"c9b52e25-80f1-4cde-b36b-1d16f2d890a6","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"19352913-56f0-432c-aedc-1a3fd7344914","m_outputSlot":{"m_nodeId":"c9b52e25-80f1-4cde-b36b-1d16f2d890a6","m_slotId":100},"m_inputSlot":{"m_nodeId":"aa9f7c9a-3975-4edf-8a4e-05434cb8287a","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"19881d91-d88a-48c3-bc30-bd94688ff868","m_outputSlot":{"m_nodeId":"3861b363-1bda-4181-bc3e-34fd49dd63a3","m_slotId":101},"m_inputSlot":{"m_nodeId":"bd2e8af9-19df-45af-b6d1-0ccfe9b2cdea","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"c6c74f3e-9a7e-47b7-9814-143141a0ae81","m_outputSlot":{"m_nodeId":"aa9f7c9a-3975-4edf-8a4e-05434cb8287a","m_slotId":100},"m_inputSlot":{"m_nodeId":"85bd33fa-0ea9-429a-bd20-cc54b2115fb8","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"100cf1be-6a61-4fc2-b8f6-4679a5318bba","m_outputSlot":{"m_nodeId":"0366bc70-5dad-40f1-a8ef-762b424f495e","m_slotId":100},"m_inputSlot":{"m_nodeId":"85bd33fa-0ea9-429a-bd20-cc54b2115fb8","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"99271c3f-ae89-45e4-90af-e0c92b429578","m_outputSlot":{"m_nodeId":"76000475-0ff1-41b6-b4df-96a953d3a9a7","m_slotId":100},"m_inputSlot":{"m_nodeId":"0366bc70-5dad-40f1-a8ef-762b424f495e","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"07f374b0-314e-4f6a-ace5-0c361e00e941","m_outputSlot":{"m_nodeId":"85bd33fa-0ea9-429a-bd20-cc54b2115fb8","m_slotId":100},"m_inputSlot":{"m_nodeId":"34c78cad-3f04-4f00-9f30-a86c6c3384c5","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"06c7c373-db82-4858-940a-21ff5ba49a3e","m_outputSlot":{"m_nodeId":"34c78cad-3f04-4f00-9f30-a86c6c3384c5","m_slotId":100},"m_inputSlot":{"m_nodeId":"3861b363-1bda-4181-bc3e-34fd49dd63a3","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"d15d696f-440f-4b84-8bc2-c3445069da1a","m_outputSlot":{"m_nodeId":"0366bc70-5dad-40f1-a8ef-762b424f495e","m_slotId":100},"m_inputSlot":{"m_nodeId":"34c78cad-3f04-4f00-9f30-a86c6c3384c5","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"ba2166a3-efd7-406f-884e-afe0627f26d7","m_outputSlot":{"m_nodeId":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_slotId":100},"m_inputSlot":{"m_nodeId":"2dc562cf-23f6-4614-9b74-679423674a8b","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"4fe42aac-4ab0-4a05-b92f-8ec1d5e3690b","m_outputSlot":{"m_nodeId":"c25aa0ae-3343-4acd-a9d1-8ab7930340e1","m_slotId":100},"m_inputSlot":{"m_nodeId":"d714d9c8-d555-4c49-9d39-0419a896ab37","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"c303cbfe-831c-4077-bb63-72dbb54b9359","m_outputSlot":{"m_nodeId":"d714d9c8-d555-4c49-9d39-0419a896ab37","m_slotId":100},"m_inputSlot":{"m_nodeId":"47651535-67c7-44e3-b0f7-4f8127072a6a","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"d9b7848e-a598-4e27-8263-dd5f27c2a455","m_outputSlot":{"m_nodeId":"c25aa0ae-3343-4acd-a9d1-8ab7930340e1","m_slotId":100},"m_inputSlot":{"m_nodeId":"764d093a-1d96-4899-a8f3-344f1b53589c","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"924fc2cc-609e-4f9e-97b4-174bf96c8fc3","m_outputSlot":{"m_nodeId":"47651535-67c7-44e3-b0f7-4f8127072a6a","m_slotId":100},"m_inputSlot":{"m_nodeId":"11b27de1-bc4b-47d4-8afa-93c54ca2e384","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"c5964a22-127d-4ecc-a364-6ca770089e83","m_outputSlot":{"m_nodeId":"764d093a-1d96-4899-a8f3-344f1b53589c","m_slotId":100},"m_inputSlot":{"m_nodeId":"11b27de1-bc4b-47d4-8afa-93c54ca2e384","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"3f23b8a1-4a13-4fa1-922b-08a907ae091a","m_outputSlot":{"m_nodeId":"bd2e8af9-19df-45af-b6d1-0ccfe9b2cdea","m_slotId":100},"m_inputSlot":{"m_nodeId":"531cfd33-5afe-427a-8e2c-361c9913a05f","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"915d7fd6-126e-452d-a2bc-703239cd70b1","m_outputSlot":{"m_nodeId":"11b27de1-bc4b-47d4-8afa-93c54ca2e384","m_slotId":100},"m_inputSlot":{"m_nodeId":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_slotId":2}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"c644e9e9-ce06-4bc2-a5a4-f37566cafff4","m_outputSlot":{"m_nodeId":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_slotId":102},"m_inputSlot":{"m_nodeId":"80d3a0a9-75d1-4c36-a5b7-6b8c49e23bcf","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"efffeb1b-da59-4f18-882a-8d6c517f24d7","m_outputSlot":{"m_nodeId":"46771b65-81b0-4d1a-aa47-880703d1f1c0","m_slotId":100},"m_inputSlot":{"m_nodeId":"17e8be71-08b9-4193-949e-b2ba2a11ded8","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"f7286fa4-bbf5-478b-8709-03f53db2e9b9","m_outputSlot":{"m_nodeId":"17e8be71-08b9-4193-949e-b2ba2a11ded8","m_slotId":100},"m_inputSlot":{"m_nodeId":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"3ebe61c1-f883-4d93-9876-457d87d72dfa","m_outputSlot":{"m_nodeId":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_slotId":102},"m_inputSlot":{"m_nodeId":"48102131-41ed-4910-a700-f3bb845586e2","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"e27d3cf0-03a4-4635-9cfa-a96648285330","m_outputSlot":{"m_nodeId":"2615191b-8c91-41a1-8d71-4c70397feaa8","m_slotId":100},"m_inputSlot":{"m_nodeId":"afbbbbf1-8c47-4827-9fa4-cefc1a6a1749","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"b741cd0e-4866-4c92-a0bd-873b40782ac4","m_outputSlot":{"m_nodeId":"56b46bc8-2f56-4795-ac45-61ac212b1030","m_slotId":100},"m_inputSlot":{"m_nodeId":"afbbbbf1-8c47-4827-9fa4-cefc1a6a1749","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"5aee8d53-d194-49bd-b00a-d41cdcec4831","m_outputSlot":{"m_nodeId":"afbbbbf1-8c47-4827-9fa4-cefc1a6a1749","m_slotId":100},"m_inputSlot":{"m_nodeId":"23790800-42d5-4f52-a587-8a2167b63bfc","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"a92f5e54-3121-4661-af6f-c69980fc52ae","m_outputSlot":{"m_nodeId":"c01614a3-35ac-4de2-b53f-54e3566e9761","m_slotId":100},"m_inputSlot":{"m_nodeId":"272ea91b-bf28-4f2b-8575-a6635c821cd0","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"1c20c37b-42b8-4143-9123-e7cbc9e90a5b","m_outputSlot":{"m_nodeId":"272ea91b-bf28-4f2b-8575-a6635c821cd0","m_slotId":100},"m_inputSlot":{"m_nodeId":"23790800-42d5-4f52-a587-8a2167b63bfc","m_slotId":1}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"2ce062d5-502b-449d-9c01-8e7611fd49b5","m_outputSlot":{"m_nodeId":"23790800-42d5-4f52-a587-8a2167b63bfc","m_slotId":100},"m_inputSlot":{"m_nodeId":"7a62158c-279c-4864-adbb-8ca6338a7abe","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"941b5ecd-5af5-4053-a8ab-3d2b4f7e4dc1","m_outputSlot":{"m_nodeId":"43a0d576-162b-4be0-a50f-1178487eef89","m_slotId":100},"m_inputSlot":{"m_nodeId":"75746d97-230c-4f57-84e5-c206f549c0b2","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"b51fa76d-b253-4805-8791-32d5a8cc45f5","m_outputSlot":{"m_nodeId":"75746d97-230c-4f57-84e5-c206f549c0b2","m_slotId":100},"m_inputSlot":{"m_nodeId":"cea869e6-476d-40bd-b5d8-423ce968c232","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"7f68a7e1-56ee-4456-8ea9-5deb566a4291","m_outputSlot":{"m_nodeId":"3861b363-1bda-4181-bc3e-34fd49dd63a3","m_slotId":100},"m_inputSlot":{"m_nodeId":"db9fb535-6391-481b-8720-015a9027108f","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"13d0e68a-b1fd-4687-bc31-47ce819bd833","m_outputSlot":{"m_nodeId":"3861b363-1bda-4181-bc3e-34fd49dd63a3","m_slotId":100},"m_inputSlot":{"m_nodeId":"c3ca7510-6055-4dbe-a13a-14103c6aeca0","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"67490820-bf8f-4210-b3ae-f1fe348b025f","m_outputSlot":{"m_nodeId":"784574d3-d07b-41c3-9b9c-0550bebf6dd4","m_slotId":101},"m_inputSlot":{"m_nodeId":"7f2479e9-8bce-43db-804b-b72ecd240348","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"31d098d5-a9e1-42d8-a264-d3689fffa910","m_outputSlot":{"m_nodeId":"aa9f7c9a-3975-4edf-8a4e-05434cb8287a","m_slotId":100},"m_inputSlot":{"m_nodeId":"8da26aca-f799-4ad4-8841-ffc928c1559f","m_slotId":0}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Edge
+    jsonData: '{"m_id":"8313e31f-5b92-493d-817d-d34bc132918e","m_outputSlot":{"m_nodeId":"8da26aca-f799-4ad4-8841-ffc928c1559f","m_slotId":100},"m_inputSlot":{"m_nodeId":"0366bc70-5dad-40f1-a8ef-762b424f495e","m_slotId":0}}'
+  m_groupData:
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Group
+    jsonData: '{"m_id":"4701fdeb-c1a2-4f53-b1ab-6d2dd8ba2f1b","m_title":"Tree & Grass","m_position":{"serializedVersion":"2","x":1229.0,"y":1152.0,"width":NaN,"height":NaN}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Group
+    jsonData: '{"m_id":"a6d02582-7a7c-411a-b786-5f8d03e27bc4","m_title":"Texturing","m_position":{"serializedVersion":"2","x":868.0000610351563,"y":479.2001037597656,"width":NaN,"height":NaN}}'
+  - typeInfo:
+      fullName: Pinwheel.Vista.Graph.Group
+    jsonData: '{"m_id":"7a145922-c35a-426b-9399-35148acbe3bb","m_title":"Geometry","m_position":{"serializedVersion":"2","x":432.0,"y":44.79997253417969,"width":NaN,"height":NaN}}'
+  m_stickyNoteData: []
+  m_stickyImageData: []
+  m_objectReferences:
+  - m_key: 2dc562cf-23f6-4614-9b74-679423674a8b.m_terrainLayer
+    m_target: {fileID: 8574412962073106934, guid: eede26a665424d1478d48fd3b11cd458, type: 2}
+  - m_key: 80d3a0a9-75d1-4c36-a5b7-6b8c49e23bcf.m_terrainLayer
+    m_target: {fileID: 8574412962073106934, guid: 61a983e8074d4334b9e03b1d005a21ec, type: 2}
+  - m_key: 7f2479e9-8bce-43db-804b-b72ecd240348.m_terrainLayer
+    m_target: {fileID: 8574412962073106934, guid: fb44ba02d84bb4145a5bf536b236a0db, type: 2}
+  - m_key: 7a62158c-279c-4864-adbb-8ca6338a7abe.m_treeTemplate
+    m_target: {fileID: 11400000, guid: f760e6e78b6e1454fb260266724b1b4f, type: 2}
+  - m_key: cea869e6-476d-40bd-b5d8-423ce968c232.m_detailTemplate
+    m_target: {fileID: 11400000, guid: 23b2092f49b4dc349aef669d14214050, type: 2}
+  m_exposedProperties: []
+  m_debugConfigs:
+    m_resolution: 1024
+    m_worldBounds:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1000
+      height: 1000
+    m_terrainHeight: 500
+    m_seed: 12345
+    m_shouldOutputTempHeight: 0
+  m_allowSplitExecution: 1

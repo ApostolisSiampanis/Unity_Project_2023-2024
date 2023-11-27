@@ -1,0 +1,17 @@
+#pragma kernel Main
+RWTexture2D<float> _TargetRT;
+float _Ratio;
+
+[numthreads(8, 1, 8)]
+void Main(uint3 id: SV_DispatchThreadID)
+{
+	float leftValue = 1 - _TargetRT[id.xz + float2(-1, 0)];
+	float topValue = 1 - _TargetRT[id.xz + float2(0, 1)];
+	float rightValue = 1 - _TargetRT[id.xz + float2(1, 0)];
+	float bottomValue = 1 - _TargetRT[id.xz + float2(0, -1)];
+
+	float f = (leftValue + topValue + rightValue + bottomValue) ;
+	float value = _TargetRT[id.xz];
+	value -= f * _Ratio;
+	_TargetRT[id.xz] = saturate(value);
+}

@@ -1,0 +1,11 @@
+#pragma kernel Main
+
+StructuredBuffer<float> _SrcBuffer;
+RWStructuredBuffer<float> _DestBuffer;
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	_DestBuffer[_BaseIndex + id.x] = _SrcBuffer[_BaseIndex + id.x];
+}

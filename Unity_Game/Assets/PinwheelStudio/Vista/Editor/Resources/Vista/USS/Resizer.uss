@@ -1,0 +1,42 @@
+.resizer
+{
+	position: absolute;
+}
+
+.left
+{
+	width: 10px;
+	height: auto;
+	left: -5px;
+	top: 0px;
+	bottom: 0px;	
+	cursor : resize-horizontal;
+}
+
+.bottom
+{
+	width: auto;
+	height: 10px;
+	left: 0px;
+	right: 0px;
+	bottom: -5px;	
+	cursor : resize-vertical;
+}
+
+.line-left
+{
+	position: absolute;
+	height: 100%;
+	width: 2px;
+	left: 50%;
+	background-color: rgba(0,100,255,255);
+}
+
+.line-bottom
+{
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	top: 50%;
+	background-color: rgba(0,100,255,255);
+}

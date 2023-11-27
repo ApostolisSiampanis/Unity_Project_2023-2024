@@ -1,0 +1,36 @@
+#pragma kernel Main
+#pragma multi_compile_local _ HAS_MASK
+
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Math.hlsl"
+#include "../Includes/Sampling.hlsl"
+#include "../Includes/PatternGenerator.hlsl"
+
+RWStructuredBuffer<PositionSample> _PositionOutput;
+StructuredBuffer<PositionSample> _PositionInput;
+
+float _MaskMultiplier;
+#if HAS_MASK
+	Texture2D<float> _Mask;
+#endif
+
+int _BaseIndex;
+float4 _Seed;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DispatchThreadID)
+{
+	PositionSample pos = _PositionInput[id.x + _BaseIndex];
+	float fMask = _MaskMultiplier;
+	#if HAS_MASK
+		fMask *= _Mask.SampleLevel(_SamplerLinearClamp, pos.position.xz, 0);
+	#endif
+
+	float a = simpleNoise_Scale10k(_Seed.xy);
+	float f = simpleNoise_Scale10k(pos.position.xz*a);
+
+	int isValid = f < fMask;
+	pos.isValid *= isValid;
+
+	_PositionOutput[id.x + _BaseIndex] = pos;
+}

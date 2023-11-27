@@ -1,0 +1,51 @@
+.right-panel
+{
+	height: auto;
+	width: 300px;
+	min-width: 200px;
+}
+
+#resizer
+{
+	position: absolute;
+	width: 10px;
+	height: auto;
+	left: -5px;
+	top: 0px;
+	bottom: 0px;	
+	cursor : resize-horizontal;
+}
+
+#top-container
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+	padding-bottom: 5px;
+}
+
+#bottom-container
+{
+	width: auto;
+	height: 100px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-top-width: 0px;
+	border-top-color: rgb(35,35,35);
+	max-height: 50%;
+}
+
+#splitter
+{
+	position: absolute;
+	width: auto;
+	height: 10px;
+	left: -1px;
+	right: -1px;
+	top: -10px;	
+	cursor : resize-vertical;	
+	border-color: rgb(35,35,35);
+	border-width: 1px;
+	background-color: rgb(50,50,50);
+}
