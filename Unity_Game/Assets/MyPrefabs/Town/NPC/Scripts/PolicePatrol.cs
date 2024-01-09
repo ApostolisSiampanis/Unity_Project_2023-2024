@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace MyPrefabs.Town.NPC.Scripts
 {
-    public class Patrol : MonoBehaviour
+    public class PolicePatrol : MonoBehaviour
     {
         public Transform[] points;
         private int _destPoint;
@@ -37,7 +37,6 @@ namespace MyPrefabs.Town.NPC.Scripts
             GotoNextPoint();
         }
 
-
         private void GotoNextPoint()
         {
             // Returns if no points have been set up
@@ -51,7 +50,6 @@ namespace MyPrefabs.Town.NPC.Scripts
             // cycling to the start if necessary.
             _destPoint = (_destPoint + 1) % points.Length;
         }
-
 
         private void Update()
         {

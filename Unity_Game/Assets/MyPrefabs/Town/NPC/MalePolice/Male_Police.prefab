@@ -1052,8 +1052,8 @@ GameObject:
   - component: {fileID: 4560712729481392612}
   - component: {fileID: 1560027860557610037}
   - component: {fileID: 891082475846965940}
-  - component: {fileID: 4703690601713967015}
   - component: {fileID: 4226854677272906420}
+  - component: {fileID: -1444319790544256954}
   m_Layer: 0
   m_Name: Male_Police
   m_TagString: Untagged
@@ -1117,7 +1117,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1129,21 +1129,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4703690601713967015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2971796609692599056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a99c5b1a35ad448aa5f663b8da2d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
-  agent: {fileID: 891082475846965940}
-  animator: {fileID: 1560027860557610037}
 --- !u!136 &4226854677272906420
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1167,6 +1152,21 @@ CapsuleCollider:
   m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!114 &-1444319790544256954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971796609692599056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a99c5b1a35ad448aa5f663b8da2d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+  agent: {fileID: 891082475846965940}
+  animator: {fileID: 1560027860557610037}
 --- !u!1 &3098214005129099297
 GameObject:
   m_ObjectHideFlags: 0
