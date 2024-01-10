@@ -41,7 +41,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: breath_no_loop
+  m_Name: breath
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -56,7 +56,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6c6697aa463f9c74c931b198c0abef7e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 86058874fa50c624db744b30a95c1923, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -156,7 +156,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -177,7 +177,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: gathering_seeds
+  m_Name: gather_seeds
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

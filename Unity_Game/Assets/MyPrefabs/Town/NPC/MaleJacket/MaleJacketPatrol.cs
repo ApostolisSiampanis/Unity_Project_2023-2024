@@ -1,7 +1,5 @@
 // Patrol.cs
 
-using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,13 +8,11 @@ namespace MyPrefabs.Town.NPC.MaleJacket
     public class MaleJacketPatrol : MonoBehaviour
     {
         public Transform[] points;
-        public int[] animationPoints;
         private int _destPoint;
         private static NavMeshAgent agent;
         private static Animator animator;
         private static readonly int IS_WALKING = Animator.StringToHash("isWalking");
         public static bool gatheringAnimationPlaying;
-        private static bool _gathering;
 
         private void Start()
         {
@@ -49,9 +45,7 @@ namespace MyPrefabs.Town.NPC.MaleJacket
         {
             if (gatheringAnimationPlaying) return;
 
-            _gathering = animationPoints.Contains(_destPoint);
-
-            if (_gathering && agent.remainingDistance < 0.5f)
+            if (agent.remainingDistance < 0.5f)
             {
                 gatheringAnimationPlaying = true;
                 agent.isStopped = true;
@@ -67,7 +61,6 @@ namespace MyPrefabs.Town.NPC.MaleJacket
 
         public static void ResumeWalking()
         {
-            _gathering = false;
             agent.isStopped = false;
             agent.autoBraking = false;
             animator.SetBool(IS_WALKING, true);
