@@ -8,18 +8,18 @@ namespace MyPrefabs.Town.NPC.Scripts
     public class PolicePatrol : MonoBehaviour
     {
         public Transform[] points;
-        private int _destPoint;
+        private int m_destPoint;
         public NavMeshAgent agent;
         public Animator animator;
         private static readonly int IS_WALKING = Animator.StringToHash("isWalking");
 
         // Minimum and maximum durations for the walking animation
-        private float _minWalkDuration = 5.0f;
-        private float _maxWalkDuration = 10.0f;
+        private const float MIN_WALK_DURATION = 5.0f;
+        private const float MAX_WALK_DURATION = 10.0f;
 
         // Timers for tracking the current state
-        private float _breathingTimer = 5f;
-        private float _walkingTimer;
+        private float m_breathingTimer = 5f;
+        private float m_walkingTimer;
 
         private void Start()
         {
@@ -44,20 +44,20 @@ namespace MyPrefabs.Town.NPC.Scripts
                 return;
 
             // Set the agent to go to the currently selected destination.
-            agent.destination = points[_destPoint].position;
+            agent.destination = points[m_destPoint].position;
 
             // Choose the next point in the array as the destination,
             // cycling to the start if necessary.
-            _destPoint = (_destPoint + 1) % points.Length;
+            m_destPoint = (m_destPoint + 1) % points.Length;
         }
 
         private void Update()
         {
             if (animator.GetBool(IS_WALKING))
             {
-                _walkingTimer -= Time.deltaTime;
+                m_walkingTimer -= Time.deltaTime;
 
-                if (_walkingTimer <= 0)
+                if (m_walkingTimer <= 0)
                 {
                     animator.SetBool(IS_WALKING, false);
                     agent.isStopped = true;
@@ -72,13 +72,13 @@ namespace MyPrefabs.Town.NPC.Scripts
             }
             else
             {
-                _breathingTimer -= Time.deltaTime;
+                m_breathingTimer -= Time.deltaTime;
 
-                if (!(_breathingTimer <= 0)) return;
+                if (!(m_breathingTimer <= 0)) return;
                 animator.SetBool(IS_WALKING, true);
                 agent.isStopped = false;
                 agent.autoBraking = false;
-                _breathingTimer = 5f;
+                m_breathingTimer = 5f;
                 SetRandomWalkingDuration();
             }
         }
@@ -86,7 +86,7 @@ namespace MyPrefabs.Town.NPC.Scripts
         // Set a random duration for the walking state
         private void SetRandomWalkingDuration()
         {
-            _walkingTimer = Random.Range(_minWalkDuration, _maxWalkDuration);
+            m_walkingTimer = Random.Range(MIN_WALK_DURATION, MAX_WALK_DURATION);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace MyPrefabs.Town.NPC.SchoolBoy
     public class Patrol : MonoBehaviour
     {
         public Transform[] points;
-        private int _destPoint;
+        private int m_destPoint;
         public NavMeshAgent agent;
 
         private void Start()
@@ -30,11 +30,11 @@ namespace MyPrefabs.Town.NPC.SchoolBoy
                 return;
 
             // Set the agent to go to the currently selected destination.
-            agent.destination = points[_destPoint].position;
+            agent.destination = points[m_destPoint].position;
 
             // Choose the next point in the array as the destination,
             // cycling to the start if necessary.
-            _destPoint = (_destPoint + 1) % points.Length;
+            m_destPoint = (m_destPoint + 1) % points.Length;
         }
 
         private void Update()

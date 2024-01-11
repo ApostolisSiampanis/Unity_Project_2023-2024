@@ -1,9 +1,7 @@
-// Patrol.cs
-
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace MyPrefabs.Town.NPC.Son
+namespace MyPrefabs.Town.NPC.BusinessManSuit
 {
     public class Patrol : MonoBehaviour
     {
