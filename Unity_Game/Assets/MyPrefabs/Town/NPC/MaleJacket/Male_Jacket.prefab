@@ -1583,7 +1583,8 @@ GameObject:
   - component: {fileID: 2447846762737838119}
   - component: {fileID: 3975026513753989230}
   - component: {fileID: 7108277802643453375}
-  - component: {fileID: 8627377564232972444}
+  - component: {fileID: -277155095153706150}
+  - component: {fileID: 4152879147383507304}
   m_Layer: 0
   m_Name: Male_Jacket
   m_TagString: Untagged
@@ -1651,7 +1652,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8627377564232972444
+--- !u!114 &-277155095153706150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1664,8 +1665,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  agent: {fileID: 7108277802643453375}
-  animator: {fileID: 3975026513753989230}
+--- !u!136 &4152879147383507304
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494606692637212529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Height: 2.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.87, z: 0}
 --- !u!1 &8586250488748844862
 GameObject:
   m_ObjectHideFlags: 0

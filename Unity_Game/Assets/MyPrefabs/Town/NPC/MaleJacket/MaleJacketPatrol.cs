@@ -1,5 +1,3 @@
-// Patrol.cs
-
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,10 +5,10 @@ namespace MyPrefabs.Town.NPC.MaleJacket
 {
     public class MaleJacketPatrol : MonoBehaviour
     {
-        public Transform[] points;
-        private int m_destPoint;
+        [SerializeField] private Transform[] points;
         private static NavMeshAgent _agent;
         private static Animator _animator;
+        private int m_destPoint;
         private static readonly int IS_WALKING = Animator.StringToHash("isWalking");
         public static bool gatheringAnimationPlaying;
 

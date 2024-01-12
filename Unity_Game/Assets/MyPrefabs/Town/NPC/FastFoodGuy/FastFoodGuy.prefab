@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 4603382366589356835}
   - component: {fileID: 4576695248722686430}
   - component: {fileID: -3711596080670901475}
-  - component: {fileID: 5176055602783853665}
+  - component: {fileID: -8964333503637060672}
   m_Layer: 0
   m_Name: FastFoodGuy
   m_TagString: Untagged
@@ -561,7 +561,7 @@ CapsuleCollider:
   m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 0.87, z: 0}
---- !u!114 &5176055602783853665
+--- !u!114 &-8964333503637060672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,10 +570,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2697653674616327700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e4f684cb95dd1409e0bf92284f3e30, type: 3}
+  m_Script: {fileID: 11500000, guid: d1ab10d5353c9d7499824c7a45a934b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   alexTransform: {fileID: 0}
+  npcAnimator: {fileID: 4576695248722686430}
 --- !u!1 &2733138261201959187
 GameObject:
   m_ObjectHideFlags: 0

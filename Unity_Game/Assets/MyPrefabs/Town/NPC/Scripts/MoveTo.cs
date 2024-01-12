@@ -1,5 +1,3 @@
-// MoveTo.cs
-
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,21 +5,21 @@ namespace MyPrefabs.Town.NPC.Scripts
 {
     public class MoveTo : MonoBehaviour
     {
-        public Transform goal;
-        private NavMeshAgent m_agent;
-        public Animator animator;
-        public NavMeshAgent navMeshAgent;
+        [SerializeField] private Transform goal;
+        [SerializeField] private NavMeshAgent agent;
+        [SerializeField] private Animator animator;
         private static readonly int IS_WALKING = Animator.StringToHash("isWalking");
 
         private void Start()
         {
-            m_agent = GetComponent<NavMeshAgent>();
+            agent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            m_agent.destination = goal.position;
-            animator.SetBool(IS_WALKING, navMeshAgent.hasPath);
+            agent.destination = goal.position;
+            animator.SetBool(IS_WALKING, agent.hasPath);
         }
     }
 }
