@@ -9,6 +9,7 @@ public class RandomTreeCollector : MonoBehaviour
 {
 
     [SerializeField] private Transform[] treePositions;
+    [SerializeField] private int fruitsPerTree;
     
     private Animator animator;
     private NavMeshAgent navMeshAgent;
@@ -47,7 +48,7 @@ public class RandomTreeCollector : MonoBehaviour
     public void OnEndOfFruitPickAnimation()
     {
         collectingFruit = false;
-        collectedFruits += 3;
+        collectedFruits += fruitsPerTree;
         
         ChooseRandomTree();
     }
