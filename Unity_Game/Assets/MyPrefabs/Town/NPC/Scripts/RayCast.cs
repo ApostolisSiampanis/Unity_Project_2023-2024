@@ -29,7 +29,6 @@ namespace MyPrefabs.Town.NPC.Scripts
             if (hit.collider.transform == alexTransform)
             {
                 if (m_alreadyWaved) return;
-                transform.LookAt(alexTransform);
                 npcAnimator.SetTrigger(WAVE);
                 m_alreadyWaved = true;
             }
