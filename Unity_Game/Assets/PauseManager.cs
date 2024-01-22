@@ -70,6 +70,11 @@ public class PauseManager : MonoBehaviour
         controller.enabled = true;
     }
 
+    public void Menu()
+    {
+        Debug.Log("Menu");
+    }
+
     public void Quit()
     {
         Application.Quit();
