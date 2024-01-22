@@ -2,7 +2,7 @@
 using Pinwheel.Vista;
 using UnityEngine;
 
-namespace Pinwheel.Vista.Samples
+namespace PinwheelStudio.Vista.Samples.Scenes.Demo
 {
     public class DemoController : MonoBehaviour
     {
