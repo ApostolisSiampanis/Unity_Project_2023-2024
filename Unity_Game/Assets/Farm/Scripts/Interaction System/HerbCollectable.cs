@@ -1,46 +1,45 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Farm.Scripts.Interaction_System;
 using UnityEngine;
 
-public class HerbCollectable : MonoBehaviour, Interactable
+namespace Farm.Scripts.Interaction_System
 {
-    [Header("Interaction")]
-    [SerializeField] private string _taskHint = "collect herb";
-    [SerializeField] private KeyCode _interactKey;
-    [SerializeField] private bool _readyToInteract = true;
-        
-    public TaskStatus Status { get; set; }
-
-    public void Start()
+    public class HerbCollectable : MonoBehaviour, Interactable
     {
-        Status = TaskStatus.NOT_STARTED;
-    }
+        [Header("Interaction")]
+        [SerializeField] private string _taskHint = "collect herb";
+        [SerializeField] private KeyCode _interactKey;
+        [SerializeField] private bool _readyToInteract = true;
 
-    public void OnInteract(Interactor interactor)
-    {
-        Status = TaskStatus.IN_PROCESS;
-        gameObject.SetActive(false);
-        Status = TaskStatus.COMPLETED;
-        interactor.EndInteraction(this);
-    }
+        public TaskStatus Status { get; set; }
 
-    public TaskStatus OnEndInteract()
-    {
-        if (Status == TaskStatus.IN_PROCESS) Status = TaskStatus.ABORTED;
-        return Status;
-    }
+        public void Start()
+        {
+            Status = TaskStatus.NOT_STARTED;
+        }
 
-    public bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
-    {
-        taskHint = _taskHint;
-        interactKey = _interactKey;
-        return _readyToInteract;
-    }
+        public void OnInteract(Interactor interactor)
+        {
+            Status = TaskStatus.IN_PROCESS;
+            gameObject.SetActive(false);
+            Status = TaskStatus.COMPLETED;
+            interactor.EndInteraction(this);
+        }
 
-    public void OnAbortInteract()
-    {
-        throw new System.NotImplementedException();
+        public TaskStatus OnEndInteract()
+        {
+            if (Status == TaskStatus.IN_PROCESS) Status = TaskStatus.ABORTED;
+            return Status;
+        }
+
+        public bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
+        {
+            taskHint = _taskHint;
+            interactKey = _interactKey;
+            return _readyToInteract;
+        }
+
+        public void OnAbortInteract()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
