@@ -1,49 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Farm.Scripts.Interaction_System;
-using StarterAssets;
-using Unity.VisualScripting;
+using StarterAssets.ThirdPersonController.Scripts;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
 {
-    
     private Interactable currentInteractable; // interactable object that Interactor is looking at
     private Interactable lastInteractable; // last saved object for calculations between checks/frames
 
-    [Header("Setup")] 
-    [SerializeField] private string targetTag = "Interactable";
+    [Header("Setup")] [SerializeField] private string targetTag = "Interactable";
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rayMaxDistance = 5f;
     [SerializeField] private GameObject hint;
     [SerializeField] private ThirdPersonController controller;
-    
-    [Header("Interaction")] 
-    [SerializeField] private KeyCode defaultInteractKey = KeyCode.E;
+
+    [Header("Interaction")] [SerializeField]
+    private KeyCode defaultInteractKey = KeyCode.E;
+
     [SerializeField] private KeyCode[] cancelInteractionKeys;
 
     // ====== Interactable Related State ====== 
     private KeyCode _interactKey;
     private string _taskHint;
     private InteractHint _interactHint;
-    
+
     // ====== State Booleans ====== //
     private bool _readyToInteract;
     private bool _interacting;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         _interactKey = defaultInteractKey;
-        
+
         // Console warning if variables don't have a reference
         // if (interactorUI == null) Debug.LogWarning("Interactor: InteractorUI component was not set.");
         if (hint == null) Debug.LogWarning(this.name + ": Hint GameObject was not set.");
         else _interactHint = hint.GetComponent<InteractHint>();
-        
+
         // Reset variables
         //interacting = false;
         // Call abort method to reset the variables
@@ -54,11 +48,11 @@ public class Interactor : MonoBehaviour
     void Update()
     {
         currentInteractable = null;
-        
+
         var ray = new Ray(transform.position, transform.forward);
-        
+
         Debug.DrawRay(transform.position, ray.direction * rayMaxDistance, Color.green);
-        
+
         if (Physics.Raycast(ray, out var hit, rayMaxDistance, layerMask))
         {
             if (hit.collider.CompareTag(targetTag))
@@ -73,14 +67,13 @@ public class Interactor : MonoBehaviour
             // Check if the interactor was looking at an interactable object that it didn't last frame
             if (currentInteractable != null && !_readyToInteract) CheckIfAvailableToInteract();
             else if (currentInteractable == null && _readyToInteract) AbortInteraction();
-            
+
             // Check if not interacting & ready to interact & pressed interact button -> interact
             if (_readyToInteract && Input.GetKeyDown(_interactKey)) Interact();
         }
         else if (_interacting && IsCancelButtonPressed()) EndInteraction();
 
         if (currentInteractable != null) lastInteractable = currentInteractable;
-        
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -88,14 +81,14 @@ public class Interactor : MonoBehaviour
     {
         _readyToInteract = currentInteractable.IsReadyToInteract(out _taskHint, out var interactKey);
         if (!_readyToInteract) return;
-        
+
         // Set default interact key if KeyCode.None was provided
         _interactKey = interactKey == KeyCode.None ? defaultInteractKey : interactKey;
-        
+
         _interactHint.SetHintMessage(CreateInteractMessage());
         hint.SetActive(true);
     }
-    
+
     // ReSharper disable Unity.PerformanceAnalysis
     private void AbortInteraction()
     {
@@ -127,14 +120,14 @@ public class Interactor : MonoBehaviour
         //controller.enabled = true;
         TaskStatus taskStatus = lastInteractable.OnEndInteract();
     }
-    
+
     //pubic override method that calls EndInteract if the GameObject that requested matches lastInteractable 
     public void EndInteraction(Interactable requester)
     {
         if (requester != lastInteractable) return;
         EndInteraction();
     }
-    
+
     // Returns true if any of the "cancel" keys is pressed, else returns false
     private bool IsCancelButtonPressed()
     {
@@ -147,5 +140,4 @@ public class Interactor : MonoBehaviour
         if (_taskHint == null) return "Press " + _interactKey + " to Interact";
         return "Press " + _interactKey + " to " + _taskHint;
     }
-    
 }

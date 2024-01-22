@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ForestManNavMesh : MonoBehaviour
+namespace MyPrefabs.Forest
 {
-    [SerializeField] private Transform movePositionTransform;
+    public class ForestManNavMesh : MonoBehaviour
+    {
+        [SerializeField] private Transform movePositionTransform;
     
-    private NavMeshAgent navMeshAgent;
+        private NavMeshAgent navMeshAgent;
 
-    private void Awake()
-    {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-    }
+        private void Awake()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
 
-    private void Update()
-    {
-        navMeshAgent.destination = movePositionTransform.position;
+        private void Update()
+        {
+            navMeshAgent.destination = movePositionTransform.position;
+        }
     }
 }
