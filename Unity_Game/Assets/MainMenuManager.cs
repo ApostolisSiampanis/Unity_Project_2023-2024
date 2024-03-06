@@ -1,30 +1,21 @@
-using StarterAssets.ThirdPersonController.Scripts;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class PauseManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
-    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject optionsScreen;
-
-    [Header("Things to Disable")]
-    [SerializeField] private ThirdPersonController controller;
 
     [Header("Audio")]
     [SerializeField] private AudioMixer audioMixer;
 
     [Header("Resolutions")]
     [SerializeField] private TMP_Dropdown resolutionDropdown;
-
-    bool isPaused = false;
-
-    bool cursorVisibility;
-    CursorLockMode cursorState;
 
     Resolution[] resolutions;
 
@@ -34,9 +25,8 @@ public class PauseManager : MonoBehaviour
     private bool tempIsFullscreen;
     private int tempResolutionIndex;
 
-
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // Get the resolution dropdown specified for this computer
         resolutions = Screen.resolutions;
@@ -56,64 +46,21 @@ public class PauseManager : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        // Set the pause screen to be active
-        isPaused = true;
-        unPause();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            if (!isPaused)
-            {
-                Pause();
-            }  
-            else
-            {
-                unPause();
-            }
-        }
-    }
-
-    //Pause Screen
-    public void Pause()
-    {
-        isPaused = true;
-
-        cursorVisibility = Cursor.visible;
-        cursorState = Cursor.lockState;
-        
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
-        // disable player movement
-        controller.enabled = false;
-        // pause
-        pauseScreen.SetActive(true);
+        // Initially set the main menu screen to be active
+        mainMenuScreen.SetActive(true);
         optionsScreen.SetActive(false);
-        Time.timeScale = 0f;
     }
 
-    public void unPause()
+    // Main Menu Screen
+    public void PlayGame()
     {
-        isPaused = false;
-
-        Cursor.visible = cursorVisibility;
-        Cursor.lockState = cursorState;
-
-        // unpause
-        pauseScreen.SetActive(false);
-        optionsScreen.SetActive(false);
-        Time.timeScale = 1f;
-        // enable player movement
-        controller.enabled = true;
+        SceneManager.LoadScene("FarmScene");
     }
 
     public void Options()
     {
-        pauseScreen.SetActive(false);
+        // Set the main menu screen to be inactive and the options screen to be active
+        mainMenuScreen.SetActive(false);
         optionsScreen.SetActive(true);
 
         // Set the temporary variables to the current settings
@@ -140,7 +87,7 @@ public class PauseManager : MonoBehaviour
         Application.Quit();
     }
 
-    //Options Screen
+    // Options Screen
     public void SetVolume(float volume)
     {
         tempVolume = volume;
@@ -171,14 +118,14 @@ public class PauseManager : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
         // Set screens to be active/inactive
+        mainMenuScreen.SetActive(true);
         optionsScreen.SetActive(false);
-        pauseScreen.SetActive(true);
     }
 
     public void CancelSettings()
     {
-        // Set screens visibility
+        // Set screens to be active/inactive
+        mainMenuScreen.SetActive(true);
         optionsScreen.SetActive(false);
-        pauseScreen.SetActive(true);
     }
 }

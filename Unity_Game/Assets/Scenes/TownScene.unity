@@ -6361,7 +6361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0.6392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9548,7 +9548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1692969634}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: cancelSettings
+        m_MethodName: CancelSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25459,7 +25459,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1692969634}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: saveSettings
+        m_MethodName: SaveSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34551,7 +34551,7 @@ PrefabInstance:
     - target: {fileID: 8785662595125316744, guid: 1a38f8c1190eff1469c956dec21619ea,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: GameCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 8785662595125316744, guid: 1a38f8c1190eff1469c956dec21619ea,
         type: 3}
