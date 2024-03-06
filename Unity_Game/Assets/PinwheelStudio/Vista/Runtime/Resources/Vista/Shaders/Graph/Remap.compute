@@ -1,0 +1,15 @@
+#pragma kernel FindMinMax
+
+RWTexture2D<float> _MainTex;
+RWBuffer<int> _MinMaxBuffer;
+
+int _IntLimit;
+
+[numthreads(8, 8, 1)]
+void FindMinMax(uint3 id: SV_DispatchThreadID)
+{
+	float value = _MainTex[id.xy];
+	int valueInt = (int) (value * _IntLimit);
+	InterlockedMin(_MinMaxBuffer[0], valueInt);
+	InterlockedMax(_MinMaxBuffer[1], valueInt);
+}

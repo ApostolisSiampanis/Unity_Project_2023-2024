@@ -1,0 +1,28 @@
+#pragma kernel Main
+#pragma kernel Main
+#include "../Includes/CommonDataTypes.hlsl"
+#include "../Includes/Math.hlsl"
+
+StructuredBuffer<PositionSample> _Positions;
+RWTexture2D<float> _TargetRT;
+float2 _Resolution;
+int _BaseIndex;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DispatchThreadID)
+{
+	PositionSample sample = _Positions[id.x+_BaseIndex];
+	float2 uv = sample.position.xz;
+	if (uv.x < 0 || uv.y < 0)
+		return;
+
+	int pixelX = (int)lerp(0, _Resolution.x - 1, uv.x);
+	int pixelY = (int)lerp(0, _Resolution.y - 1, uv.y);
+	float2 index = float2(pixelX, pixelY);
+
+	float currentValue = _TargetRT[index];
+	if (currentValue == 0 && sample.isValid)
+	{
+		_TargetRT[index] = 1;
+	}
+}

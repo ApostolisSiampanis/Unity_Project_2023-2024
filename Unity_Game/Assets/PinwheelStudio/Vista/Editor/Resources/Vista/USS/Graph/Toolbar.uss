@@ -1,0 +1,40 @@
+GraphEditorToolbar
+{
+	height: 21px;
+	width: auto;
+	background-color: rgb(60,60,60);
+	border-color: rgb(35,35,35);
+	border-bottom-width: 1px;
+	flex-direction: row;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+ToolbarButton
+{
+	border-width: 0px;
+	-unity-text-align: middle-center;
+}
+
+ToolbarButton.active
+{
+	background-color: rgb(80,80,80);
+}
+
+#left-container
+{
+	position: absolute;
+	left: 4px;
+	top: 0px;
+	bottom: 0px;
+	flex-direction: row;
+}
+
+#right-container
+{
+	position: absolute;
+	right: 4px;
+	top: 0px;
+	bottom: 0px;
+	flex-direction: row-reverse;
+}

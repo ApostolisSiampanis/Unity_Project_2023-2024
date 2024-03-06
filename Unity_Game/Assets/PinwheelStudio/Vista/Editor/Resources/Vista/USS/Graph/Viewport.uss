@@ -1,0 +1,34 @@
+.viewport
+{
+	overflow: hidden;
+}
+
+.viewport-image
+{
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	position: absolute;
+}
+
+.viewport-3d
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+.viewport-2d
+{	
+	min-width: 100px;
+	border-left-width: 1px;
+	border-left-color: rgb(35,35,35);	
+}
+
+.stretch
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+}

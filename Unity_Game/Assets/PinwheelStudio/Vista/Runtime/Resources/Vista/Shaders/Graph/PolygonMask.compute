@@ -1,0 +1,94 @@
+#pragma kernel Main
+
+RWTexture2D<float> _MaskTex;
+float2 _MaskResolution;
+float2 _Segments[1000];
+uint _SegmentCount;
+
+bool IsIntersectHorizontalLine(
+	float x1, float y1,
+	float x2, float y2,
+	float lineY,
+	out float2 intersection)
+{
+	bool isIntersect = false;
+	intersection = float2(0, 0);
+
+	float minX = min(x1, x2);
+	float maxX = max(x1, x2);
+	float minY = min(y1, y2);
+	float maxY = max(y1, y2);
+
+	if (lineY < minY || lineY > maxY) 
+	{
+		isIntersect = false;
+		return isIntersect; 
+	}
+	 
+	if (x1 == x2 && y1 == y2)
+	{
+		if (lineY == y1)
+		{
+			isIntersect = true;
+			intersection = float2(x1, y1);
+			return isIntersect;
+		}
+		else
+		{
+			isIntersect = false;
+		}
+	}
+
+	float2 direction = normalize(float2(x2 - x1, y2 - y1));
+	float3 normal = float3(-direction.y, direction.x, 0);
+
+	if (direction.y == 0)
+	{
+		isIntersect = false;
+		return isIntersect;
+	}
+
+	float num = (x2 - x1) * lineY + (x1 * y2 - x2 * y1);
+	float denom = -y1 + y2;
+	float intersectX = num / denom;
+	//if (intersectX >= minX && intersectX <= maxX)
+	{
+		intersection = float2(intersectX, lineY);
+		isIntersect = true;
+		return isIntersect;
+	}
+
+	isIntersect = false; 
+	return isIntersect;
+}
+
+float DistanceToLine(float2 l1, float2 l2, float2 p)
+{
+	float num = length((l2.x - l1.x) * (l1.y - p.y) - (l1.x - p.x) * (l2.y - l1.y));
+	float denom = sqrt((l2.x - l1.x) * (l2.x - l1.x) + (l2.y - l1.y) * (l2.y - l1.y));
+	return num / denom;
+}
+
+[numthreads(8, 8, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	float2 uv = id.xy / (_MaskResolution - 1);
+	uint pixelX = floor(uv.x * (_MaskResolution.x - 1));
+	uint intersectionCount = 0;
+	uint windingSum = 0;
+	for (uint i = 0; i < _SegmentCount; ++i)
+	{
+		float2 p0 = _Segments[i];
+		float2 p1 = _Segments[i + 1];
+		float2 intersection = float2(0,0);
+		if (IsIntersectHorizontalLine(p0.x, p0.y, p1.x, p1.y, uv.y, intersection))
+		{
+			uint intersectPixelX = floor(intersection.x * (_MaskResolution.x - 1));
+			uint isIntersect = intersectPixelX < pixelX;
+			intersectionCount += isIntersect;
+			windingSum += isIntersect * (p1.y > p0.y) - isIntersect * (p1.y < p0.y);
+		}
+	}
+	uint isInside = (intersectionCount > 0) * (windingSum != 0);
+	_MaskTex[id.xy] = isInside;
+}

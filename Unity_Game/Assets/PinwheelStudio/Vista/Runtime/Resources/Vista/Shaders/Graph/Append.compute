@@ -1,0 +1,16 @@
+#pragma kernel Main
+
+#include "../Includes/CommonDataTypes.hlsl"
+
+StructuredBuffer<PositionSample> _SrcBuffer;
+int _BaseIndex;
+int _DestOffset;
+
+RWStructuredBuffer<PositionSample> _DestBuffer;
+
+[numthreads(8, 1, 1)]
+void Main(uint3 id: SV_DISPATCHTHREADID)
+{
+	PositionSample p = _SrcBuffer[id.x + _BaseIndex];
+	_DestBuffer[id.x + _BaseIndex + _DestOffset] = p;
+}

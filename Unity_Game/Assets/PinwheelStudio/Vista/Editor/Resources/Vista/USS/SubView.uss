@@ -1,0 +1,37 @@
+.subview
+{
+	position: absolute;
+	width: 400px;
+	height: 600px;
+	min-width: 300px;
+	min-height: 300px;
+	border-radius: 5px;
+	border-color: rgb(25,25,25);
+	border-width: 1px;
+	overflow: hidden;
+}
+
+#header
+{
+	width: auto;
+	height: 37px;
+	background-color: rgb(57,57,57);
+	padding: 8px;
+}
+
+#body
+{
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+	background-color: rgb(46,46,46);
+}
+
+#title
+{
+	color: rgb(180,180,180);
+	font-size: 14px;
+	flex: 1;
+	flex-grow: 1;
+	flex-shrink: 0;
+}

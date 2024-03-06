@@ -1,0 +1,18 @@
+#pragma kernel Main
+
+#include "../Includes/CommonDataTypes.hlsl"
+
+StructuredBuffer<PositionSample> _PositionInput;
+RWStructuredBuffer<PositionSample> _PositionOutput;
+
+float4x4 _TransformMatrix;
+int _BaseIndex;
+
+[numthreads(8,1,1)]
+void Main (uint3 id : SV_DispatchThreadID)
+{
+	PositionSample pos = _PositionInput[id.x + _BaseIndex];
+	float4 newPos = mul(_TransformMatrix, float4(pos.position, 1));
+	pos.position = newPos.xyz;	
+	_PositionOutput[id.x + _BaseIndex] = pos;
+}

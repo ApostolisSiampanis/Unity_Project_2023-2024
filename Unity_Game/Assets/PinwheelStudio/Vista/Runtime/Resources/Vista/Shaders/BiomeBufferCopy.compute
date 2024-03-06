@@ -1,0 +1,61 @@
+#pragma kernel Count
+#pragma kernel Append
+#pragma multi_compile_local DATA_TYPE_INSTANCE_SAMPLE DATA_TYPE_POSITION_SAMPLE
+
+#include "./Includes/CommonDataTypes.hlsl"
+
+#if DATA_TYPE_INSTANCE_SAMPLE
+	#define SAMPLE InstanceSample
+#else
+	#define SAMPLE PositionSample
+#endif
+
+StructuredBuffer<SAMPLE> _Samples;
+RWStructuredBuffer<int> _Count;
+float4 _InBounds;
+float4 _OutBounds;
+int _BaseIndex;
+
+RWStructuredBuffer<SAMPLE> _DestSamples;
+
+float inverseLerp(float value, float a, float b)
+{
+	return(value - a) / (b - a);
+}
+
+void TransformSample(SAMPLE sample, out float outX, out float outZ, inout float isValid)
+{
+	float worldX = lerp(_InBounds.x, _InBounds.x + _InBounds.z, sample.position.x);
+	float worldZ = lerp(_InBounds.y, _InBounds.y + _InBounds.w, sample.position.z);
+
+	outX = inverseLerp(worldX, _OutBounds.x, _OutBounds.x + _OutBounds.z);
+	outZ = inverseLerp(worldZ, _OutBounds.y, _OutBounds.y + _OutBounds.w);
+	isValid *= (outX > 0) * (outX < 1) * (outZ > 0) * (outZ < 1);
+}
+
+[numthreads(8, 1, 1)]
+void Count(uint3 id: SV_DispatchThreadID)
+{
+	SAMPLE sample = _Samples[id.x + _BaseIndex];
+	float outX;
+	float outZ;
+	float isValid = sample.isValid;
+	TransformSample(sample, outX, outZ, isValid);
+	InterlockedAdd(_Count[0], (int)isValid);
+}
+
+[numthreads(8, 1, 1)]
+void Append(uint3 id: SV_DispatchThreadID)
+{
+	SAMPLE sample = _Samples[id.x + _BaseIndex];
+	float outX;
+	float outZ;
+	float isValid = sample.isValid;
+	TransformSample(sample, outX, outZ, isValid);
+
+	sample.position.x = outX;
+	sample.position.z = outZ;
+	sample.isValid = isValid;
+	_DestSamples[id.x + _BaseIndex] = sample;
+}
+

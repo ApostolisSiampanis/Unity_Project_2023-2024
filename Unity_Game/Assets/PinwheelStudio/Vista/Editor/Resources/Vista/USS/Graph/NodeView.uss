@@ -1,0 +1,46 @@
+NodeView
+{
+	min-width: 125px;
+}
+
+#highlighter
+{
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	right: 3px;
+	bottom: 3px;
+
+	background-color: rgba(0,0,0,0);
+	border-color: rgb(200,200,200);
+	border-width: 2px;
+	border-radius: 6px;	
+}
+
+#badge-container
+{
+	position: absolute;
+	width: auto;
+	height: 24px;
+	top: -24px;
+	left: 0px;
+	right: 0px;
+	flex-direction: row;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+#shadow
+{
+	position: absolute;
+	left: -2px;
+	top: 0px;
+	right: -2px;
+	bottom: -4px;
+	
+	background-image: resource("Vista/Textures/NodeShadow");
+	-unity-slice-left: 10;
+	-unity-slice-top: 10;
+	-unity-slice-right: 10;
+	-unity-slice-bottom: 10;
+}
