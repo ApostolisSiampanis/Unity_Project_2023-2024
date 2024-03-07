@@ -2354,8 +2354,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7726277736937722622, guid: 1a38f8c1190eff1469c956dec21619ea,
-          type: 3}
+      - m_Target: {fileID: 1692969634}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: SetResolution
         m_Mode: 0
@@ -16884,8 +16883,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7726277736937722622, guid: 1a38f8c1190eff1469c956dec21619ea,
-          type: 3}
+      - m_Target: {fileID: 1692969634}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
@@ -33743,6 +33741,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6249562034707568558, guid: babeceb506aaa0043871b46b8f5c4d85,
         type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7fea885272238274689f3d155596b263,
+        type: 2}
+    - target: {fileID: 6249562034707568558, guid: babeceb506aaa0043871b46b8f5c4d85,
+        type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
       value: 0.025
       objectReference: {fileID: 0}
@@ -34791,6 +34795,12 @@ PrefabInstance:
       propertyPath: rolloffMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7307415125926623104, guid: 2fa0130dbaa067545aeddd9166c837d1,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7fea885272238274689f3d155596b263,
+        type: 2}
     - target: {fileID: 7307415125926623104, guid: 2fa0130dbaa067545aeddd9166c837d1,
         type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
@@ -40906,6 +40916,12 @@ PrefabInstance:
       propertyPath: rolloffMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5368721265187497213, guid: 15d239a2cc6c38443ad1e2884c211594,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7fea885272238274689f3d155596b263,
+        type: 2}
     - target: {fileID: 5368721265187497213, guid: 15d239a2cc6c38443ad1e2884c211594,
         type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
