@@ -28753,7 +28753,8 @@ AudioSource:
   m_GameObject: {fileID: 1943063117}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 7fea885272238274689f3d155596b263,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 92e78722cb0861d46859547e6861e5d2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.05
@@ -35921,6 +35922,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alex
       objectReference: {fileID: 0}
+    - target: {fileID: 6517307272278740981, guid: bf619aeb9d2cbc04686e681d1c8179bc,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 7fea885272238274689f3d155596b263,
+        type: 2}
     - target: {fileID: 8742647923948754151, guid: bf619aeb9d2cbc04686e681d1c8179bc,
         type: 3}
       propertyPath: m_LocalPosition.x
