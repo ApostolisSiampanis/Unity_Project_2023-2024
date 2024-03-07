@@ -1,5 +1,6 @@
 ﻿using StarterAssets.InputSystem;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks

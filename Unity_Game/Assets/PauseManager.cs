@@ -94,6 +94,9 @@ public class PauseManager : MonoBehaviour
         pauseScreen.SetActive(true);
         optionsScreen.SetActive(false);
         Time.timeScale = 0f;
+
+        // Set volume to -80db when paused
+        audioMixer.SetFloat("volume", -80f);
     }
 
     public void unPause()
@@ -109,6 +112,9 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         // enable player movement
         controller.enabled = true;
+
+        // Restore volume to its previous value when unpaused
+        audioMixer.SetFloat("volume", tempVolume);
     }
 
     public void Options()
