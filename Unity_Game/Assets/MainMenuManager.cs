@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsScreen;
 
     [Header("Audio")]
-    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioMixer mainMixer;
 
     [Header("Resolutions")]
     [SerializeField] private TMP_Dropdown resolutionDropdown;
@@ -20,7 +20,8 @@ public class MainMenuManager : MonoBehaviour
     Resolution[] resolutions;
 
     // Temporary variables to store changes
-    private float tempVolume;
+    private float tempSoundsVolume;
+    private float tempMusicVolume;
     private int tempQualityIndex;
     private bool tempIsFullscreen;
     private int tempResolutionIndex;
@@ -64,7 +65,8 @@ public class MainMenuManager : MonoBehaviour
         optionsScreen.SetActive(true);
 
         // Set the temporary variables to the current settings
-        audioMixer.GetFloat("volume", out tempVolume);
+        mainMixer.GetFloat("SoundsParam", out tempSoundsVolume);
+        mainMixer.GetFloat("MusicParam", out tempMusicVolume);
         tempQualityIndex = QualitySettings.GetQualityLevel();
         tempIsFullscreen = Screen.fullScreen;
         tempResolutionIndex = GetResolutionIndex(Screen.currentResolution);
@@ -88,9 +90,14 @@ public class MainMenuManager : MonoBehaviour
     }
 
     // Options Screen
-    public void SetVolume(float volume)
+    public void SetSoundsVolume(float volume)
     {
-        tempVolume = volume;
+        tempSoundsVolume = volume;
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        tempMusicVolume = volume;
     }
 
     public void SetQuality(int qualityIndex)
@@ -111,7 +118,8 @@ public class MainMenuManager : MonoBehaviour
     public void SaveSettings()
     {
         // Apply settings changes
-        audioMixer.SetFloat("volume", tempVolume);
+        mainMixer.SetFloat("SoundsParam", tempSoundsVolume);
+        mainMixer.SetFloat("MusicParam", tempMusicVolume);
         QualitySettings.SetQualityLevel(tempQualityIndex);
         Screen.fullScreen = tempIsFullscreen;
         Resolution resolution = resolutions[tempResolutionIndex];
