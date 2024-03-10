@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private LevelLoader levelLoader;
+
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject optionsScreen;
 
@@ -55,8 +57,10 @@ public class MainMenuManager : MonoBehaviour
     // Main Menu Screen
     public void PlayGame()
     {
-        SceneManager.LoadScene("FarmScene");
+        //SceneManager.LoadScene("FarmScene");
+        levelLoader.LoadNextScene();
     }
+
 
     public void Options()
     {
