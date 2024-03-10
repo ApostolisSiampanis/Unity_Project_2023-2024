@@ -35,6 +35,7 @@ public class PauseManager : MonoBehaviour
     private bool tempIsFullscreen;
     private int tempResolutionIndex;
 
+    private float previousSoundsVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +71,7 @@ public class PauseManager : MonoBehaviour
             if (!isPaused)
             {
                 Pause();
-            }  
+            }
             else
             {
                 unPause();
@@ -85,7 +86,7 @@ public class PauseManager : MonoBehaviour
 
         cursorVisibility = Cursor.visible;
         cursorState = Cursor.lockState;
-        
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
@@ -96,6 +97,8 @@ public class PauseManager : MonoBehaviour
         optionsScreen.SetActive(false);
         Time.timeScale = 0f;
 
+        // keep track of the previous volume
+        mainMixer.GetFloat("SoundsParam", out previousSoundsVolume);
         // Set volume to -80db when paused
         mainMixer.SetFloat("SoundsParam", -80f);
         mainMixer.SetFloat("MusicParam", tempMusicVolume);
@@ -116,7 +119,7 @@ public class PauseManager : MonoBehaviour
         controller.enabled = true;
 
         // Restore volume to its previous value when unpaused
-        mainMixer.SetFloat("SoundsParam", tempSoundsVolume);
+        mainMixer.SetFloat("SoundsParam", previousSoundsVolume);
         mainMixer.SetFloat("MusicParam", -80f);
     }
 
@@ -154,6 +157,7 @@ public class PauseManager : MonoBehaviour
     public void SetSoundsVolume(float volume)
     {
         tempSoundsVolume = volume;
+        previousSoundsVolume = tempSoundsVolume;
     }
 
     public void SetMusicVolume(float volume)
@@ -179,7 +183,6 @@ public class PauseManager : MonoBehaviour
     public void SaveSettings()
     {
         // Apply settings changes
-        mainMixer.SetFloat("SoundsParam", tempSoundsVolume);
         mainMixer.SetFloat("MusicParam", tempMusicVolume);
         QualitySettings.SetQualityLevel(tempQualityIndex);
         Screen.fullScreen = tempIsFullscreen;
@@ -193,6 +196,9 @@ public class PauseManager : MonoBehaviour
 
     public void CancelSettings()
     {
+        // Apply settings changes
+        mainMixer.SetFloat("SoundsParam", previousSoundsVolume);
+
         // Set screens visibility
         optionsScreen.SetActive(false);
         pauseScreen.SetActive(true);
