@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Farm.Scripts.Interaction_System
 {
@@ -7,11 +8,11 @@ namespace Farm.Scripts.Interaction_System
         [Header("Interaction")]
         [SerializeField] private string _taskHint = "collect herb";
         [SerializeField] private KeyCode _interactKey;
-        [SerializeField] private bool _readyToInteract = true;
+        [SerializeField] protected bool readyToInteract = true;
 
         public Item.ItemType itemType;
 
-        public void OnInteract(Interactor interactor)
+        public virtual void OnInteract(Interactor interactor)
         {
             if (interactor == null) return;
             
@@ -20,20 +21,20 @@ namespace Farm.Scripts.Interaction_System
             interactor.EndInteraction(this);
         }
 
-        public void OnEndInteract()
+        public virtual void OnEndInteract()
         {
             // Remove object
             gameObject.SetActive(false);
         }
 
-        public bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
+        public virtual bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
         {
             taskHint = _taskHint;
             interactKey = _interactKey;
-            return _readyToInteract;
+            return readyToInteract;
         }
 
-        public void OnAbortInteract()
+        public virtual void OnAbortInteract()
         {
             // TODO: Implement
         }
