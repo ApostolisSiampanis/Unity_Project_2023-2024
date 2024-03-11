@@ -9,25 +9,16 @@ namespace Farm.Scripts.Interaction_System
         [SerializeField] private KeyCode _interactKey;
         [SerializeField] private bool _readyToInteract = true;
 
-        public TaskStatus Status { get; set; }
-
-        public void Start()
-        {
-            Status = TaskStatus.NOT_STARTED;
-        }
-
         public void OnInteract(Interactor interactor)
         {
-            Status = TaskStatus.IN_PROCESS;
-            gameObject.SetActive(false);
-            Status = TaskStatus.COMPLETED;
+            // Instant interaction
             interactor.EndInteraction(this);
         }
 
-        public TaskStatus OnEndInteract()
+        public void OnEndInteract()
         {
-            if (Status == TaskStatus.IN_PROCESS) Status = TaskStatus.ABORTED;
-            return Status;
+            // Remove object
+            gameObject.SetActive(false);
         }
 
         public bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
@@ -39,7 +30,7 @@ namespace Farm.Scripts.Interaction_System
 
         public void OnAbortInteract()
         {
-            throw new System.NotImplementedException();
+            // TODO: Implement
         }
     }
 }

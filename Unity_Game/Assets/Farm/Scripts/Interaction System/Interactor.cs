@@ -6,21 +6,24 @@ namespace Farm.Scripts.Interaction_System
 {
     public class Interactor : MonoBehaviour
     {
-        private Interactable currentInteractable; // interactable object that Interactor is looking at
-        private Interactable lastInteractable; // last saved object for calculations between checks/frames
+        private Interactable _currentInteractable; // interactable object that Interactor is looking at
+        private Interactable _lastInteractable; // last saved object for calculations between checks/frames
 
+        // ====== SETUP ====== //
         [Header("Setup")] [SerializeField] private string targetTag = "Interactable";
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private float rayMaxDistance = 5f;
         [SerializeField] private GameObject hint;
         [SerializeField] private ThirdPersonController controller;
+        [SerializeField] private Animator animator;
 
+        // ====== INTERACTION ====== //
         [Header("Interaction")] [SerializeField]
         private KeyCode defaultInteractKey = KeyCode.E;
 
         [SerializeField] private KeyCode[] cancelInteractionKeys;
 
-        // ====== Interactable Related State ======
+        // ====== Interactable Related State ====== //
         private KeyCode _interactKey;
         private string _taskHint;
         private InteractHint _interactHint;
@@ -48,7 +51,7 @@ namespace Farm.Scripts.Interaction_System
         // Update is called once per frame
         void Update()
         {
-            currentInteractable = null;
+            _currentInteractable = null;
 
             var ray = new Ray(transform.position, transform.forward);
 
@@ -59,28 +62,28 @@ namespace Farm.Scripts.Interaction_System
                 if (hit.collider.CompareTag(targetTag))
                 {
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    if (interactable != null) currentInteractable = interactable;
+                    if (interactable != null) _currentInteractable = interactable;
                 }
             }
 
             if (!_interacting)
             {
                 // Check if the interactor was looking at an interactable object that it didn't last frame
-                if (currentInteractable != null && !_readyToInteract) CheckIfAvailableToInteract();
-                else if (currentInteractable == null && _readyToInteract) AbortInteraction();
+                if (_currentInteractable != null && !_readyToInteract) CheckIfAvailableToInteract();
+                else if (_currentInteractable == null && _readyToInteract) AbortInteraction();
 
                 // Check if not interacting & ready to interact & pressed interact button -> interact
                 if (_readyToInteract && Input.GetKeyDown(_interactKey)) Interact();
             }
             else if (_interacting && IsCancelButtonPressed()) EndInteraction();
 
-            if (currentInteractable != null) lastInteractable = currentInteractable;
+            if (_currentInteractable != null) _lastInteractable = _currentInteractable;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         private void CheckIfAvailableToInteract()
         {
-            _readyToInteract = currentInteractable.IsReadyToInteract(out _taskHint, out var interactKey);
+            _readyToInteract = _currentInteractable.IsReadyToInteract(out _taskHint, out var interactKey);
             if (!_readyToInteract) return;
 
             // Set default interact key if KeyCode.None was provided
@@ -96,7 +99,7 @@ namespace Farm.Scripts.Interaction_System
             _interacting = false;
             _readyToInteract = false;
             hint.SetActive(false);
-            lastInteractable?.OnAbortInteract();
+            _lastInteractable?.OnAbortInteract();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -105,8 +108,11 @@ namespace Farm.Scripts.Interaction_System
             _interacting = true;
             _readyToInteract = false;
             hint.SetActive(false);
-            //controller.enabled = false;
-            currentInteractable?.OnInteract(this);
+            
+            animator.SetFloat("Speed", 0);
+            controller.enabled = false;
+            
+            _currentInteractable?.OnInteract(this);
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -118,14 +124,14 @@ namespace Farm.Scripts.Interaction_System
             // ...but without setting readyInteract to false, it thinks we aren't allowed to search for anything new
             // (will not call ReadyInteract method properly)
             _readyToInteract = false;
-            //controller.enabled = true;
-            TaskStatus taskStatus = lastInteractable.OnEndInteract();
+            controller.enabled = true;
+            _lastInteractable.OnEndInteract();
         }
 
         //pubic override method that calls EndInteract if the GameObject that requested matches lastInteractable
         public void EndInteraction(Interactable requester)
         {
-            if (requester != lastInteractable) return;
+            if (requester != _lastInteractable) return;
             EndInteraction();
         }
 
@@ -138,8 +144,8 @@ namespace Farm.Scripts.Interaction_System
 
         private string CreateInteractMessage()
         {
-            if (_taskHint == null) return "Press " + _interactKey + " to Interact";
-            return "Press " + _interactKey + " to " + _taskHint;
+            if (_taskHint == null) return "Press [" + _interactKey + "] to Interact";
+            return "Press [" + _interactKey + "] to " + _taskHint;
         }
     }
 }

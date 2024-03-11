@@ -5,7 +5,7 @@ namespace Farm.Scripts.Interaction_System
 {
     public class InteractHint : MonoBehaviour
     {
-        public string _hintMessage = "Press E to Interact";
+        public string _hintMessage;
         private TextMeshProUGUI textMesh;
 
         public void Start()
