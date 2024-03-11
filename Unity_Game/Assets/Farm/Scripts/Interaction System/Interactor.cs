@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Farm.Scripts.Interaction_System
 {
-    public class Interactor : MonoBehaviour
+    public class Interactor : MonoBehaviour, ICollector
     {
         private Interactable _currentInteractable; // interactable object that Interactor is looking at
         private Interactable _lastInteractable; // last saved object for calculations between checks/frames
@@ -18,9 +18,14 @@ namespace Farm.Scripts.Interaction_System
         [SerializeField] private Animator animator;
 
         // ====== INTERACTION ====== //
-        [Header("Interaction")] [SerializeField]
-        private KeyCode defaultInteractKey = KeyCode.E;
-
+        [Header("Interaction")]
+        [SerializeField] private KeyCode defaultInteractKey = KeyCode.E;
+        
+        // ====== INVENTORY ====== //
+        [Header("Inventory")]
+        [SerializeField] private UI_Inventory uiInventory;
+        private Inventory _inventory;
+        
         [SerializeField] private KeyCode[] cancelInteractionKeys;
 
         // ====== Interactable Related State ====== //
@@ -35,6 +40,9 @@ namespace Farm.Scripts.Interaction_System
         // Start is called before the first frame update
         void Start()
         {
+            _inventory = new Inventory();
+            uiInventory.SetInventory(_inventory);
+            
             _interactKey = defaultInteractKey;
 
             // Console warning if variables don't have a reference
@@ -146,6 +154,13 @@ namespace Farm.Scripts.Interaction_System
         {
             if (_taskHint == null) return "Press [" + _interactKey + "] to Interact";
             return "Press [" + _interactKey + "] to " + _taskHint;
+        }
+
+        public void Collect(Item.ItemType givenItemType)
+        {
+            // Add the collected item to the inventory
+            _inventory.AddItem(new Item { itemType = givenItemType, amount = 1 });
+            Debug.Log("Collected: 1 " + givenItemType);
         }
     }
 }
