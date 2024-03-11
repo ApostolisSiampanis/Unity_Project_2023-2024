@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Farm.Scripts.Interaction_System
 {
-    public class Interactor : MonoBehaviour
+    public class Interactor : MonoBehaviour, ICollector
     {
         private Interactable _currentInteractable; // interactable object that Interactor is looking at
         private Interactable _lastInteractable; // last saved object for calculations between checks/frames
@@ -146,6 +146,12 @@ namespace Farm.Scripts.Interaction_System
         {
             if (_taskHint == null) return "Press [" + _interactKey + "] to Interact";
             return "Press [" + _interactKey + "] to " + _taskHint;
+        }
+
+        public void Collect(Item.ItemType itemType)
+        {
+            // TODO: Add the collected item to the inventory
+            Debug.Log("Collected: 1 " + itemType);
         }
     }
 }
