@@ -9066,7 +9066,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022052104}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: beee174bd1fad674fa4f9aff4c173a75, type: 2}
   m_InitialState: 1
@@ -9092,6 +9092,8 @@ PlayableDirector:
     value: {fileID: 959556977}
   - key: {fileID: -3614292101147480707, guid: beee174bd1fad674fa4f9aff4c173a75, type: 2}
     value: {fileID: 1032860963}
+  - key: {fileID: -8997728040499156319, guid: beee174bd1fad674fa4f9aff4c173a75, type: 2}
+    value: {fileID: 1677220063}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1022052106
@@ -12863,8 +12865,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector1: {fileID: 1022052105}
   playableDirector2: {fileID: 1558628211}
+  playableDirector3: {fileID: 2125908158}
   crosshair: {fileID: 869750461}
   miniMap: {fileID: 1941843386}
+  alex: {fileID: 959556977}
 --- !u!1 &1701254510
 GameObject:
   m_ObjectHideFlags: 0
@@ -13738,7 +13742,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125908156}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
   m_InitialState: 1
