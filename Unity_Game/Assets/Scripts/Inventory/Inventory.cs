@@ -14,9 +14,6 @@ public class Inventory
     public Inventory()
     {
         itemList = new List<Item>();
-
-        AddItem(new Item { itemType = Item.ItemType.Apple, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.Apple, amount = 1 });
     }
 
     public void AddItem(Item item)
@@ -40,6 +37,12 @@ public class Inventory
         {
             itemList.Add(item);
         }
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RemoveAllItems(Item.ItemType type)
+    {
+        itemList.RemoveAll(x => x.itemType == type);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
