@@ -7,7 +7,7 @@ public class Item
     public enum ItemType
     {
         Apple,
-        Carrots,
+        Carrot,
         Toolbox,
         Hammer,
         Book
@@ -22,7 +22,7 @@ public class Item
         {
             default:
             case ItemType.Apple: return ItemAssets.Instance.appleSprite;
-            case ItemType.Carrots: return ItemAssets.Instance.carrotsSprite;
+            case ItemType.Carrot: return ItemAssets.Instance.carrotsSprite;
             case ItemType.Toolbox: return ItemAssets.Instance.toolboxSprite;
             case ItemType.Hammer: return ItemAssets.Instance.hammerSprite;
             case ItemType.Book: return ItemAssets.Instance.bookSprite;
