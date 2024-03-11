@@ -18,9 +18,14 @@ namespace Farm.Scripts.Interaction_System
         [SerializeField] private Animator animator;
 
         // ====== INTERACTION ====== //
-        [Header("Interaction")] [SerializeField]
-        private KeyCode defaultInteractKey = KeyCode.E;
-
+        [Header("Interaction")]
+        [SerializeField] private KeyCode defaultInteractKey = KeyCode.E;
+        
+        // ====== INVENTORY ====== //
+        [Header("Inventory")]
+        [SerializeField] private UI_Inventory uiInventory;
+        private Inventory _inventory;
+        
         [SerializeField] private KeyCode[] cancelInteractionKeys;
 
         // ====== Interactable Related State ====== //
@@ -35,6 +40,9 @@ namespace Farm.Scripts.Interaction_System
         // Start is called before the first frame update
         void Start()
         {
+            _inventory = new Inventory();
+            uiInventory.SetInventory(_inventory);
+            
             _interactKey = defaultInteractKey;
 
             // Console warning if variables don't have a reference
@@ -148,10 +156,11 @@ namespace Farm.Scripts.Interaction_System
             return "Press [" + _interactKey + "] to " + _taskHint;
         }
 
-        public void Collect(Item.ItemType itemType)
+        public void Collect(Item.ItemType givenItemType)
         {
-            // TODO: Add the collected item to the inventory
-            Debug.Log("Collected: 1 " + itemType);
+            // Add the collected item to the inventory
+            _inventory.AddItem(new Item { itemType = givenItemType, amount = 1 });
+            Debug.Log("Collected: 1 " + givenItemType);
         }
     }
 }
