@@ -28,4 +28,19 @@ public class Item
             case ItemType.Book: return ItemAssets.Instance.bookSprite;
         }
     }
+
+    public bool IsStackable()
+    {
+        switch (itemType) 
+        {
+            default:
+            case ItemType.Apple:
+            case ItemType.Carrot:
+                return true;
+            case ItemType.Hammer:
+            case ItemType.Toolbox:
+            case ItemType.Book:
+                return false;
+        }
+    }
 }
