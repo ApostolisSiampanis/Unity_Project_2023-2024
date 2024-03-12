@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface ICollector
+namespace Farm.Scripts.Interaction_System
 {
-    void Collect(Item.ItemType itemType);
+    public interface ICollector
+    {
+        void Collect(Item.ItemType itemType);
+    }
 }

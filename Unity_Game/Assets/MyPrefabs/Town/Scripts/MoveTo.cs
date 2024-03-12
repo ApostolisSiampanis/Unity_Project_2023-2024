@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace MyPrefabs.Town.NPC.Scripts
+namespace MyPrefabs.Town.Scripts
 {
     public class MoveTo : MonoBehaviour
     {

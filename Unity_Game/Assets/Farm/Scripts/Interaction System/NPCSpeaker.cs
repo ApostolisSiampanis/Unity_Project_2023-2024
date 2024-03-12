@@ -8,14 +8,15 @@ namespace Farm.Scripts.Interaction_System
     public class NPCSpeaker : MonoBehaviour, Interactable, ISpeak
     {
         // ====== INTERACTION ====== //
-        [Header("Interaction")]
-        [SerializeField] private string _taskHint = "talk to Bob";
+        [Header("Interaction")] [SerializeField]
+        private string _taskHint = "talk to Bob";
+
         [SerializeField] private KeyCode _interactKey;
         [SerializeField] private bool _readyToInteract = true;
 
         private Interactor _interactor;
         private DialogueTrigger _dialogueTrigger;
-        
+
         private Animator _animator;
         private NavMeshAgent _navMeshAgent;
 
@@ -26,16 +27,15 @@ namespace Farm.Scripts.Interaction_System
         public void Start()
         {
             _isTalking = false;
-            
+
             _dialogueTrigger = GetComponent<DialogueTrigger>();
             _animator = GetComponent<Animator>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            
+
             // Check if necessary objects are present
             if (_dialogueTrigger == null) Debug.LogError("DialogueTrigger is missing");
             if (_animator == null) Debug.LogError("Animator is missing");
             if (_navMeshAgent == null) Debug.LogError("NavMeshAgent is missing");
-            
         }
 
         public void OnInteract(Interactor interactor)
@@ -43,13 +43,12 @@ namespace Farm.Scripts.Interaction_System
             _interactor = interactor;
 
             if (_dialogueTrigger == null) return;
-            
+
             _isTalking = true;
             ChangeState();
             _dialogueTrigger.TriggerDialogue(this);
-            
         }
-        
+
         public void OnEndInteract()
         {
             if (_isTalking)
@@ -58,6 +57,7 @@ namespace Farm.Scripts.Interaction_System
                 _dialogueTrigger.Abort();
                 Debug.Log("Abort dialogue.");
             }
+
             Debug.Log("End of interaction.");
             ChangeState();
         }

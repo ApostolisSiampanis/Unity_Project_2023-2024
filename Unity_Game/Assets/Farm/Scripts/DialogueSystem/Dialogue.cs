@@ -1,10 +1,12 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-[System.Serializable]
-public class Dialogue
+namespace Farm.Scripts.DialogueSystem
 {
-    public int id;
-    public List<DialogueSentence> sentences;
+    [Serializable]
+    public class Dialogue
+    {
+        public int id;
+        public List<DialogueSentence> sentences;
+    }
 }

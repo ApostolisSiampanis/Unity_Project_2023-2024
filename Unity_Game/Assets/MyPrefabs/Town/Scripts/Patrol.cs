@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace MyPrefabs.Town.NPC.Scripts
+namespace MyPrefabs.Town.Scripts
 {
     public class Patrol : MonoBehaviour
     {
         [SerializeField] private Transform[] points;
         [SerializeField] private NavMeshAgent agent;
-        private int m_destPoint;
+        private int _mDestPoint;
 
         private void Start()
         {
@@ -28,11 +28,11 @@ namespace MyPrefabs.Town.NPC.Scripts
                 return;
 
             // Set the agent to go to the currently selected destination.
-            agent.destination = points[m_destPoint].position;
+            agent.destination = points[_mDestPoint].position;
 
             // Choose the next point in the array as the destination,
             // cycling to the start if necessary.
-            m_destPoint = (m_destPoint + 1) % points.Length;
+            _mDestPoint = (_mDestPoint + 1) % points.Length;
         }
 
         private void Update()

@@ -1367,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 8379556210628883634, guid: 85f979d4ae19fe84cbe25f304f319a71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00084775465
+      value: -0.0008477545
       objectReference: {fileID: 0}
     - target: {fileID: 8379556210628883634, guid: 85f979d4ae19fe84cbe25f304f319a71,
         type: 3}
@@ -1577,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 9153603118822590545, guid: 85f979d4ae19fe84cbe25f304f319a71,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.008700914
+      value: -0.008700913
       objectReference: {fileID: 0}
     - target: {fileID: 9153603118822590545, guid: 85f979d4ae19fe84cbe25f304f319a71,
         type: 3}
@@ -9113,7 +9113,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022052104}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: beee174bd1fad674fa4f9aff4c173a75, type: 2}
   m_InitialState: 1
@@ -9139,8 +9139,6 @@ PlayableDirector:
     value: {fileID: 959556977}
   - key: {fileID: -3614292101147480707, guid: beee174bd1fad674fa4f9aff4c173a75, type: 2}
     value: {fileID: 1032860963}
-  - key: {fileID: -8997728040499156319, guid: beee174bd1fad674fa4f9aff4c173a75, type: 2}
-    value: {fileID: 1677220063}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1022052106
@@ -10386,7 +10384,7 @@ PrefabInstance:
     - target: {fileID: 2308771688085972127, guid: 6f226860c8d629d4dbb962fc2b065799,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999937
+      value: 0.9999936
       objectReference: {fileID: 0}
     - target: {fileID: 2308771688085972127, guid: 6f226860c8d629d4dbb962fc2b065799,
         type: 3}
@@ -10396,7 +10394,7 @@ PrefabInstance:
     - target: {fileID: 2308771688085972127, guid: 6f226860c8d629d4dbb962fc2b065799,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0035756417
+      value: -0.003575643
       objectReference: {fileID: 0}
     - target: {fileID: 2308771688085972127, guid: 6f226860c8d629d4dbb962fc2b065799,
         type: 3}
@@ -12393,8 +12391,6 @@ PlayableDirector:
     value: {fileID: 1437943124}
   - key: {fileID: -8265286065878915032, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
     value: {fileID: 114461729}
-  - key: {fileID: 5711530059213046508, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
-    value: {fileID: 959556977}
   - key: {fileID: 7818566713110516863, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
     value: {fileID: 1032860963}
   - key: {fileID: 3233820472704030465, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
@@ -12769,7 +12765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1677220064
 Animator:
   serializedVersion: 5
@@ -13807,7 +13803,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125908156}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
   m_InitialState: 1
@@ -13825,8 +13821,6 @@ PlayableDirector:
     value: {fileID: 918045653}
   - key: {fileID: -8632989222503681367, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
     value: {fileID: 1032860963}
-  - key: {fileID: -8913962012017448441, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
-    value: {fileID: 959556977}
   - key: {fileID: -724910160937937021, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
     value: {fileID: 114461729}
   - key: {fileID: -7151299124768599605, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
@@ -13837,6 +13831,8 @@ PlayableDirector:
     value: {fileID: 1677220064}
   - key: {fileID: -868778162706334439, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
     value: {fileID: 1356941100}
+  - key: {fileID: -3955338032798574988, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
+    value: {fileID: 1677220063}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &9975132933594822

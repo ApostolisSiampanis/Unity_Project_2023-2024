@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Farm.Scripts.Interaction_System
 {
     public class Collectable : MonoBehaviour, Interactable
     {
-        [Header("Interaction")]
-        [SerializeField] private string _taskHint = "collect herb";
+        [Header("Interaction")] [SerializeField]
+        private string _taskHint = "collect herb";
+
         [SerializeField] private KeyCode _interactKey;
         [SerializeField] protected bool readyToInteract = true;
 
@@ -15,7 +15,7 @@ namespace Farm.Scripts.Interaction_System
         public virtual void OnInteract(Interactor interactor)
         {
             if (interactor == null) return;
-            
+
             // Instant interaction
             interactor.Collect(itemType);
             interactor.EndInteraction(this);

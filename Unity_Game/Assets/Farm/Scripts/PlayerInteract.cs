@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour
+namespace Farm.Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerInteract : MonoBehaviour
     {
-        
-    }
+        // Start is called before the first frame update
+        private void Start()
+        {
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Update is called once per frame
+        private void Update()
+        {
+        }
     }
 }

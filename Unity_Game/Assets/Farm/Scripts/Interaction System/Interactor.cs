@@ -18,14 +18,13 @@ namespace Farm.Scripts.Interaction_System
         [SerializeField] private Animator animator;
 
         // ====== INTERACTION ====== //
-        [Header("Interaction")]
-        [SerializeField] private KeyCode defaultInteractKey = KeyCode.E;
-        
+        [Header("Interaction")] [SerializeField]
+        private KeyCode defaultInteractKey = KeyCode.E;
+
         // ====== INVENTORY ====== //
-        [Header("Inventory")]
-        [SerializeField] private UI_Inventory uiInventory;
+        [Header("Inventory")] [SerializeField] private UI_Inventory uiInventory;
         private Inventory _inventory;
-        
+
         [SerializeField] private KeyCode[] cancelInteractionKeys;
 
         // ====== Interactable Related State ====== //
@@ -38,11 +37,11 @@ namespace Farm.Scripts.Interaction_System
         private bool _interacting;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             _inventory = new Inventory();
             uiInventory.SetInventory(_inventory);
-            
+
             _interactKey = defaultInteractKey;
 
             // Console warning if variables don't have a reference
@@ -57,7 +56,7 @@ namespace Farm.Scripts.Interaction_System
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             _currentInteractable = null;
 
@@ -116,10 +115,10 @@ namespace Farm.Scripts.Interaction_System
             _interacting = true;
             _readyToInteract = false;
             hint.SetActive(false);
-            
+
             animator.SetFloat("Speed", 0);
             controller.enabled = false;
-            
+
             _currentInteractable?.OnInteract(this);
         }
 

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace MyPrefabs.Town.NPC.Scripts
+namespace MyPrefabs.Town.Scripts
 {
     public class RayCastFromCamera : MonoBehaviour
     {
         [SerializeField] private Transform mainCameraTransform;
-        private bool m_alreadyWaved;
+        private bool _mAlreadyWaved;
 
         private void Start()
         {

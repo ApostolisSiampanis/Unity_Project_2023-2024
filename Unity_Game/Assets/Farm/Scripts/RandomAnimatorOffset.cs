@@ -1,31 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomAnimatorOffset : MonoBehaviour
+namespace Farm.Scripts
 {
-    [SerializeField] private string animationName;
-    
-    private Animator animator;
-    private float randomOffset;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class RandomAnimatorOffset : MonoBehaviour
     {
-        // Get the animator component
-        animator = GetComponent<Animator>();
+        [SerializeField] private string animationName;
 
-        if (animator != null)
-        {
-            randomOffset = Random.Range(0f, 2f);
-            
-            animator.Play(animationName, 0, randomOffset);
-        }
-        else
-        {
-            // Log an error if Animator component is not found
-            Debug.LogError("Animator component not found on " + gameObject.name);
-        }
+        private Animator _animator;
+        private float _randomOffset;
 
+        // Start is called before the first frame update
+        private void Start()
+        {
+            // Get the animator component
+            _animator = GetComponent<Animator>();
+
+            if (_animator != null)
+            {
+                _randomOffset = Random.Range(0f, 2f);
+
+                _animator.Play(animationName, 0, _randomOffset);
+            }
+            else
+            {
+                // Log an error if Animator component is not found
+                Debug.LogError("Animator component not found on " + gameObject.name);
+            }
+        }
     }
 }

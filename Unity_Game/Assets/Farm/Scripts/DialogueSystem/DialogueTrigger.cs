@@ -8,7 +8,7 @@ namespace Farm.Scripts.DialogueSystem
     {
         // ====== PUBLIC ====== //
         public List<Dialogue> dialogues;
-    
+
         // ====== PRIVATE ====== //
         private DialogueManager _dialogueManager;
 

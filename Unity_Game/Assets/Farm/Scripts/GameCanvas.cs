@@ -20,7 +20,7 @@ namespace Farm.Scripts
             miniMap.SetActive(!isEnabled);
 
             // If Alex is not active, return.
-            if (!alex.activeInHierarchy) return;
+            if (!alex.activeSelf) return;
 
             // Alex is active.
             // Disable the farm-forest playable director.

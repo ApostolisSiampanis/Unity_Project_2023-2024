@@ -1,7 +1,7 @@
 using StarterAssets.ThirdPersonController.Scripts;
 using UnityEngine;
 
-namespace MyPrefabs.Town.NPC.Scripts
+namespace MyPrefabs.Town.Scripts
 {
     public class AlexHoldingBox : MonoBehaviour
     {

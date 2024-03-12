@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-[System.Serializable]
-public class DialogueSentence
+namespace Farm.Scripts.DialogueSystem
 {
-    public string name;
-    [TextArea(3, 10)] 
-    public string text;
+    [Serializable]
+    public class DialogueSentence
+    {
+        public string name;
+        [TextArea(3, 10)]
+        public string text;
+    }
 }
