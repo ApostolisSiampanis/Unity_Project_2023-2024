@@ -11,6 +11,7 @@ namespace MyPrefabs.Forest.Scripts
         [SerializeField] private GameObject crosshair;
         [SerializeField] private GameObject miniMap;
         [SerializeField] private GameObject alex;
+        [SerializeField] private Wheels wheels;
 
         private void Update()
         {
@@ -19,8 +20,15 @@ namespace MyPrefabs.Forest.Scripts
             crosshair.SetActive(!isEnabled);
             miniMap.SetActive(!isEnabled);
 
-            // Disable the farm-forest playable director when Alex is active.
-            if (alex.activeInHierarchy) playableDirector1.enabled = false;
+            // If Alex is not active, return.
+            if (!alex.activeInHierarchy) return;
+
+            // Alex is active.
+            // Disable the farm-forest playable director.
+            playableDirector1.enabled = false;
+
+            // Disable the wheels script when Alex is active. Means that the car is not moving.
+            wheels.enabled = false;
         }
     }
 }
