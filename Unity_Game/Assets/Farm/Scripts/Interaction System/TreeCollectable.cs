@@ -24,16 +24,12 @@ namespace Farm.Scripts.Interaction_System
             interactor.Collect(itemType);
             _availableFruits--;
 
-            if (_availableFruits <= 0) readyToInteract = false;
-
             interactor.EndInteraction(this);
-            Debug.Log("Collected 1 fruit from tree");
         }
 
         public override void OnEndInteract()
         {
-            // Do nothing
-            Debug.Log("On end interact with tree");
+            if (_availableFruits <= 0) readyToInteract = false;
         }
     }
 }
