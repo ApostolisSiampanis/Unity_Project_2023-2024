@@ -23,7 +23,7 @@ namespace Farm.Scripts.Interaction_System
 
         // ====== INVENTORY ====== //
         [Header("Inventory")] [SerializeField] private UI_Inventory uiInventory;
-        private Inventory _inventory;
+        public Inventory inventory;
 
         [SerializeField] private KeyCode[] cancelInteractionKeys;
 
@@ -39,8 +39,8 @@ namespace Farm.Scripts.Interaction_System
         // Start is called before the first frame update
         private void Start()
         {
-            _inventory = new Inventory();
-            uiInventory.SetInventory(_inventory);
+            inventory = new Inventory();
+            uiInventory.SetInventory(inventory);
 
             _interactKey = defaultInteractKey;
 
@@ -167,7 +167,7 @@ namespace Farm.Scripts.Interaction_System
         public void Collect(Item.ItemType givenItemType)
         {
             // Add the collected item to the inventory
-            _inventory.AddItem(new Item { itemType = givenItemType, amount = 1 });
+            inventory.AddItem(new Item { itemType = givenItemType, amount = 1 });
             Debug.Log("Collected: 1 " + givenItemType);
         }
     }

@@ -8,7 +8,7 @@ namespace Farm.Scripts.Interaction_System
         private string _taskHint = "collect herb";
 
         [SerializeField] private KeyCode _interactKey;
-        [SerializeField] protected bool readyToInteract = true;
+        public bool readyToInteract = true;
 
         public Item.ItemType itemType;
 

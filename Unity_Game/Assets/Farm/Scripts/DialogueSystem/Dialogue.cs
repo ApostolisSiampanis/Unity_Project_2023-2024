@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Farm.Scripts.DialogueSystem
 {
-    [Serializable]
-    public class Dialogue
+    [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue/Create new Dialogue")]
+    public class Dialogue : ScriptableObject
     {
-        public int id;
         public List<DialogueSentence> sentences;
     }
 }

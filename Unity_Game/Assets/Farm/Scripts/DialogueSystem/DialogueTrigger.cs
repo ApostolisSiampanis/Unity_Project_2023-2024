@@ -7,7 +7,7 @@ namespace Farm.Scripts.DialogueSystem
     public class DialogueTrigger : MonoBehaviour
     {
         // ====== PUBLIC ====== //
-        public List<Dialogue> dialogues;
+        public Dialogue greetDialogue;
 
         // ====== PRIVATE ====== //
         private DialogueManager _dialogueManager;
@@ -17,9 +17,14 @@ namespace Farm.Scripts.DialogueSystem
             _dialogueManager = FindObjectOfType<DialogueManager>();
         }
 
-        public void TriggerDialogue(NPCSpeaker npcSpeaker)
+        public void TriggerDialogue(Dialogue dialogue, ISpeak speaker)
         {
-            _dialogueManager.StartDialogue(dialogues[0], npcSpeaker);
+            _dialogueManager.StartDialogue(dialogue, speaker);
+        }
+
+        public void Greet(ISpeak speaker)
+        {
+            _dialogueManager.StartDialogue(greetDialogue, speaker);
         }
 
         public void Abort()

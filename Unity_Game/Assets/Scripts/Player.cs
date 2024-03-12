@@ -8,9 +8,4 @@ public class NewBehaviourScript : MonoBehaviour
 
     private Inventory inventory;
 
-    private void Awake()
-    {
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
-    }
 }

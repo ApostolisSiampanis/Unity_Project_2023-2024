@@ -10,10 +10,13 @@ public class Inventory
     public event EventHandler OnItemListChanged;
 
     private List<Item> itemList;
+    private QuestManager _questManager;
 
     public Inventory()
     {
         itemList = new List<Item>();
+        _questManager = QuestManager.Instance;
+        if (_questManager == null) Debug.LogError("Quest Manager is missing");
     }
 
     public void AddItem(Item item)
@@ -37,6 +40,12 @@ public class Inventory
         {
             itemList.Add(item);
         }
+
+        if (_questManager.currentQuest is CollectQuest quest)
+        {
+            quest.ItemCollected(item);
+        }
+        
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
