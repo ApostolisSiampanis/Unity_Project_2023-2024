@@ -59,22 +59,22 @@ namespace Farm.Scripts.Interaction_System
         private void Update()
         {
             _currentInteractable = null;
-
-            var ray = new Ray(transform.position, transform.forward);
-
-            Debug.DrawRay(transform.position, ray.direction * rayMaxDistance, Color.green);
-
-            if (Physics.Raycast(ray, out var hit, rayMaxDistance, layerMask))
-            {
-                if (hit.collider.CompareTag(targetTag))
-                {
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    if (interactable != null) _currentInteractable = interactable;
-                }
-            }
-
+            
+            // Debug.DrawRay(transform.position, ray.direction * rayMaxDistance, Color.green);
+            
             if (!_interacting)
             {
+                var ray = new Ray(transform.position, transform.forward);
+                
+                if (Physics.Raycast(ray, out var hit, rayMaxDistance, layerMask))
+                {
+                    if (hit.collider.CompareTag(targetTag))
+                    {
+                        Interactable interactable = hit.collider.GetComponent<Interactable>();
+                        if (interactable != null) _currentInteractable = interactable;
+                    }
+                }
+                
                 // Check if the interactor was looking at an interactable object that it didn't last frame
                 if (_currentInteractable != null && !_readyToInteract) CheckIfAvailableToInteract();
                 else if (_currentInteractable == null && _readyToInteract) AbortInteraction();
@@ -116,8 +116,11 @@ namespace Farm.Scripts.Interaction_System
             _readyToInteract = false;
             hint.SetActive(false);
 
-            animator.SetFloat("Speed", 0);
-            controller.enabled = false;
+            if (_currentInteractable is ISpeak)
+            {
+                animator.SetFloat("Speed", 0);
+                controller.enabled = false;
+            }
 
             _currentInteractable?.OnInteract(this);
         }
@@ -125,20 +128,26 @@ namespace Farm.Scripts.Interaction_System
         // ReSharper disable Unity.PerformanceAnalysis
         private void EndInteraction()
         {
-            _interacting = false;
             // setting readyInteract to false we allow for a clean check next frame/check
             // when an interacting is cancelled, a next suitable object could be ready to interact (already looking at it)
             // ...but without setting readyInteract to false, it thinks we aren't allowed to search for anything new
             // (will not call ReadyInteract method properly)
-            _readyToInteract = false;
-            controller.enabled = true;
+            
+            if (_lastInteractable is ISpeak) controller.enabled = true;
             _lastInteractable.OnEndInteract();
+            _interacting = false;
+            _readyToInteract = false;
         }
 
         //pubic override method that calls EndInteract if the GameObject that requested matches lastInteractable
         public void EndInteraction(Interactable requester)
         {
-            if (requester != _lastInteractable) return;
+            // TODO:
+            if (requester != _lastInteractable && requester is not Collectable)
+            {
+                Debug.LogError("Requester is not last interactable");
+                return;
+            }
             EndInteraction();
         }
 
