@@ -113,7 +113,7 @@ namespace Farm.Scripts.Interaction_System
                 switch (availableQuest.state)
                 {
                     case Quest.State.NotStarted:
-                        availableQuest.StartQuest();
+                        _questManager.AcceptQuest(this);
                         break;
                     case Quest.State.Completed:
                         _questManager.CompleteQuest(_interactor, this);

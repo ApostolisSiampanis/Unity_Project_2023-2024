@@ -9,7 +9,8 @@ using UnityEngine.Serialization;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance { get; private set; }
-    
+
+    public GameObject questPanel;
     public TextMeshProUGUI questTitleText;
     public TextMeshProUGUI questDescriptionText;
     // public TextMeshProUGUI objectiveText;
@@ -29,7 +30,7 @@ public class QuestManager : MonoBehaviour
 
             // Assuming responsibleNPC is a public field, you can set the available quest here
             currentQuest.responsibleNPC.availableQuest = currentQuest;
-            // UpdateQuestUI();
+            UpdateQuestUI();
         }
         else
         {
@@ -39,8 +40,16 @@ public class QuestManager : MonoBehaviour
 
     private void UpdateQuestUI()
     {
+        questPanel.SetActive(currentQuest.state == Quest.State.InProgress);
         questTitleText.text = quests[_currentQuestIdx].title;
         questDescriptionText.text = quests[_currentQuestIdx].description;
+    }
+
+    public void AcceptQuest(NPC requester)
+    {
+        if (currentQuest.responsibleNPC != requester) return;
+        currentQuest.StartQuest();
+        UpdateQuestUI();
     }
 
     public void CompleteQuest(Interactor interactor, NPC requester)
@@ -52,6 +61,7 @@ public class QuestManager : MonoBehaviour
         }
         currentQuest.CompleteQuest(interactor);
         requester.availableQuest = null;
+        UpdateQuestUI();
         NextQuest();
     }
 
