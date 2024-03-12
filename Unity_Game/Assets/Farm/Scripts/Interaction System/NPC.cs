@@ -24,6 +24,7 @@ namespace Farm.Scripts.Interaction_System
         private Quaternion _prevRotation;
 
         private QuestManager _questManager;
+        public GameObject questHint;
         public Quest availableQuest;
 
         private bool _isTalking;
@@ -126,6 +127,11 @@ namespace Farm.Scripts.Interaction_System
             }
             
             _interactor.EndInteraction(this);
+        }
+
+        public void ShowQuestHint(bool show)
+        {
+            questHint.SetActive(show);
         }
 
         private void ChangeState()

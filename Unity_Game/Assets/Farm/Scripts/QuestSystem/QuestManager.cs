@@ -30,6 +30,7 @@ public class QuestManager : MonoBehaviour
 
             // Assuming responsibleNPC is a public field, you can set the available quest here
             currentQuest.responsibleNPC.availableQuest = currentQuest;
+            currentQuest.responsibleNPC.ShowQuestHint(true);
             UpdateQuestUI();
         }
         else
@@ -49,6 +50,7 @@ public class QuestManager : MonoBehaviour
     {
         if (currentQuest.responsibleNPC != requester) return;
         currentQuest.StartQuest();
+        requester.ShowQuestHint(false);
         UpdateQuestUI();
     }
 
