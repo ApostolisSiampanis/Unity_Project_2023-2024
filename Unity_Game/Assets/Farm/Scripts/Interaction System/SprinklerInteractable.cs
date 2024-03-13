@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Farm.Scripts.DialogueSystem;
 using Farm.Scripts.Interaction_System;
+using Farm.Scripts.QuestSystem;
 using UnityEngine;
 
 public class Sprinkler : Interactable, IFixable

@@ -1,50 +1,51 @@
-using System.Collections;
 using System.Collections.Generic;
 using Farm.Scripts.Interaction_System;
-using UnityEngine;
 
-public class InteractQuest : Quest
+namespace Farm.Scripts.QuestSystem
 {
-    public enum InteractableItem
+    public class InteractQuest : Quest
     {
-        Sprinkler,
-        Car
-    }
-    
-    public List<Interactable> interactables;
-    public InteractableItem interactableTarget;
+        public enum InteractableItem
+        {
+            Sprinkler,
+            Car
+        }
 
-    public override void StartQuest()
-    {
-        SetupQuest();
-    }
+        public List<Interactable> interactables;
+        public InteractableItem interactableTarget;
 
-    protected override void SetupQuest()
-    {
-        state = State.InProgress;
-        interactables.ForEach(interactable => interactable.readyToInteract = true);
-    }
+        public override void StartQuest()
+        {
+            SetupQuest();
+        }
 
-    public override bool IsCompleted()
-    {
-        return state == State.Completed;
-    }
+        protected override void SetupQuest()
+        {
+            state = State.InProgress;
+            interactables.ForEach(interactable => interactable.readyToInteract = true);
+        }
 
-    public override void CompleteQuest(Interactor interactor)
-    {
-        // TODO: Implement
-    }
+        public override bool IsCompleted()
+        {
+            return state == State.Completed;
+        }
 
-    protected override void CheckObjective()
-    {
-        if (currentAmount < requiredAmount) return;
-        state = State.Completed;
-    }
+        public override void CompleteQuest(Interactor interactor)
+        {
+            // TODO: Implement
+        }
 
-    public void ItemInteracted(InteractableItem interactableItem)
-    {
-        if (interactableTarget != interactableItem) return;
-        currentAmount++;
-        CheckObjective();
+        protected override void CheckObjective()
+        {
+            if (currentAmount < requiredAmount) return;
+            state = State.Completed;
+        }
+
+        public void ItemInteracted(InteractableItem interactableItem)
+        {
+            if (interactableTarget != interactableItem) return;
+            currentAmount++;
+            CheckObjective();
+        }
     }
 }

@@ -1,34 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using Farm.Scripts.Interaction_System;
 using UnityEngine;
 
-public class Car : Interactable
+namespace Farm.Scripts.Interaction_System
 {
-    public GameObject exitCutScene;
-    public override void OnInteract(Interactor interactor)
+    public class Car : Interactable
     {
-        if (interactor == null) return;
+        [SerializeField] private GameObject exitCutScene;
+        [SerializeField] private GameObject gameCanvas;
 
-        // Instant interaction
-        Debug.Log("Interacted with car");
-        exitCutScene.SetActive(true);
-    }
+        public override void OnInteract(Interactor interactor)
+        {
+            if (interactor == null) return;
 
-    public override void OnEndInteract()
-    {
-        // TODO: Implement
-    }
+            // Instant interaction
+            Debug.Log("Interacted with car");
+            gameCanvas.SetActive(false);
+            exitCutScene.SetActive(true);
+        }
 
-    public override bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
-    {
-        taskHint = this.taskHint;
-        interactKey = this.interactKey;
-        return readyToInteract;
-    }
+        public override void OnEndInteract()
+        {
+            // TODO: Implement
+        }
 
-    public override void OnAbortInteract()
-    {
-        // TODO: Implement
+        public override bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
+        {
+            taskHint = this.taskHint;
+            interactKey = this.interactKey;
+            return readyToInteract;
+        }
+
+        public override void OnAbortInteract()
+        {
+            // TODO: Implement
+        }
     }
 }
