@@ -148,9 +148,9 @@ namespace Farm.Scripts.Interaction_System
         public void EndInteraction(Interactable requester)
         {
             // TODO:
-            if (requester != _lastInteractable && requester is not Collectable)
+            if (requester != _lastInteractable && requester is ISpeak)
             {
-                Debug.LogError("Requester is not last interactable");
+                Debug.LogError("Requester is an ISpeak interactable");
                 return;
             }
             EndInteraction();
