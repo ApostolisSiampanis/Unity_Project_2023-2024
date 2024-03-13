@@ -48,23 +48,16 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void AcceptQuest(NPC requester)
+    public void StartQuest(NPC requester)
     {
-        if (currentQuest.responsibleNPC != requester) return;
-        currentQuest.StartQuest();
-        requester.ShowQuestHint(false);
+        if (currentQuest.responsibleNPC != null && currentQuest.responsibleNPC != requester) return;
+        if (requester != null) requester.ShowQuestHint(false);
         UpdateQuestUI();
     }
 
-    public void CompleteQuest(Interactor interactor, NPC requester)
+    public void CompleteQuest()
     {
-        if (requester != currentQuest.responsibleNPC || currentQuest.state != Quest.State.Completed)
-        {
-            Debug.LogError("Wrong call on QuestCompleted");
-            return;
-        }
-        currentQuest.CompleteQuest(interactor);
-        requester.availableQuest = null;
+        if (currentQuest.responsibleNPC != null) currentQuest.responsibleNPC.availableQuest = null;
         NextQuest();
     }
 
@@ -82,7 +75,7 @@ public class QuestManager : MonoBehaviour
 
         if (currentQuest.responsibleNPC == null)
         {
-            currentQuest.StartQuest();
+            currentQuest.StartQuest(null);
         }
         else
         {

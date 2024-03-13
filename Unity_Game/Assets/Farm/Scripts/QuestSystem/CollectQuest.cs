@@ -8,11 +8,6 @@ public class CollectQuest : Quest
 {
     public List<Collectable> collectables;
     public Item.ItemType itemType;
-    
-    public override void StartQuest()
-    {
-        SetupQuest();
-    }
 
     protected override void SetupQuest()
     {
@@ -20,14 +15,15 @@ public class CollectQuest : Quest
         collectables.ForEach(collectable => collectable.readyToInteract = true);
     }
 
-    public override bool IsCompleted()
+    public override void CompleteQuest(Interactor interactor, NPC requester)
     {
-        return state == State.Completed;
-    }
-
-    public override void CompleteQuest(Interactor interactor)
-    {
+        if (responsibleNPC != null && (requester != responsibleNPC || state != State.Completed))
+        {
+            Debug.LogError("Quest cannot be completed");
+            return;
+        }
         interactor.inventory.RemoveAllItems(itemType);
+        QuestManager.Instance.CompleteQuest();
     }
 
     protected override void CheckObjective()

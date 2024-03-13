@@ -15,8 +15,7 @@ namespace Farm.Scripts.Interaction_System
         private NavMeshAgent _navMeshAgent;
 
         private Quaternion _prevRotation;
-
-        private QuestManager _questManager;
+        
         public GameObject questHint;
         public Quest availableQuest;
 
@@ -29,18 +28,17 @@ namespace Farm.Scripts.Interaction_System
             _dialogueTrigger = GetComponent<DialogueTrigger>();
             _animator = GetComponent<Animator>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            _questManager = QuestManager.Instance;
 
             // Check if necessary objects are present
             if (_dialogueTrigger == null) Debug.LogError("DialogueTrigger is missing");
             if (_animator == null) Debug.LogError("Animator is missing");
             if (_navMeshAgent == null) Debug.LogError("NavMeshAgent is missing");
-            if (_questManager == null) Debug.LogError("QuestManager is missing");
         }
 
         public override void OnInteract(Interactor interactor)
         {
             _interactor = interactor;
+            base.OnInteract(interactor);
 
             if (_dialogueTrigger == null) return;
 
@@ -107,10 +105,10 @@ namespace Farm.Scripts.Interaction_System
                 switch (availableQuest.state)
                 {
                     case Quest.State.NotStarted:
-                        _questManager.AcceptQuest(this);
+                        availableQuest.StartQuest(this);
                         break;
                     case Quest.State.Completed:
-                        _questManager.CompleteQuest(_interactor, this);
+                        availableQuest.CompleteQuest(_interactor, this);
                         break;
                     case Quest.State.InProgress:
                         break;

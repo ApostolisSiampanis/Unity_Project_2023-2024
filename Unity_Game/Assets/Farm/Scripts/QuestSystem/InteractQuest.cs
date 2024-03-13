@@ -1,23 +1,26 @@
 using System.Collections.Generic;
 using Farm.Scripts.Interaction_System;
+using UnityEngine;
 
 namespace Farm.Scripts.QuestSystem
 {
     public class InteractQuest : Quest
     {
-        public enum InteractableItem
+        public enum InteractableObject
         {
             Sprinkler,
-            Car
+            Car,
+            Carrot,
+            AppleTree,
+            Grandpa,
+            Alice
         }
 
         public List<Interactable> interactables;
-        public InteractableItem interactableTarget;
-
-        public override void StartQuest()
-        {
-            SetupQuest();
-        }
+        public InteractableObject interactableTarget;
+        
+        [Header("Flags")]
+        public bool setInteractableAfterQuest;
 
         protected override void SetupQuest()
         {
@@ -25,25 +28,22 @@ namespace Farm.Scripts.QuestSystem
             interactables.ForEach(interactable => interactable.readyToInteract = true);
         }
 
-        public override bool IsCompleted()
+        public override void CompleteQuest(Interactor interactor, NPC requester)
         {
-            return state == State.Completed;
-        }
-
-        public override void CompleteQuest(Interactor interactor)
-        {
-            // TODO: Implement
+            QuestManager.Instance.CompleteQuest();
         }
 
         protected override void CheckObjective()
         {
             if (currentAmount < requiredAmount) return;
             state = State.Completed;
+            interactables.ForEach(interactable => interactable.readyToInteract = setInteractableAfterQuest);
+            if (responsibleNPC == null) CompleteQuest(null, null);
         }
 
-        public void ItemInteracted(InteractableItem interactableItem)
+        public void ObjectInteracted(InteractableObject interactableObject)
         {
-            if (interactableTarget != interactableItem) return;
+            if (interactableTarget != interactableObject) return;
             currentAmount++;
             CheckObjective();
         }

@@ -9,7 +9,7 @@ namespace Farm.Scripts.Interaction_System
 
         public override void OnInteract(Interactor interactor)
         {
-            if (interactor == null) return;
+            base.OnInteract(interactor);
 
             // Instant interaction
             Debug.Log("Interacted with car");
@@ -20,13 +20,6 @@ namespace Farm.Scripts.Interaction_System
         public override void OnEndInteract()
         {
             // TODO: Implement
-        }
-
-        public override bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
-        {
-            taskHint = this.taskHint;
-            interactKey = this.interactKey;
-            return readyToInteract;
         }
 
         public override void OnAbortInteract()

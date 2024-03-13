@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Farm.Scripts.DialogueSystem;
@@ -28,10 +29,18 @@ public abstract class Quest : MonoBehaviour
 
     protected int currentAmount;
 
-    public abstract void StartQuest();
+    public void StartQuest(NPC requester)
+    {
+        SetupQuest();
+        if (requester != null) requester.ShowQuestHint(false);
+        QuestManager.Instance.StartQuest(requester);
+    }
     protected abstract void SetupQuest();
-    
-    public abstract bool IsCompleted();
-    public abstract void CompleteQuest(Interactor interactor);
+
+    public bool IsCompleted()
+    {
+        return state == State.Completed;
+    }
+    public abstract void CompleteQuest(Interactor interactor, NPC requester);
     protected abstract void CheckObjective();
 }
