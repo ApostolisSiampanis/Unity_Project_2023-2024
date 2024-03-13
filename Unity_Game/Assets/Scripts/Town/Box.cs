@@ -1,8 +1,5 @@
-using System;
 using Common.QuestSystem;
-using Farm.Scripts.Interaction_System;
 using Farm.Scripts.InteractionSystem;
-using UnityEngine;
 
 namespace Town
 {
@@ -16,7 +13,7 @@ namespace Town
         public override void OnInteract(Interactor interactor)
         {
             base.OnInteract(interactor);
-            
+
             // Instant interaction
             if (interactor.GetCarryingObject() == InteractableObject.None)
             {
@@ -25,9 +22,10 @@ namespace Town
                 {
                     quest.OnObjectPickUp(interactableObject);
                 }
+
                 gameObject.SetActive(false);
             }
-            
+
             interactor.EndInteraction(this);
         }
 

@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
-using Farm.Scripts.Interaction_System;
 using Farm.Scripts.InteractionSystem;
 using Town;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Common.QuestSystem
 {
@@ -42,7 +39,7 @@ namespace Common.QuestSystem
             if (currentAmount < requiredAmount) return;
             state = State.Completed;
         }
-    
+
         public void OnObjectPickUp(Interactable.InteractableObject interactableObject)
         {
             if (interactableObject != objectToBeCarried) return;
