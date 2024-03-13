@@ -3601,15 +3601,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1051490054}
-    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1051490053}
     - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1051490056}
+    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051490058}
   m_SourcePrefab: {fileID: 100100000, guid: bd5b7d8fef03f614a8a4a29a95127ac0, type: 3}
 --- !u!1001 &168766007
 PrefabInstance:
@@ -10168,24 +10168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greetDialogue: {fileID: 11400000, guid: 69925f1fd52524cb8a4caed7500d82bd, type: 2}
---- !u!114 &1051490054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051490044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604dd9ac17a9d41188789425dfa26cbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskHint: talk to old man
-  interactableObject: 6
-  interactKey: 0
-  readyToInteract: 1
-  questHint: {fileID: 2129776352}
-  availableQuest: {fileID: 0}
 --- !u!136 &1051490056
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10209,6 +10191,24 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1051490058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051490044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37d51bb4b1a4544b8b156a73f635b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskHint: talk to old man
+  interactableObject: 6
+  interactKey: 0
+  readyToInteract: 1
+  questHint: {fileID: 2129776352}
+  availableQuest: {fileID: 0}
 --- !u!4 &1062576389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 438816, guid: 85ac88d7c46e0ea4583870a98cc13580,
@@ -12776,7 +12776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1558628210
 Transform:
   m_ObjectHideFlags: 0
@@ -14646,7 +14646,7 @@ MonoBehaviour:
   inProgressDialogue: {fileID: 0}
   onCompletionDialogue: {fileID: 0}
   interactables:
-  - {fileID: 1051490054}
+  - {fileID: 1051490058}
   interactableTarget: 6
   setInteractableAfterQuest: 1
 --- !u!1 &9975132933594822
