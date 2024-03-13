@@ -1,10 +1,13 @@
 using System.Linq;
+using Common.InteractionSystem;
+using Farm.Scripts.InteractionSystem;
 using StarterAssets.ThirdPersonController.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Farm.Scripts.Interaction_System
 {
-    public class Interactor : MonoBehaviour, ICollector
+    public class Interactor : MonoBehaviour, ICollector, ICarrier
     {
         private Interactable _currentInteractable; // interactable object that Interactor is looking at
         private Interactable _lastInteractable; // last saved object for calculations between checks/frames
@@ -31,6 +34,11 @@ namespace Farm.Scripts.Interaction_System
         private KeyCode _interactKey;
         private string _taskHint;
         private InteractHint _interactHint;
+        
+        // ====== Carrier ====== //
+        [Header("Carrier")]
+        public GameObject box;
+        private Interactable.InteractableObject _currentlyCarrying = Interactable.InteractableObject.None;
 
         // ====== State Booleans ====== //
         private bool _readyToInteract;
@@ -173,6 +181,47 @@ namespace Farm.Scripts.Interaction_System
             // Add the collected item to the inventory
             inventory.AddItem(new Item { itemType = givenItemType, amount = 1 });
             Debug.Log("Collected: 1 " + givenItemType);
+        }
+
+        public void PickUp(Interactable.InteractableObject interactableObject)
+        {
+            switch (interactableObject)
+            {
+                case Interactable.InteractableObject.Box:
+                    Debug.Log("Carry Box");
+                    if (box == null)
+                    {
+                        Debug.LogError("Reference to Box does not exist");
+                        return;
+                    }
+                    animator.SetBool("HoldingBoxIdle", true);
+                    _currentlyCarrying = Interactable.InteractableObject.Box;
+                    box.SetActive(true);
+                    break;
+                default:
+                    return;
+            }
+        }
+
+        public void Drop()
+        {
+            switch (_currentlyCarrying)
+            {
+                case Interactable.InteractableObject.Box:
+                    Debug.Log("Drop Box");
+                    animator.SetBool("HoldingBoxIdle", false);
+                    box.SetActive(false);
+                    break;
+                default:
+                    return;
+            }
+
+            _currentlyCarrying = Interactable.InteractableObject.None;
+        }
+
+        public Interactable.InteractableObject GetCarryingObject()
+        {
+            return _currentlyCarrying;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
 namespace Farm.Scripts.Interaction_System

@@ -1,25 +1,15 @@
 using System.Collections.Generic;
 using Farm.Scripts.Interaction_System;
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
 namespace Farm.Scripts.QuestSystem
 {
     public class InteractQuest : Quest
     {
-        public enum InteractableObject
-        {
-            Sprinkler,
-            Car,
-            Carrot,
-            Book,
-            AppleTree,
-            Grandpa,
-            Alice,
-            Samir
-        }
-
+        
         public List<Interactable> interactables;
-        public InteractableObject interactableTarget;
+        public Interactable.InteractableObject interactableTarget;
         
         [Header("Flags")]
         public bool setInteractableAfterQuest;
@@ -43,7 +33,7 @@ namespace Farm.Scripts.QuestSystem
             if (responsibleNPC == null) CompleteQuest(null, null);
         }
 
-        public void ObjectInteracted(InteractableObject interactableObject)
+        public void ObjectInteracted(Interactable.InteractableObject interactableObject)
         {
             if (interactableTarget != interactableObject) return;
             currentAmount++;

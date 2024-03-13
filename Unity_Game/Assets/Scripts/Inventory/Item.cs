@@ -10,7 +10,8 @@ public class Item
         Carrot,
         Toolbox,
         Hammer,
-        Book
+        Book,
+        Box
     }
 
     public ItemType itemType;
