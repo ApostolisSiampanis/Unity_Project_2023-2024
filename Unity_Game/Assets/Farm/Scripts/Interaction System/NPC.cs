@@ -125,7 +125,7 @@ namespace Farm.Scripts.Interaction_System
             questHint.SetActive(show);
         }
 
-        private void ChangeState()
+        protected virtual void ChangeState()
         {
             _animator.SetBool("isWalking", !_isTalking);
             _navMeshAgent.isStopped = _isTalking;

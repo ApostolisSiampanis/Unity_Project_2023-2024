@@ -13,7 +13,8 @@ namespace Farm.Scripts.QuestSystem
             Carrot,
             AppleTree,
             Grandpa,
-            Alice
+            Alice,
+            Samir
         }
 
         public List<Interactable> interactables;
