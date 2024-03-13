@@ -1,4 +1,3 @@
-using Farm.Scripts.Interaction_System;
 using Farm.Scripts.QuestSystem;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -10,12 +9,12 @@ namespace Farm.Scripts.InteractionSystem
     {
         [Header("Interaction")] [SerializeField]
         public string taskHint = "interact with something";
+
         public InteractableObject interactableObject;
 
-        [SerializeField]
-        protected KeyCode interactKey;
+        [SerializeField] protected KeyCode interactKey;
         public bool readyToInteract = true;
-    
+
         public enum InteractableObject
         {
             None,
@@ -37,7 +36,7 @@ namespace Farm.Scripts.InteractionSystem
             {
                 Debug.LogError("Interactor is null");
             }
-        
+
             if (QuestManager.Instance.currentQuest != null && QuestManager.Instance.currentQuest is InteractQuest quest)
             {
                 quest.ObjectInteracted(interactableObject);
