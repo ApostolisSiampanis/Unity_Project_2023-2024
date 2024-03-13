@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public class InteractHint : MonoBehaviour
     {
@@ -19,6 +19,5 @@ namespace Farm.Scripts.Interaction_System
             _hintMessage = hintMessage;
             if (textMesh != null) textMesh.text = _hintMessage;
         }
-    
     }
 }

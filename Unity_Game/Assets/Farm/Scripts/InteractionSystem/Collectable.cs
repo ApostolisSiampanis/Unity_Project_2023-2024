@@ -1,6 +1,7 @@
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public class Collectable : Interactable
     {

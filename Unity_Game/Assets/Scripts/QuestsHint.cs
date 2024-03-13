@@ -1,5 +1,5 @@
 using System.Collections;
-using Farm.Scripts.Interaction_System;
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;

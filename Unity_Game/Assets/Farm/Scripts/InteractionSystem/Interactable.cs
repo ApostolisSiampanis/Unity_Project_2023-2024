@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 
 // Anything that we need to consider as Interactable needs to implement this class
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public abstract class Interactable : MonoBehaviour
     {

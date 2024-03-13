@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public class NPC : Interactable, ISpeak
     {
@@ -15,7 +15,7 @@ namespace Farm.Scripts.Interaction_System
         private NavMeshAgent _navMeshAgent;
 
         private Quaternion _prevRotation;
-        
+
         public GameObject questHint;
         public Quest availableQuest;
 
@@ -44,7 +44,7 @@ namespace Farm.Scripts.Interaction_System
 
             _isTalking = true;
             ChangeState();
-            
+
             if (availableQuest != null)
             {
                 switch (availableQuest.state)
@@ -66,7 +66,6 @@ namespace Farm.Scripts.Interaction_System
             {
                 _dialogueTrigger.Greet(this);
             }
-            
         }
 
         public override void OnEndInteract()
@@ -77,7 +76,7 @@ namespace Farm.Scripts.Interaction_System
                 _dialogueTrigger.Abort();
                 Debug.Log("Abort dialogue.");
             }
-            
+
 
             Debug.Log("End of interaction.");
             ChangeState();
@@ -99,7 +98,7 @@ namespace Farm.Scripts.Interaction_System
         public void OnDialogueEnd(bool wasFinished)
         {
             if (!_isTalking) return;
-            
+
             if (wasFinished && availableQuest != null)
             {
                 switch (availableQuest.state)
@@ -116,7 +115,7 @@ namespace Farm.Scripts.Interaction_System
                         throw new ArgumentOutOfRangeException();
                 }
             }
-            
+
             _interactor.EndInteraction(this);
         }
 

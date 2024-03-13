@@ -2,7 +2,7 @@ using System.Linq;
 using StarterAssets.ThirdPersonController.Scripts;
 using UnityEngine;
 
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public class Interactor : MonoBehaviour, ICollector
     {
@@ -59,13 +59,13 @@ namespace Farm.Scripts.Interaction_System
         private void Update()
         {
             _currentInteractable = null;
-            
+
             // Debug.DrawRay(transform.position, ray.direction * rayMaxDistance, Color.green);
-            
+
             if (!_interacting)
             {
                 var ray = new Ray(transform.position, transform.forward);
-                
+
                 if (Physics.Raycast(ray, out var hit, rayMaxDistance, layerMask))
                 {
                     if (hit.collider.CompareTag(targetTag))
@@ -74,7 +74,7 @@ namespace Farm.Scripts.Interaction_System
                         if (interactable != null) _currentInteractable = interactable;
                     }
                 }
-                
+
                 // Check if the interactor was looking at an interactable object that it didn't last frame
                 if (_currentInteractable != null && !_readyToInteract) CheckIfAvailableToInteract();
                 else if (_currentInteractable == null && _readyToInteract) AbortInteraction();
@@ -137,7 +137,7 @@ namespace Farm.Scripts.Interaction_System
             // when an interacting is cancelled, a next suitable object could be ready to interact (already looking at it)
             // ...but without setting readyInteract to false, it thinks we aren't allowed to search for anything new
             // (will not call ReadyInteract method properly)
-            
+
             if (_lastInteractable is ISpeak) controller.enabled = true;
             _lastInteractable.OnEndInteract();
             _interacting = false;
@@ -153,6 +153,7 @@ namespace Farm.Scripts.Interaction_System
                 Debug.LogError("Requester is an ISpeak interactable");
                 return;
             }
+
             EndInteraction();
         }
 

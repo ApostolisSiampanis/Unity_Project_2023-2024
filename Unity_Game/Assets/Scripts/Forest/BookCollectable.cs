@@ -1,6 +1,6 @@
-using Farm.Scripts.Interaction_System;
 using System.Collections;
 using System.Collections.Generic;
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
 public class BookCollectable : Collectable

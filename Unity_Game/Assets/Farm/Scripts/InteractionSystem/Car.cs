@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public class Car : Interactable
     {

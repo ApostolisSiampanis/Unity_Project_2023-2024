@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Farm.Scripts.DialogueSystem;
-using Farm.Scripts.Interaction_System;
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
 public abstract class Quest : MonoBehaviour

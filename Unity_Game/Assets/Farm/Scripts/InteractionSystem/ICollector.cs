@@ -1,4 +1,4 @@
-namespace Farm.Scripts.Interaction_System
+namespace Farm.Scripts.InteractionSystem
 {
     public interface ICollector
     {

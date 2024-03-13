@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Farm.Scripts.Interaction_System;
 using UnityEngine;
 
 namespace Farm.Scripts.DialogueSystem

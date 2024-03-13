@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Farm.Scripts.Interaction_System;
+using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
 namespace Farm.Scripts.QuestSystem
