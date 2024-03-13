@@ -11,6 +11,7 @@ namespace Farm.Scripts.QuestSystem
             Sprinkler,
             Car,
             Carrot,
+            Book,
             AppleTree,
             Grandpa,
             Alice,
