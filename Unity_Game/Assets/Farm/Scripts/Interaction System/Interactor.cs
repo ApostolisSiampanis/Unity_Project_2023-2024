@@ -116,10 +116,15 @@ namespace Farm.Scripts.Interaction_System
             _readyToInteract = false;
             hint.SetActive(false);
 
-            if (_currentInteractable is ISpeak)
+            switch (_currentInteractable)
             {
-                animator.SetFloat("Speed", 0);
-                controller.enabled = false;
+                case ISpeak:
+                    animator.SetFloat("Speed", 0);
+                    controller.enabled = false;
+                    break;
+                case IFixable fixable when fixable.CanBeFixed(inventory):
+                    fixable.Fix(inventory);
+                    break;
             }
 
             _currentInteractable?.OnInteract(this);

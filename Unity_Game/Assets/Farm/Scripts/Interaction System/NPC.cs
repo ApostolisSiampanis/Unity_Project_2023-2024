@@ -6,15 +6,8 @@ using UnityEngine.AI;
 
 namespace Farm.Scripts.Interaction_System
 {
-    public class NPC : MonoBehaviour, Interactable, ISpeak
+    public class NPC : Interactable, ISpeak
     {
-        // ====== INTERACTION ====== //
-        [Header("Interaction")] [SerializeField]
-        private string _taskHint = "talk to Bob";
-
-        [SerializeField] private KeyCode _interactKey;
-        [SerializeField] private bool _readyToInteract = true;
-
         private Interactor _interactor;
         private DialogueTrigger _dialogueTrigger;
 
@@ -45,7 +38,7 @@ namespace Farm.Scripts.Interaction_System
             if (_questManager == null) Debug.LogError("QuestManager is missing");
         }
 
-        public void OnInteract(Interactor interactor)
+        public override void OnInteract(Interactor interactor)
         {
             _interactor = interactor;
 
@@ -78,7 +71,7 @@ namespace Farm.Scripts.Interaction_System
             
         }
 
-        public void OnEndInteract()
+        public override void OnEndInteract()
         {
             if (_isTalking)
             {
@@ -92,15 +85,15 @@ namespace Farm.Scripts.Interaction_System
             ChangeState();
         }
 
-        public bool IsReadyToInteract([CanBeNull] out string taskHint, out KeyCode interactKey)
+        public override bool IsReadyToInteract([CanBeNull] out string taskHint, out KeyCode interactKey)
         {
-            taskHint = _taskHint;
-            interactKey = _interactKey;
+            taskHint = base.taskHint;
+            interactKey = base.interactKey;
 
-            return _readyToInteract;
+            return readyToInteract;
         }
 
-        public void OnAbortInteract()
+        public override void OnAbortInteract()
         {
             Debug.Log("Abort interaction");
         }

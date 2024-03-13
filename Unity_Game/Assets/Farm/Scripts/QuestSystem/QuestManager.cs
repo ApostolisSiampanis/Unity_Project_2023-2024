@@ -79,9 +79,17 @@ public class QuestManager : MonoBehaviour
         }
         
         currentQuest = quests[_currentQuestIdx];
+
+        if (currentQuest.responsibleNPC == null)
+        {
+            currentQuest.StartQuest();
+        }
+        else
+        {
+            currentQuest.responsibleNPC.availableQuest = currentQuest;
+            currentQuest.responsibleNPC.ShowQuestHint(true);
+        }
         
-        currentQuest.responsibleNPC.availableQuest = currentQuest;
-        currentQuest.responsibleNPC.ShowQuestHint(true);
         UpdateQuestUI();
     }
 }
