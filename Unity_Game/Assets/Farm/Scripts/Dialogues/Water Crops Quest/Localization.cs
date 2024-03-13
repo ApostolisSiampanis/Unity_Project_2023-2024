@@ -17,11 +17,6 @@ namespace Farm.Scripts.Dialogues.Water_Crops_Quest
             // Wait for the localization to be initialized.
             StartCoroutine(InitLocalization());
 
-            // Clear the dialogue sentences.
-            quest.introDialogue.sentences.Clear();
-            quest.inProgressDialogue.sentences.Clear();
-            quest.onCompletionDialogue.sentences.Clear();
-
             // Get the localized strings.
             const string table = "WateringTheCropsQuestDialoguesTable";
 
@@ -68,6 +63,11 @@ namespace Farm.Scripts.Dialogues.Water_Crops_Quest
             // Set the title and description.
             quest.title = title;
             quest.description = description;
+
+            // Clear the dialogue sentences.
+            quest.introDialogue.sentences.Clear();
+            quest.inProgressDialogue.sentences.Clear();
+            quest.onCompletionDialogue.sentences.Clear();
 
             // Set the intro dialogue.
             quest.introDialogue.sentences.AddRange(new List<DialogueSentence>
