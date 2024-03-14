@@ -35,12 +35,12 @@ namespace Town
                 return;
             }
             
-            if (_townData.questIndex >= talkToUncleQuest.questIndex)
+            if (_townData.questIndex >= 0)
             {
                 // Do nothing    
             }
 
-            if (_townData.questIndex >= truckUnloadingQuest.questIndex)
+            if (_townData.questIndex >= 1)
             {
                 // Remove the boxes from the truck
                 truckUnloadingQuest.itemsToBeCarried.ForEach(item => item.gameObject.SetActive(false));
@@ -52,7 +52,7 @@ namespace Town
                 });
             }
 
-            if (_townData.questIndex >= findToolBoxQuest.questIndex)
+            if (_townData.questIndex >= 2)
             {
                 // Remove toolbox
                 findToolBoxQuest.collectables.ForEach(collectable => collectable.gameObject.SetActive(false));
@@ -63,7 +63,7 @@ namespace Town
             var playerPosition = _townData.playerPosition;
             var vectorPlayerPosition = new Vector3(playerPosition[0], playerPosition[1], playerPosition[2]);
             interactor.transform.position = vectorPlayerPosition;
-            
+            Debug.Log("_TownData.questIndex= " + _townData.questIndex);
             QuestManager.Instance.SetCurrentQuestIndex(_townData.questIndex);
             
         }

@@ -2,6 +2,7 @@ using System.Linq;
 using Common.DialogueSystem;
 using Inventory;
 using StarterAssets.ThirdPersonController.Scripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Common.InteractionSystem
@@ -48,10 +49,14 @@ namespace Common.InteractionSystem
         private static readonly int HOLDING_BOX_IDLE = Animator.StringToHash("HoldingBoxIdle");
         private static readonly int HOLDING_BOX_WALK = Animator.StringToHash("HoldingBoxWalk");
 
+        private void Awake()
+        {
+            inventory = new Inventory.Inventory();
+        }
+
         // Start is called before the first frame update
         private void Start()
         {
-            inventory = new Inventory.Inventory();
             uiInventory.SetInventory(inventory);
             
             _dialogueManager = FindObjectOfType<DialogueManager>();
