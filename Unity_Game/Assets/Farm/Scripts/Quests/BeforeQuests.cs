@@ -1,4 +1,5 @@
 using System.Collections;
+using Farm.Scripts.QuestSystem;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;

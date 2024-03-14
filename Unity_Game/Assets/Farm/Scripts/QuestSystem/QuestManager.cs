@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Farm.Scripts.InteractionSystem;
+using Farm.Scripts.QuestSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;

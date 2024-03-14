@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Farm.Scripts.InteractionSystem;
+using Farm.Scripts.QuestSystem;
 using Town;
 using UnityEngine;
 

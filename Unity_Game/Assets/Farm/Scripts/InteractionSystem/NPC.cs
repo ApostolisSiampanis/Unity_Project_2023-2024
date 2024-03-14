@@ -1,6 +1,7 @@
 using System;
 using Farm.Scripts.DialogueSystem;
 using Farm.Scripts.InteractionSystem;
+using Farm.Scripts.QuestSystem;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;

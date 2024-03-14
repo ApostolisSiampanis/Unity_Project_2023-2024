@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Farm.Scripts.DialogueSystem;
+using Farm.Scripts.QuestSystem;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
