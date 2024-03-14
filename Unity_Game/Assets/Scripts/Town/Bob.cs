@@ -1,4 +1,4 @@
-using Farm.Scripts.InteractionSystem;
+using Common.InteractionSystem;
 
 namespace Town
 {

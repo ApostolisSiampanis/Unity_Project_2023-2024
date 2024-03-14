@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Farm.Scripts.InteractionSystem;
-using UnityEngine;
+using Common.InteractionSystem;
 
-public class Samir : NPC
+namespace Forest
 {
-    protected override void ChangeState()
+    public class Samir : NPC
     {
-        // Do nothing
+        protected override void ChangeState()
+        {
+            // Do nothing
+        }
     }
 }

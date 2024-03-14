@@ -1,6 +1,6 @@
 using System.Collections;
+using Common.InteractionSystem;
 using Common.QuestSystem;
-using Farm.Scripts.InteractionSystem;
 using UnityEngine;
 
 namespace Town
@@ -8,14 +8,14 @@ namespace Town
     public class PlacementHint : Interactable
     {
         public float flashDuration = 1f;
-        private Renderer myRenderer;
+        private Renderer _myRenderer;
         public GameObject objectToActivate;
 
-        public InteractableObject _interactableTargetObject;
+        public InteractableObject interactableTargetObject;
 
         private void Start()
         {
-            myRenderer = GetComponent<Renderer>();
+            _myRenderer = GetComponent<Renderer>();
             // Start the flashing coroutine when the script is enabled
             StartCoroutine(FlashHint());
         }
@@ -26,8 +26,8 @@ namespace Town
             while (true)
             {
                 float lerpValue = Mathf.PingPong(elapsedTime / flashDuration, 1f);
-                myRenderer.material.color = new Color(myRenderer.material.color.r, myRenderer.material.color.g,
-                    myRenderer.material.color.b, lerpValue);
+                _myRenderer.material.color = new Color(_myRenderer.material.color.r, _myRenderer.material.color.g,
+                    _myRenderer.material.color.b, lerpValue);
 
                 elapsedTime += Time.deltaTime;
 
@@ -40,15 +40,15 @@ namespace Town
         {
             StopAllCoroutines();
             // Ensure the renderer is fully opaque when stopped
-            myRenderer.material.color = new Color(myRenderer.material.color.r, myRenderer.material.color.g,
-                myRenderer.material.color.b, 1f);
+            _myRenderer.material.color = new Color(_myRenderer.material.color.r, _myRenderer.material.color.g,
+                _myRenderer.material.color.b, 1f);
         }
 
         public override void OnInteract(Interactor interactor)
         {
             base.OnInteract(interactor);
 
-            if (interactor.GetCarryingObject() == _interactableTargetObject)
+            if (interactor.GetCarryingObject() == interactableTargetObject)
             {
                 // Instant interaction
                 interactor.Drop();
@@ -57,7 +57,7 @@ namespace Town
 
                 if (QuestManager.Instance.currentQuest is CarryQuest quest)
                 {
-                    quest.OnObjectPlaced(_interactableTargetObject);
+                    quest.OnObjectPlaced(interactableTargetObject);
                 }
             }
 

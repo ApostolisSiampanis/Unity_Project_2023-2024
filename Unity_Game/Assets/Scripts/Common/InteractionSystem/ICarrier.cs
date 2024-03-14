@@ -1,5 +1,3 @@
-using Farm.Scripts.InteractionSystem;
-
 namespace Common.InteractionSystem
 {
     public interface ICarrier

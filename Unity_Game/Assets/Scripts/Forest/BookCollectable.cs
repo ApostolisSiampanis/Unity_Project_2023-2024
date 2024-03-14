@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using Farm.Scripts.InteractionSystem;
-using UnityEngine;
+using Common.InteractionSystem;
+using Inventory;
 
-public class BookCollectable : Collectable
+namespace Forest
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BookCollectable : Collectable
     {
-        itemType = Item.ItemType.Book;
+        private void Start()
+        {
+            itemType = Item.ItemType.Book;
+        }
     }
-
 }

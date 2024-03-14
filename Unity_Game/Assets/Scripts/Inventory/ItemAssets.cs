@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemAssets : MonoBehaviour
+namespace Inventory
 {
-    public static ItemAssets Instance { get; private set; }
-
-    private void Awake()
+    public class ItemAssets : MonoBehaviour
     {
-        Instance = this;
+        public static ItemAssets instance { get; private set; }
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
+        public Sprite appleSprite;
+        public Sprite carrotsSprite;
+        public Sprite toolboxSprite;
+        public Sprite hammerSprite;
+        public Sprite bookSprite;
     }
-
-    public Sprite appleSprite;
-    public Sprite carrotsSprite;
-    public Sprite toolboxSprite;
-    public Sprite hammerSprite;
-    public Sprite bookSprite;
-
 }

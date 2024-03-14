@@ -1,5 +1,5 @@
+using Common.InteractionSystem;
 using Common.QuestSystem;
-using Farm.Scripts.InteractionSystem;
 
 namespace Town
 {

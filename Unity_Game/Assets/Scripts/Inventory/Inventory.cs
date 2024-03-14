@@ -1,62 +1,64 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
-public class Inventory
+namespace Inventory
 {
-    public event EventHandler OnItemListChanged;
-
-    private List<Item> itemList;
-    private QuestManager _questManager;
-
-    public Inventory()
+    public class Inventory
     {
-        itemList = new List<Item>();
-        _questManager = QuestManager.Instance;
-        if (_questManager == null) Debug.LogError("Quest Manager is missing");
-    }
+        public event EventHandler onItemListChanged;
 
-    public void AddItem(Item item)
-    {
-        if (item.IsStackable())
+        private readonly List<Item> _itemList;
+        private readonly QuestManager _questManager;
+
+        public Inventory()
         {
-            bool itemAlreadyInInventory = false;
-            foreach (Item inventoryItem in itemList)
+            _itemList = new List<Item>();
+            _questManager = QuestManager.Instance;
+            if (_questManager == null) Debug.LogError("Quest Manager is missing");
+        }
+
+        public void AddItem(Item item)
+        {
+            if (item.IsStackable())
             {
-                if (inventoryItem.itemType == item.itemType)
+                bool itemAlreadyInInventory = false;
+                foreach (Item inventoryItem in _itemList)
                 {
-                    inventoryItem.amount += item.amount;
-                    itemAlreadyInInventory = true;
+                    if (inventoryItem.itemType == item.itemType)
+                    {
+                        inventoryItem.amount += item.amount;
+                        itemAlreadyInInventory = true;
+                    }
+                }
+
+                if (!itemAlreadyInInventory)
+                {
+                    _itemList.Add(item);
                 }
             }
-            if (!itemAlreadyInInventory)
+            else
             {
-                itemList.Add(item);
+                _itemList.Add(item);
             }
-        } else
-        {
-            itemList.Add(item);
+
+            if (_questManager.currentQuest is CollectQuest quest)
+            {
+                quest.ItemCollected(item);
+            }
+
+            onItemListChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        if (_questManager.currentQuest is CollectQuest quest)
+        public void RemoveAllItems(Item.ItemType type)
         {
-            quest.ItemCollected(item);
+            _itemList.RemoveAll(x => x.itemType == type);
+            onItemListChanged?.Invoke(this, EventArgs.Empty);
         }
-        
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
-    }
 
-    public void RemoveAllItems(Item.ItemType type)
-    {
-        itemList.RemoveAll(x => x.itemType == type);
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
-    }
-
-    public List<Item> GetItemList()
-    {
-        return itemList;
+        public List<Item> GetItemList()
+        {
+            return _itemList;
+        }
     }
 }

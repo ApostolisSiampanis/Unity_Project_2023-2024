@@ -1504,7 +1504,7 @@ MonoBehaviour:
   readyToInteract: 1
   flashDuration: 1
   objectToActivate: {fileID: 907675192}
-  _interactableTargetObject: 5
+  interactableTargetObject: 0
 --- !u!65 &105298829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2919,6 +2919,28 @@ MonoBehaviour:
   readyToInteract: 1
   questHint: {fileID: 145105311}
   availableQuest: {fileID: 0}
+--- !u!195 &196151062
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196151054}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.42
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.89
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &198796769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3672,7 +3694,7 @@ MonoBehaviour:
   readyToInteract: 1
   flashDuration: 1
   objectToActivate: {fileID: 596724715}
-  _interactableTargetObject: 5
+  interactableTargetObject: 0
 --- !u!65 &280508576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11186,6 +11208,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 196151058}
+    - targetCorrespondingSourceObject: {fileID: 163880, guid: b9e9139a5e38fd2498d99de929b89e23,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 196151062}
   m_SourcePrefab: {fileID: 100100000, guid: b9e9139a5e38fd2498d99de929b89e23, type: 3}
 --- !u!1 &532736980
 GameObject:
@@ -25190,7 +25216,7 @@ MonoBehaviour:
   readyToInteract: 1
   flashDuration: 1
   objectToActivate: {fileID: 29358723}
-  _interactableTargetObject: 5
+  interactableTargetObject: 0
 --- !u!65 &1424629248
 BoxCollider:
   m_ObjectHideFlags: 0
