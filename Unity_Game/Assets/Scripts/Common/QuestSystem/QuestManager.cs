@@ -71,7 +71,6 @@ namespace Common.QuestSystem
         private void AutoSave()
         {
             var scene = currentQuest.scene;
-            var questIndex = currentQuest.questIndex;
             switch (scene)
             {
                 case Quest.Scene.Farm:
@@ -82,7 +81,7 @@ namespace Common.QuestSystem
                     break;
                 case Quest.Scene.Town:
                     Debug.Log("Town quest");
-                    SaveSystem.SaveTownProgress(new TownData(questIndex, interactor.transform.position));
+                    SaveSystem.SaveTownProgress(new TownData(_currentQuestIdx, interactor.transform.position));
                     break;
             }
             
