@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18121825, g: 0.2268151, b: 0.30733937, a: 1}
+  m_IndirectSpecularColor: {r: 0.18121877, g: 0.22681566, b: 0.30734056, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7176,7 +7176,7 @@ PrefabInstance:
     - target: {fileID: 8742647923948754151, guid: bf619aeb9d2cbc04686e681d1c8179bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -637.64
+      value: -635.97
       objectReference: {fileID: 0}
     - target: {fileID: 8742647923948754151, guid: bf619aeb9d2cbc04686e681d1c8179bc,
         type: 3}
@@ -7186,7 +7186,7 @@ PrefabInstance:
     - target: {fileID: 8742647923948754151, guid: bf619aeb9d2cbc04686e681d1c8179bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -66.43
+      value: -67.87
       objectReference: {fileID: 0}
     - target: {fileID: 8742647923948754151, guid: bf619aeb9d2cbc04686e681d1c8179bc,
         type: 3}
@@ -9679,7 +9679,7 @@ MonoBehaviour:
   taskHint: Collect Book
   interactableObject: 3
   interactKey: 101
-  readyToInteract: 1
+  readyToInteract: 0
   itemType: 4
 --- !u!65 &1002498130
 BoxCollider:
@@ -12622,7 +12622,7 @@ Transform:
   m_GameObject: {fileID: 1356941100}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7009665, z: 0, w: 0.71319425}
-  m_LocalPosition: {x: -641.3808, y: 21.015001, z: -67.57286}
+  m_LocalPosition: {x: -639.71075, y: 21.015001, z: -69.01286}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12766,7 +12766,7 @@ MonoBehaviour:
   taskHint: interact with something
   interactableObject: 2
   interactKey: 101
-  readyToInteract: 1
+  readyToInteract: 0
   exitCutScene: {fileID: 1558628209}
   gameCanvas: {fileID: 990430591}
 --- !u!1 &1443758829
@@ -12864,8 +12864,8 @@ MonoBehaviour:
   inProgressDialogue: {fileID: 0}
   onCompletionDialogue: {fileID: 0}
   interactables:
-  - {fileID: 1032860965}
-  interactableTarget: 1
+  - {fileID: 1437943128}
+  interactableTarget: 2
   setInteractableAfterQuest: 0
 --- !u!4 &1557484950 stripped
 Transform:
@@ -12946,6 +12946,8 @@ PlayableDirector:
     value: {fileID: 1046005933}
   - key: {fileID: -3998561859677614953, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
     value: {fileID: 1852102754}
+  - key: {fileID: -7208329579182894396, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
+    value: {fileID: 959556977}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1576701370 stripped
