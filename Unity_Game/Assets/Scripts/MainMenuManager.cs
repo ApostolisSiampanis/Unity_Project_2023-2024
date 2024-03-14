@@ -20,6 +20,9 @@ public class MainMenuManager : MonoBehaviour
 
     private Resolution[] _resolutions;
 
+    [Header("UI Reference")] 
+    public GameObject fullScreenToggle;
+
     // Temporary variables to store changes
     private float _tempSoundsVolume;
     private float _tempMusicVolume;
@@ -59,6 +62,7 @@ public class MainMenuManager : MonoBehaviour
         _tempQualityIndex = settings.qualityIndex;
         _tempIsFullscreen = settings.isFullscreen;
         _tempResolutionIndex = settings.resolutionIndex;
+        fullScreenToggle.SetActive(_tempIsFullscreen);
         UpdateSettings();
     }
 
