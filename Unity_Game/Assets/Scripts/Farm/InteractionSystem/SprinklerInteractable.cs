@@ -9,6 +9,7 @@ namespace Farm.InteractionSystem
     {
         public bool isBroken = true;
         public Item.ItemType requiredItemToFix;
+        public Dialogue onBrokenMonologue;
 
         private DialogueManager _dialogueManager;
 
@@ -23,10 +24,17 @@ namespace Farm.InteractionSystem
         {
             base.OnInteract(interactor);
 
-            if (isBroken) Debug.Log("I think it's broken. I have to tell grandpa!");
-
-            // Instant interaction
-            interactor.EndInteraction(this);
+            if (isBroken)
+            {
+                // Trigger monologue
+                interactor.TriggerMonologue(onBrokenMonologue);
+            }
+            else
+            {
+                // Instant interaction
+                interactor.EndInteraction(this);
+            }
+            
         }
 
         public override void OnEndInteract()

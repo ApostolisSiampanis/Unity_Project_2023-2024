@@ -13,6 +13,7 @@ namespace Common.DialogueSystem
         public void Start()
         {
             _dialogueManager = FindObjectOfType<DialogueManager>();
+            if (_dialogueManager == null) Debug.LogError("DialogueManager is missing");
         }
 
         public void TriggerDialogue(Dialogue dialogue, ISpeak speaker)

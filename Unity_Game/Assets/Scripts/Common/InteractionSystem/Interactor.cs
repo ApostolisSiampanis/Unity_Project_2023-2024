@@ -1,16 +1,17 @@
 using System.Linq;
+using Common.DialogueSystem;
 using Inventory;
 using StarterAssets.ThirdPersonController.Scripts;
 using UnityEngine;
 
 namespace Common.InteractionSystem
 {
-    public class Interactor : MonoBehaviour, ICollector, ICarrier
+    public class Interactor : MonoBehaviour, ICollector, ICarrier, ISpeak
     {
         private Interactable _currentInteractable; // interactable object that Interactor is looking at
         private Interactable _lastInteractable; // last saved object for calculations between checks/frames
 
-        // ====== SETUP ====== //
+        // ====== Setup ====== //
         [Header("Setup")] [SerializeField] private string targetTag = "Interactable";
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private float rayMaxDistance = 5f;
@@ -18,11 +19,11 @@ namespace Common.InteractionSystem
         [SerializeField] private ThirdPersonController controller;
         [SerializeField] private Animator animator;
 
-        // ====== INTERACTION ====== //
+        // ====== Interaction ====== //
         [Header("Interaction")] [SerializeField]
         private KeyCode defaultInteractKey = KeyCode.E;
 
-        // ====== INVENTORY ====== //
+        // ====== Inventory ====== //
         [Header("Inventory")] [SerializeField] private UI_Inventory uiInventory;
         public Inventory.Inventory inventory;
 
@@ -37,6 +38,10 @@ namespace Common.InteractionSystem
         [Header("Carrier")] public GameObject box;
         private Interactable.InteractableObject _currentlyCarrying = Interactable.InteractableObject.None;
 
+        // ====== Monologue ====== //
+        private DialogueManager _dialogueManager;
+        private bool _havingMonologue;
+        
         // ====== State Booleans ====== //
         private bool _readyToInteract;
         private bool _interacting;
@@ -48,6 +53,9 @@ namespace Common.InteractionSystem
         {
             inventory = new Inventory.Inventory();
             uiInventory.SetInventory(inventory);
+            
+            _dialogueManager = FindObjectOfType<DialogueManager>();
+            if (_dialogueManager == null) Debug.LogError("DialogueManager is missing");
 
             _interactKey = defaultInteractKey;
 
@@ -89,7 +97,7 @@ namespace Common.InteractionSystem
                 // Check if not interacting & ready to interact & pressed interact button -> interact
                 if (_readyToInteract && Input.GetKeyDown(_interactKey)) Interact();
             }
-            else if (_interacting && IsCancelButtonPressed()) EndInteraction();
+            else if (IsCancelButtonPressed()) EndInteraction();
 
             if (_currentInteractable != null) _lastInteractable = _currentInteractable;
         }
@@ -113,6 +121,7 @@ namespace Common.InteractionSystem
             _interacting = false;
             _readyToInteract = false;
             hint.SetActive(false);
+            // ReSharper disable once Unity.NoNullPropagation
             _lastInteractable?.OnAbortInteract();
         }
 
@@ -134,6 +143,7 @@ namespace Common.InteractionSystem
                     break;
             }
 
+            // ReSharper disable once Unity.NoNullPropagation
             _currentInteractable?.OnInteract(this);
         }
 
@@ -145,7 +155,12 @@ namespace Common.InteractionSystem
             // ...but without setting readyInteract to false, it thinks we aren't allowed to search for anything new
             // (will not call ReadyInteract method properly)
 
-            if (_lastInteractable is ISpeak) controller.enabled = true;
+            if (_lastInteractable is ISpeak || _havingMonologue) controller.enabled = true;
+            if (_havingMonologue)
+            {
+                _havingMonologue = false;
+                _dialogueManager.Abort();
+            }
             _lastInteractable.OnEndInteract();
             _interacting = false;
             _readyToInteract = false;
@@ -154,7 +169,6 @@ namespace Common.InteractionSystem
         //pubic override method that calls EndInteract if the GameObject that requested matches lastInteractable
         public void EndInteraction(Interactable requester)
         {
-            // TODO:
             if (requester != _lastInteractable && requester is ISpeak)
             {
                 Debug.LogError("Requester is an ISpeak interactable");
@@ -224,6 +238,22 @@ namespace Common.InteractionSystem
         public Interactable.InteractableObject GetCarryingObject()
         {
             return _currentlyCarrying;
+        }
+
+        public void TriggerMonologue(Dialogue dialogue)
+        {
+            _havingMonologue = true;
+            _interacting = true;
+            _readyToInteract = false;
+            hint.SetActive(false);
+            controller.enabled = false;
+            
+            _dialogueManager.StartDialogue(dialogue, this);
+        }
+
+        public void OnDialogueEnd(bool finished)
+        {
+            EndInteraction();
         }
     }
 }

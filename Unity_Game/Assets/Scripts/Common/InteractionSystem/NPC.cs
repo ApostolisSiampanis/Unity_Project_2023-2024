@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace Common.InteractionSystem
 {
-    public class NPC : Interactable, ISpeak
+    public abstract class NPC : Interactable, ISpeak
     {
         protected Interactor Interactor;
         private DialogueTrigger _dialogueTrigger;
@@ -21,7 +21,6 @@ namespace Common.InteractionSystem
         public Quest availableQuest;
 
         protected bool IsTalking;
-        private static readonly int IS_WALKING = Animator.StringToHash("isWalking");
 
         public void Start()
         {
@@ -126,23 +125,6 @@ namespace Common.InteractionSystem
             questHint.SetActive(show);
         }
 
-        protected virtual void ChangeState()
-        {
-            Animator.SetBool(IS_WALKING, !IsTalking);
-            NavMeshAgent.isStopped = IsTalking;
-
-            if (IsTalking)
-            {
-                // Change orientation to look at the interactor
-                PrevRotation = transform.rotation;
-                var direction = Interactor.transform.position - transform.position;
-                transform.rotation = Quaternion.LookRotation(direction);
-            }
-            else
-            {
-                // Change the orientation back to normal
-                transform.rotation = PrevRotation;
-            }
-        }
+        protected abstract void ChangeState();
     }
 }
