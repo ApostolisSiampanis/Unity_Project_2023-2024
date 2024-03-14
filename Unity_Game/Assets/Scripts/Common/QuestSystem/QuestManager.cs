@@ -16,9 +16,6 @@ namespace Common.QuestSystem
         public TextMeshProUGUI questDescriptionText;
 
         public Interactor interactor;
-        public List<Interactable> carrots;
-        public Interactable book;
-        public Interactable toolbox;
 
         public List<Quest> quests;
         private int _currentQuestIdx;
