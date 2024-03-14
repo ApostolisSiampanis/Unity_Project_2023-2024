@@ -11,6 +11,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject helpScreen;
 
     [Header("Things to Disable")]
     [SerializeField] private ThirdPersonController controller;
@@ -95,6 +96,7 @@ public class PauseManager : MonoBehaviour
         // pause
         pauseScreen.SetActive(true);
         optionsScreen.SetActive(false);
+        helpScreen.SetActive(false);
         Time.timeScale = 0f;
 
         // keep track of the previous volume
@@ -114,6 +116,7 @@ public class PauseManager : MonoBehaviour
         // unpause
         pauseScreen.SetActive(false);
         optionsScreen.SetActive(false);
+        helpScreen.SetActive(false);
         Time.timeScale = 1f;
         // enable player movement
         controller.enabled = true;
@@ -127,6 +130,7 @@ public class PauseManager : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         optionsScreen.SetActive(true);
+        helpScreen.SetActive(false);
 
         // Set the temporary variables to the current settings
         mainMixer.GetFloat("SoundsParam", out tempSoundsVolume);
@@ -202,5 +206,20 @@ public class PauseManager : MonoBehaviour
         // Set screens visibility
         optionsScreen.SetActive(false);
         pauseScreen.SetActive(true);
+        helpScreen.SetActive(false);
+    }
+
+    public void Help()
+    {
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
+        helpScreen.SetActive(true);
+    }
+
+    public void BackToPause()
+    {
+        optionsScreen.SetActive(false);
+        pauseScreen.SetActive(true);
+        helpScreen.SetActive(false);
     }
 }
