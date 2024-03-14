@@ -112,5 +112,11 @@ namespace Common.QuestSystem
         
             UpdateQuestUI();
         }
+
+        public void SetCurrentQuestIndex(int questIndex)
+        {
+            _currentQuestIdx = questIndex;
+            NextQuest();
+        }
     }
 }
