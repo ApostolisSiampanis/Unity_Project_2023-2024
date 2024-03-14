@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18121877, g: 0.22681566, b: 0.30734056, a: 1}
+  m_IndirectSpecularColor: {r: 0.18121825, g: 0.2268151, b: 0.30733937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13571,6 +13571,9 @@ MonoBehaviour:
   collectables:
   - {fileID: 1002498126}
   itemType: 4
+  Reward:
+    itemType: 3
+    amount: 1
 --- !u!4 &1741652626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 418126, guid: 85ac88d7c46e0ea4583870a98cc13580,
