@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2748387028881978}
   - component: {fileID: 9106686474156942213}
   - component: {fileID: 3408477806520870222}
+  - component: {fileID: 8066245146825213494}
+  - component: {fileID: 3546410572833005067}
   m_Layer: 7
   m_Name: Carrot
   m_TagString: Interactable
@@ -126,3 +128,46 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.15, z: -0.00000031292439}
+--- !u!114 &8066245146825213494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346660038914074722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a67d1115345424db15ae28b0477255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 9106686474156942213}
+  localizeStringEvent: {fileID: 3546410572833005067}
+  hintKey: task_hint_carrot_farm
+--- !u!114 &3546410572833005067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346660038914074722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
