@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Save;
 using StarterAssets.ThirdPersonController.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -15,9 +17,13 @@ public class PauseManager : MonoBehaviour
     private ThirdPersonController controller;
 
     [Header("Audio")] [SerializeField] private AudioMixer mainMixer;
-
-    [Header("Resolutions")] [SerializeField]
-    private TMP_Dropdown resolutionDropdown;
+    
+    [Header("UI Elements")] 
+    public Slider soundsVolume;
+    public Slider musicVolume;
+    public Toggle fullScreenToggle;
+    public TMP_Dropdown qualityDropDown;
+    public TMP_Dropdown resolutionDropdown;
 
     bool isPaused = false;
 
@@ -27,13 +33,13 @@ public class PauseManager : MonoBehaviour
     Resolution[] resolutions;
 
     // Temporary variables to store changes
-    private float tempSoundsVolume;
-    private float tempMusicVolume;
-    private int tempQualityIndex;
-    private bool tempIsFullscreen;
-    private int tempResolutionIndex;
+    private float _tempSoundsVolume;
+    private float _tempMusicVolume;
+    private int _tempQualityIndex;
+    private bool _tempIsFullscreen;
+    private int _tempResolutionIndex;
 
-    private float previousSoundsVolume;
+    private float _previousSoundsVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +63,22 @@ public class PauseManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        
+        var settings = SaveSystem.LoadSettings();
+        if (settings != null)
+        {
+            _tempSoundsVolume = settings.soundsVolume;
+            _tempMusicVolume = settings.musicVolume;
+            _tempQualityIndex = settings.qualityIndex;
+            _tempIsFullscreen = settings.isFullscreen;
+            _tempResolutionIndex = settings.resolutionIndex;
+
+            soundsVolume.value = _tempSoundsVolume;
+            musicVolume.value = _tempMusicVolume;
+            fullScreenToggle.isOn = _tempIsFullscreen;
+            qualityDropDown.value = _tempQualityIndex;
+            resolutionDropdown.value = _tempResolutionIndex;
+        }
 
         // Set the pause screen to be active
         isPaused = true;
@@ -99,10 +121,10 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
 
         // keep track of the previous volume
-        mainMixer.GetFloat("SoundsParam", out previousSoundsVolume);
+        mainMixer.GetFloat("SoundsParam", out _previousSoundsVolume);
         // Set volume to -80db when paused
         mainMixer.SetFloat("SoundsParam", -80f);
-        mainMixer.SetFloat("MusicParam", tempMusicVolume);
+        mainMixer.SetFloat("MusicParam", _tempMusicVolume);
     }
 
     public void unPause()
@@ -121,7 +143,7 @@ public class PauseManager : MonoBehaviour
         controller.enabled = true;
 
         // Restore volume to its previous value when unpaused
-        mainMixer.SetFloat("SoundsParam", previousSoundsVolume);
+        mainMixer.SetFloat("SoundsParam", _previousSoundsVolume);
         mainMixer.SetFloat("MusicParam", -80f);
     }
 
@@ -132,11 +154,11 @@ public class PauseManager : MonoBehaviour
         helpScreen.SetActive(false);
 
         // Set the temporary variables to the current settings
-        mainMixer.GetFloat("SoundsParam", out tempSoundsVolume);
-        mainMixer.GetFloat("MusicParam", out tempMusicVolume);
-        tempQualityIndex = QualitySettings.GetQualityLevel();
-        tempIsFullscreen = Screen.fullScreen;
-        tempResolutionIndex = GetResolutionIndex(Screen.currentResolution);
+        mainMixer.GetFloat("SoundsParam", out _tempSoundsVolume);
+        mainMixer.GetFloat("MusicParam", out _tempMusicVolume);
+        _tempQualityIndex = QualitySettings.GetQualityLevel();
+        _tempIsFullscreen = Screen.fullScreen;
+        _tempResolutionIndex = GetResolutionIndex(Screen.currentResolution);
     }
 
     private int GetResolutionIndex(Resolution resolution)
@@ -160,48 +182,57 @@ public class PauseManager : MonoBehaviour
     //Options Screen
     public void SetSoundsVolume(float volume)
     {
-        tempSoundsVolume = volume;
-        previousSoundsVolume = tempSoundsVolume;
+        _tempSoundsVolume = volume;
+        _previousSoundsVolume = _tempSoundsVolume;
     }
 
     public void SetMusicVolume(float volume)
     {
-        tempMusicVolume = volume;
+        _tempMusicVolume = volume;
     }
 
     public void SetQuality(int qualityIndex)
     {
-        tempQualityIndex = qualityIndex;
+        _tempQualityIndex = qualityIndex;
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
-        tempIsFullscreen = isFullscreen;
+        _tempIsFullscreen = isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)
     {
-        tempResolutionIndex = resolutionIndex;
+        _tempResolutionIndex = resolutionIndex;
     }
 
     public void SaveSettings()
     {
+        UpdateSettings();
+
+        // Save settings
+        
+    }
+
+    private void UpdateSettings()
+    {
         // Apply settings changes
-        mainMixer.SetFloat("MusicParam", tempMusicVolume);
-        QualitySettings.SetQualityLevel(tempQualityIndex);
-        Screen.fullScreen = tempIsFullscreen;
-        Resolution resolution = resolutions[tempResolutionIndex];
+        mainMixer.SetFloat("MusicParam", _tempMusicVolume);
+        QualitySettings.SetQualityLevel(_tempQualityIndex);
+        Screen.fullScreen = _tempIsFullscreen;
+        Resolution resolution = resolutions[_tempResolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
         // Set screens to be active/inactive
         optionsScreen.SetActive(false);
         pauseScreen.SetActive(true);
+        helpScreen.SetActive(false);
     }
 
     public void CancelSettings()
     {
         // Apply settings changes
-        mainMixer.SetFloat("SoundsParam", previousSoundsVolume);
+        mainMixer.SetFloat("SoundsParam", _previousSoundsVolume);
 
         // Set screens visibility
         optionsScreen.SetActive(false);
