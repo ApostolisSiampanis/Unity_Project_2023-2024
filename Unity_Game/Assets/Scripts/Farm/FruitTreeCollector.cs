@@ -13,8 +13,7 @@ namespace Farm
         private NavMeshAgent _navMeshAgent;
         private Transform _currentTarget;
 
-        private bool _collectingFruit;
-        public int collectedFruits = 0;
+        public bool collectingFruit;
 
         // Start is called before the first frame update
         private void Start()
@@ -23,14 +22,14 @@ namespace Farm
             _navMeshAgent = GetComponent<NavMeshAgent>();
 
             ChooseRandomTree();
-            _collectingFruit = false;
+            collectingFruit = false;
         }
 
         // Update is called once per frame
         private void Update()
         {
             // Check if the NPC has reached the target tree
-            if (!_collectingFruit && _navMeshAgent.hasPath &&
+            if (!collectingFruit && _navMeshAgent.hasPath &&
                 _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
                 // Look at the tree
@@ -40,15 +39,13 @@ namespace Farm
 
                 // Play the animation
                 _animator.SetTrigger("pick_fruit");
-                _collectingFruit = true;
+                collectingFruit = true;
             }
         }
 
         public void OnEndOfFruitPickAnimation()
         {
-            _collectingFruit = false;
-            collectedFruits += fruitsPerTree;
-
+            collectingFruit = false;
             ChooseRandomTree();
         }
 

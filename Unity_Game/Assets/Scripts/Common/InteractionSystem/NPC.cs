@@ -9,41 +9,42 @@ namespace Common.InteractionSystem
 {
     public class NPC : Interactable, ISpeak
     {
-        private Interactor _interactor;
+        protected Interactor Interactor;
         private DialogueTrigger _dialogueTrigger;
 
-        private Animator _animator;
-        private NavMeshAgent _navMeshAgent;
+        protected Animator Animator;
+        protected NavMeshAgent NavMeshAgent;
 
-        private Quaternion _prevRotation;
+        protected Quaternion PrevRotation;
 
         public GameObject questHint;
         public Quest availableQuest;
 
-        private bool _isTalking;
+        protected bool IsTalking;
+        private static readonly int IS_WALKING = Animator.StringToHash("isWalking");
 
         public void Start()
         {
-            _isTalking = false;
+            IsTalking = false;
 
             _dialogueTrigger = GetComponent<DialogueTrigger>();
-            _animator = GetComponent<Animator>();
-            _navMeshAgent = GetComponent<NavMeshAgent>();
+            Animator = GetComponent<Animator>();
+            NavMeshAgent = GetComponent<NavMeshAgent>();
 
             // Check if necessary objects are present
             if (_dialogueTrigger == null) Debug.LogError("DialogueTrigger is missing");
-            if (_animator == null) Debug.LogError("Animator is missing");
-            if (_navMeshAgent == null) Debug.LogError("NavMeshAgent is missing");
+            if (Animator == null) Debug.LogError("Animator is missing");
+            if (NavMeshAgent == null) Debug.LogError("NavMeshAgent is missing");
         }
 
         public override void OnInteract(Interactor interactor)
         {
-            _interactor = interactor;
+            Interactor = interactor;
             base.OnInteract(interactor);
 
             if (_dialogueTrigger == null) return;
 
-            _isTalking = true;
+            IsTalking = true;
             ChangeState();
 
             if (availableQuest != null)
@@ -71,9 +72,9 @@ namespace Common.InteractionSystem
 
         public override void OnEndInteract()
         {
-            if (_isTalking)
+            if (IsTalking)
             {
-                _isTalking = false;
+                IsTalking = false;
                 _dialogueTrigger.Abort();
                 Debug.Log("Abort dialogue.");
             }
@@ -83,7 +84,7 @@ namespace Common.InteractionSystem
             ChangeState();
         }
 
-        public override bool IsReadyToInteract([CanBeNull] out string taskHint, out KeyCode interactKey)
+        public override bool IsReadyToInteract(out string taskHint, out KeyCode interactKey)
         {
             taskHint = base.taskHint;
             interactKey = base.interactKey;
@@ -98,7 +99,7 @@ namespace Common.InteractionSystem
 
         public void OnDialogueEnd(bool wasFinished)
         {
-            if (!_isTalking) return;
+            if (!IsTalking) return;
 
             if (wasFinished && availableQuest != null)
             {
@@ -108,7 +109,7 @@ namespace Common.InteractionSystem
                         availableQuest.StartQuest(this);
                         break;
                     case Quest.State.Completed:
-                        availableQuest.CompleteQuest(_interactor, this);
+                        availableQuest.CompleteQuest(Interactor, this);
                         break;
                     case Quest.State.InProgress:
                         break;
@@ -117,7 +118,7 @@ namespace Common.InteractionSystem
                 }
             }
 
-            _interactor.EndInteraction(this);
+            Interactor.EndInteraction(this);
         }
 
         public void ShowQuestHint(bool show)
@@ -127,20 +128,20 @@ namespace Common.InteractionSystem
 
         protected virtual void ChangeState()
         {
-            _animator.SetBool("isWalking", !_isTalking);
-            _navMeshAgent.isStopped = _isTalking;
+            Animator.SetBool(IS_WALKING, !IsTalking);
+            NavMeshAgent.isStopped = IsTalking;
 
-            if (_isTalking)
+            if (IsTalking)
             {
                 // Change orientation to look at the interactor
-                _prevRotation = transform.rotation;
-                var direction = _interactor.transform.position - transform.position;
+                PrevRotation = transform.rotation;
+                var direction = Interactor.transform.position - transform.position;
                 transform.rotation = Quaternion.LookRotation(direction);
             }
             else
             {
                 // Change the orientation back to normal
-                transform.rotation = _prevRotation;
+                transform.rotation = PrevRotation;
             }
         }
     }
