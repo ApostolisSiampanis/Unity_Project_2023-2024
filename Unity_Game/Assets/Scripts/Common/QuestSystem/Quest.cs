@@ -1,6 +1,7 @@
 using Common.DialogueSystem;
 using Common.InteractionSystem;
 using Inventory;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Common.QuestSystem
@@ -14,15 +15,29 @@ namespace Common.QuestSystem
             Completed
         }
 
+        public enum Scene
+        {
+            Farm,
+            Forest,
+            Town
+        }
+
+        [Header("Setup")]
         public string title;
         public string description;
         public int requiredAmount;
         public State state = State.NotStarted;
+
+        [Header("Save Properties")] 
+        public Scene scene;
+        public int questIndex;
+        
         
         public NPC responsibleNPC;
 
-        [Header("Dialogues")] public Dialogue introDialogue;
-
+        
+        [Header("Dialogues")] 
+        public Dialogue introDialogue;
         public Dialogue inProgressDialogue;
         public Dialogue onCompletionDialogue;
 

@@ -10,6 +10,8 @@ namespace Save
         private const string SETTINGS_PATH = "/settings.save";
         private const string LOCALE_PATH = "/locale.save";
         
+        private const string TOWN_PROGRESS_PATH = "/town_progress.save";
+        
         public static void SaveSettings(SettingsData settingsData)
         {
             var formatter = new BinaryFormatter();
@@ -25,7 +27,6 @@ namespace Save
             {
                 Debug.LogError("Error saving settings: " + e.Message);
             }
-            
         }
 
         public static SettingsData LoadSettings()
@@ -64,7 +65,6 @@ namespace Save
             {
                 Debug.LogError("Error saving locale: " + e.Message);
             }
-            
         }
         
         public static int LoadLocale()
@@ -86,6 +86,61 @@ namespace Save
             
             Debug.Log("Locale save file not found in " + path);
             return -1;
+        }
+
+        public static void SaveProgress(ProgressData progressData)
+        {
+            // var formatter = new BinaryFormatter();
+            // var path = Application.persistentDataPath + PROGRESS_PATH;
+            //
+            // try
+            // {
+            //     using var stream = new FileStream(path, FileMode.Create);
+            //     formatter.Serialize(stream, progressData);
+            //     Debug.Log("Progress has been saved at " + path);
+            // }
+            // catch (System.Exception e)
+            // {
+            //     Debug.LogError("Error saving progress: " + e.Message);
+            // }
+        }
+
+        public static void SaveTownProgress(TownData townData)
+        {
+            var formatter = new BinaryFormatter();
+            var path = Application.persistentDataPath + TOWN_PROGRESS_PATH;
+            
+            try
+            {
+                using var stream = new FileStream(path, FileMode.Create);
+                formatter.Serialize(stream, townData);
+                Debug.Log("Town progress has been saved at " + path);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error saving town progress: " + e.Message);
+            }
+        }
+        
+        public static TownData LoadTownProgress()
+        {
+            var path = Application.persistentDataPath + TOWN_PROGRESS_PATH;
+            try
+            {
+                if (File.Exists(path))
+                {
+                    using var stream = new FileStream(path, FileMode.Open);
+                    var formatter = new BinaryFormatter();
+                    return formatter.Deserialize(stream) as TownData;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error loading town progress: " + e.Message);
+            }
+            
+            Debug.Log("Town progress save file not found in " + path);
+            return null;
         }
     }
 }

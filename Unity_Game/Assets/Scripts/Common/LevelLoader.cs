@@ -1,22 +1,31 @@
+using System;
 using System.Collections;
+using Common.InteractionSystem;
+using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+namespace Common
 {
-    // Transition animation
-    public Animator transition;
-    public float transitionTime = 1f;
-
-    public void LoadNextScene()
+    public abstract class LevelLoader : MonoBehaviour
     {
-        StartCoroutine(LoadScreen(SceneManager.GetActiveScene().buildIndex + 1));
-    }
+        public Interactor interactor;
+        // Transition animation
+        public Animator transition;
+        public float transitionTime = 1f;
 
-    IEnumerator LoadScreen(int sceneIndex)
-    {
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(sceneIndex);
+        public void LoadNextScene()
+        {
+            StartCoroutine(LoadScreen(SceneManager.GetActiveScene().buildIndex + 1));
+        }
+
+        IEnumerator LoadScreen(int sceneIndex)
+        {
+            transition.SetTrigger("Start");
+            yield return new WaitForSeconds(transitionTime);
+            SceneManager.LoadScene(sceneIndex);
+        }
+
+        protected abstract void InitScene();
     }
 }
