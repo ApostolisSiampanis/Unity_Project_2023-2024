@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Save;
+using Save.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -47,10 +49,17 @@ public class MainMenuManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-
-        // Initially set the main menu screen to be active
-        mainMenuScreen.SetActive(true);
-        optionsScreen.SetActive(false);
+        
+        // Load saved settings
+        var settings = SaveSystem.LoadSettings();
+        if (settings == null) return;
+        
+        _tempSoundsVolume = settings.soundsVolume;
+        _tempMusicVolume = settings.musicVolume;
+        _tempQualityIndex = settings.qualityIndex;
+        _tempIsFullscreen = settings.isFullscreen;
+        _tempResolutionIndex = settings.resolutionIndex;
+        UpdateSettings();
     }
 
     // Main Menu Screen
@@ -66,6 +75,7 @@ public class MainMenuManager : MonoBehaviour
         // Set the main menu screen to be inactive and the options screen to be active
         mainMenuScreen.SetActive(false);
         optionsScreen.SetActive(true);
+        helpScreen.SetActive(false);
 
         // Set the temporary variables to the current settings
         mainMixer.GetFloat("SoundsParam", out _tempSoundsVolume);
@@ -121,6 +131,14 @@ public class MainMenuManager : MonoBehaviour
 
     public void SaveSettings()
     {
+        UpdateSettings();
+        
+        // Save settings
+        SaveSystem.SaveSettings(new SettingsData(_tempSoundsVolume, _tempMusicVolume, _tempQualityIndex, _tempIsFullscreen, _tempResolutionIndex));
+    }
+
+    private void UpdateSettings()
+    {
         // Apply settings changes
         mainMixer.SetFloat("SoundsParam", _tempSoundsVolume);
         mainMixer.SetFloat("MusicParam", _tempMusicVolume);
@@ -128,10 +146,11 @@ public class MainMenuManager : MonoBehaviour
         Screen.fullScreen = _tempIsFullscreen;
         Resolution resolution = _resolutions[_tempResolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-
+        
         // Set screens to be active/inactive
         mainMenuScreen.SetActive(true);
         optionsScreen.SetActive(false);
+        helpScreen.SetActive(false);
     }
 
     public void CancelSettings()
