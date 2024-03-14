@@ -4,6 +4,10 @@ using Save.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
+using Toggle = UnityEngine.UI.Toggle;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -15,13 +19,14 @@ public class MainMenuManager : MonoBehaviour
 
     [Header("Audio")] [SerializeField] private AudioMixer mainMixer;
 
-    [Header("Resolutions")] [SerializeField]
-    private TMP_Dropdown resolutionDropdown;
-
     private Resolution[] _resolutions;
 
-    [Header("UI Reference")] 
-    public GameObject fullScreenToggle;
+    [Header("UI Elements")] 
+    public Slider soundsVolume;
+    public Slider musicVolume;
+    public Toggle fullScreenToggle;
+    public TMP_Dropdown qualityDropDown;
+    public TMP_Dropdown resolutionDropdown;
 
     // Temporary variables to store changes
     private float _tempSoundsVolume;
@@ -62,7 +67,13 @@ public class MainMenuManager : MonoBehaviour
         _tempQualityIndex = settings.qualityIndex;
         _tempIsFullscreen = settings.isFullscreen;
         _tempResolutionIndex = settings.resolutionIndex;
-        fullScreenToggle.SetActive(_tempIsFullscreen);
+
+        soundsVolume.value = _tempSoundsVolume;
+        musicVolume.value = _tempMusicVolume;
+        fullScreenToggle.isOn = _tempIsFullscreen;
+        qualityDropDown.value = _tempQualityIndex;
+        resolutionDropdown.value = _tempResolutionIndex;
+        
         UpdateSettings();
     }
 
