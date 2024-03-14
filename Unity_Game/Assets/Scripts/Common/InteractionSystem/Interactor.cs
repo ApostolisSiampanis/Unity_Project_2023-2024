@@ -161,7 +161,8 @@ namespace Common.InteractionSystem
                 _havingMonologue = false;
                 _dialogueManager.Abort();
             }
-            _lastInteractable.OnEndInteract();
+            // ReSharper disable once Unity.NoNullPropagation
+            _lastInteractable?.OnEndInteract();
             _interacting = false;
             _readyToInteract = false;
         }
