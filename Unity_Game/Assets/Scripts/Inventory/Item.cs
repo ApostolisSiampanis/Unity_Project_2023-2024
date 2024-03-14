@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Inventory
 {
+    [System.Serializable]
     public class Item
     {
         public enum ItemType
@@ -11,7 +12,8 @@ namespace Inventory
             Toolbox,
             Hammer,
             Book,
-            Box
+            Box,
+            None
         }
 
         public ItemType itemType;

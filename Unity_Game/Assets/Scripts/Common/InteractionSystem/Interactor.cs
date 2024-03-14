@@ -40,6 +40,8 @@ namespace Common.InteractionSystem
         // ====== State Booleans ====== //
         private bool _readyToInteract;
         private bool _interacting;
+        private static readonly int HOLDING_BOX_IDLE = Animator.StringToHash("HoldingBoxIdle");
+        private static readonly int HOLDING_BOX_WALK = Animator.StringToHash("HoldingBoxWalk");
 
         // Start is called before the first frame update
         private void Start()
@@ -193,7 +195,7 @@ namespace Common.InteractionSystem
                         return;
                     }
 
-                    animator.SetBool("HoldingBoxIdle", true);
+                    animator.SetBool(HOLDING_BOX_IDLE, true);
                     _currentlyCarrying = Interactable.InteractableObject.Box;
                     box.SetActive(true);
                     break;
@@ -208,7 +210,8 @@ namespace Common.InteractionSystem
             {
                 case Interactable.InteractableObject.Box:
                     Debug.Log("Drop Box");
-                    animator.SetBool("HoldingBoxIdle", false);
+                    animator.SetBool(HOLDING_BOX_WALK, false);
+                    animator.SetBool(HOLDING_BOX_IDLE, false);
                     box.SetActive(false);
                     break;
                 default:

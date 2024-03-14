@@ -8,6 +8,7 @@ public class CollectQuest : Quest
 {
     public List<Collectable> collectables;
     public Item.ItemType itemType;
+    public Item Reward;
 
     protected override void SetupQuest()
     {
@@ -24,6 +25,7 @@ public class CollectQuest : Quest
         }
 
         interactor.inventory.RemoveAllItems(itemType);
+        if (Reward.itemType != Item.ItemType.None) interactor.inventory.AddItem(Reward);
         QuestManager.Instance.CompleteQuest();
     }
 

@@ -1,5 +1,6 @@
 using Common.DialogueSystem;
 using Common.InteractionSystem;
+using Inventory;
 using UnityEngine;
 
 namespace Common.QuestSystem
@@ -17,7 +18,7 @@ namespace Common.QuestSystem
         public string description;
         public int requiredAmount;
         public State state = State.NotStarted;
-
+        
         public NPC responsibleNPC;
 
         [Header("Dialogues")] public Dialogue introDialogue;

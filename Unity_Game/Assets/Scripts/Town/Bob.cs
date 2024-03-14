@@ -1,4 +1,5 @@
 using Common.InteractionSystem;
+using UnityEngine;
 
 namespace Town
 {
@@ -6,8 +7,18 @@ namespace Town
     {
         protected override void ChangeState()
         {
-            // TODO: Implement
-            // Do Nothing
+            if (IsTalking)
+            {
+                // Change orientation to look at the interactor
+                PrevRotation = transform.rotation;
+                var direction = Interactor.transform.position - transform.position;
+                transform.rotation = Quaternion.LookRotation(direction);
+            }
+            else
+            {
+                // Change the orientation back to normal
+                transform.rotation = PrevRotation;
+            }
         }
     }
 }
