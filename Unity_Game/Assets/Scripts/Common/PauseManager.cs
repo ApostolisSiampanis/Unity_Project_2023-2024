@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Save;
+using Save.Data;
 using StarterAssets.ThirdPersonController.Scripts;
 using TMPro;
 using UnityEngine;
@@ -78,6 +79,8 @@ public class PauseManager : MonoBehaviour
             fullScreenToggle.isOn = _tempIsFullscreen;
             qualityDropDown.value = _tempQualityIndex;
             resolutionDropdown.value = _tempResolutionIndex;
+
+            UpdateSettings();
         }
 
         // Set the pause screen to be active
@@ -211,13 +214,14 @@ public class PauseManager : MonoBehaviour
         UpdateSettings();
 
         // Save settings
-        
+        SaveSystem.SaveSettings(new SettingsData(_tempSoundsVolume, _tempMusicVolume, _tempQualityIndex, _tempIsFullscreen, _tempResolutionIndex));
     }
 
     private void UpdateSettings()
     {
         // Apply settings changes
         mainMixer.SetFloat("MusicParam", _tempMusicVolume);
+        mainMixer.SetFloat("SoundsParam", _tempSoundsVolume);
         QualitySettings.SetQualityLevel(_tempQualityIndex);
         Screen.fullScreen = _tempIsFullscreen;
         Resolution resolution = resolutions[_tempResolutionIndex];
