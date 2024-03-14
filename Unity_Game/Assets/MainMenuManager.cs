@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject helpScreen;
 
     [Header("Audio")]
     [SerializeField] private AudioMixer mainMixer;
@@ -139,5 +140,20 @@ public class MainMenuManager : MonoBehaviour
         // Set screens to be active/inactive
         mainMenuScreen.SetActive(true);
         optionsScreen.SetActive(false);
+        helpScreen.SetActive(false);
+    }
+
+    public void Help()
+    {
+        mainMenuScreen.SetActive(false);
+        optionsScreen.SetActive(false);
+        helpScreen.SetActive(true);
+    }
+
+    public void BackToMainMenu()
+    {
+        optionsScreen.SetActive(false);
+        mainMenuScreen.SetActive(true);
+        helpScreen.SetActive(false);
     }
 }
