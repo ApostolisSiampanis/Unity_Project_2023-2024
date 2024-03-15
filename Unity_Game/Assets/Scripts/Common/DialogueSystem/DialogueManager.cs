@@ -32,6 +32,7 @@ namespace Common.DialogueSystem
             _currentSentenceIdx = 0;
 
             _cursorPrevState = Cursor.lockState;
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
             Debug.Log("[DialogueManager]: New dialogue has been assigned");
@@ -55,6 +56,7 @@ namespace Common.DialogueSystem
         private void EndDialogue(bool isFinished)
         {
             Cursor.lockState = _cursorPrevState;
+            Cursor.visible = false;
 
             dialogueGameObject.SetActive(false);
             _currentSpeaker.OnDialogueEnd(isFinished);
