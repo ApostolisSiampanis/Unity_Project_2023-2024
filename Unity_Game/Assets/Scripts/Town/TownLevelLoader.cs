@@ -34,13 +34,8 @@ namespace Town
                 entryCutscene.enabled = true;
                 return;
             }
-            
-            if (_townData.questIndex >= 0)
-            {
-                // Do nothing    
-            }
 
-            if (_townData.questIndex >= 1)
+            if (_townData.questIndex >= truckUnloadingQuest.questIndex)
             {
                 // Remove the boxes from the truck
                 truckUnloadingQuest.itemsToBeCarried.ForEach(item => item.gameObject.SetActive(false));
@@ -52,7 +47,7 @@ namespace Town
                 });
             }
 
-            if (_townData.questIndex >= 2)
+            if (_townData.questIndex >= findToolBoxQuest.questIndex)
             {
                 // Remove toolbox
                 findToolBoxQuest.collectables.ForEach(collectable => collectable.gameObject.SetActive(false));
