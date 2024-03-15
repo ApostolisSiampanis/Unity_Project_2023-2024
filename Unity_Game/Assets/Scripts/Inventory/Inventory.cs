@@ -40,7 +40,7 @@ namespace Inventory
                 _itemList.Add(item);
             }
 
-            if (QuestManager.Instance.currentQuest is CollectQuest quest)
+            if (QuestManager.instance.currentQuest is CollectQuest quest)
             {
                 quest.ItemCollected(item);
             }

@@ -59,7 +59,7 @@ namespace Town
             player.transform.position = vectorPlayerPosition;
             
             Debug.Log("_TownData.questIndex= " + _townData.questIndex);
-            QuestManager.Instance.SetCurrentQuestIndex(_townData.questIndex);
+            QuestManager.instance.SetCurrentQuestIndex(_townData.questIndex);
             
         }
     }

@@ -26,7 +26,7 @@ public class CollectQuest : Quest
 
         interactor.inventory.RemoveAllItems(itemType);
         if (Reward.itemType != Item.ItemType.None) interactor.inventory.AddItem(Reward);
-        QuestManager.Instance.CompleteQuest();
+        QuestManager.instance.CompleteQuest();
     }
 
     protected override void CheckObjective()

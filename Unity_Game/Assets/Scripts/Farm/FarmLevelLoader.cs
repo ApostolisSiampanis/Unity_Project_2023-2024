@@ -66,7 +66,7 @@ namespace Farm
             }
             
             Debug.Log("_farmData.questIndex= " + _farmData.questIndex);
-            QuestManager.Instance.SetCurrentQuestIndex(_farmData.questIndex);
+            QuestManager.instance.SetCurrentQuestIndex(_farmData.questIndex);
         }
     }
 }

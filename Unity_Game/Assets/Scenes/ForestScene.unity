@@ -3364,14 +3364,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1051490047}
-    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1051490050}
-    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1051490051}
     - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
         type: 3}
@@ -3384,7 +3376,23 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1051490063}
+    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1051490058}
+    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051490059}
+    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051490060}
+    - targetCorrespondingSourceObject: {fileID: 1335356067797282239, guid: bd5b7d8fef03f614a8a4a29a95127ac0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051490061}
   m_SourcePrefab: {fileID: 100100000, guid: bd5b7d8fef03f614a8a4a29a95127ac0, type: 3}
 --- !u!114 &160612647 stripped
 MonoBehaviour:
@@ -3392,7 +3400,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1943477847}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 479516031}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -5013,6 +5021,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1437943128}
+    - targetCorrespondingSourceObject: {fileID: 1968802732931520, guid: 03cb2a4568ff1a942aa83dc550cdfcf9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437943130}
+    - targetCorrespondingSourceObject: {fileID: 1968802732931520, guid: 03cb2a4568ff1a942aa83dc550cdfcf9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437943129}
   m_SourcePrefab: {fileID: 100100000, guid: 03cb2a4568ff1a942aa83dc550cdfcf9, type: 3}
 --- !u!4 &253789203 stripped
 Transform:
@@ -5778,6 +5794,52 @@ MonoBehaviour:
   uiInventory: {fileID: 952985717}
   cancelInteractionKeys: 71000000
   box: {fileID: 0}
+--- !u!1 &479516031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1610571565984092272, guid: 317219b7893e36a419383baef476416f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1943477847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &479516032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479516031}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a87b9cd994bbab14ea69a351d94f2a87
+    m_TableEntryReference:
+      m_KeyId: 378899783680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 160612647}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &494913703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485822, guid: edf6cb56e12fba648b2cf1e7dfa5bf88,
@@ -9122,6 +9184,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660413911}
+  - component: {fileID: 660413912}
+  - component: {fileID: 660413913}
   - component: {fileID: 660413910}
   m_Layer: 0
   m_Name: MonologueTrigger
@@ -9143,7 +9207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactor: {fileID: 470975816}
-  monologue: {fileID: 11400000, guid: 8cce57b8aebf54884a3526686bed015a, type: 2}
+  onCarBreak: {fileID: 660413913}
 --- !u!4 &660413911
 Transform:
   m_ObjectHideFlags: 0
@@ -9159,6 +9223,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660413912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660413909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &660413913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660413909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321ccf08d2a00db488d6a482838508f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizeStringEvent: {fileID: 660413912}
 --- !u!4 &684712327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484382, guid: 85ac88d7c46e0ea4583870a98cc13580,
@@ -9301,7 +9406,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1943477847}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1943477852}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -9745,6 +9850,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1002498130}
+    - targetCorrespondingSourceObject: {fileID: 1910560248180222, guid: fd9f5fe4f80951342936624fc94acd13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1002498132}
+    - targetCorrespondingSourceObject: {fileID: 1910560248180222, guid: fd9f5fe4f80951342936624fc94acd13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1002498131}
   m_SourcePrefab: {fileID: 100100000, guid: fd9f5fe4f80951342936624fc94acd13, type: 3}
 --- !u!1 &1002498125 stripped
 GameObject:
@@ -9764,7 +9877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b64aec803c2bd469e5b94c8d720fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskHint: Collect Book
+  taskHint: 
   interactableObject: 3
   interactKey: 101
   readyToInteract: 0
@@ -9790,6 +9903,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29065382, y: 0.40000004, z: 0.08000002}
   m_Center: {x: -1.658925e-15, y: 0.000000014901161, z: 0.0000019073486}
+--- !u!114 &1002498131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002498125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1002498132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002498125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a67d1115345424db15ae28b0477255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 1002498126}
+  localizeStringEvent: {fileID: 1002498131}
+  hintKey: task_hint_book_forest
 --- !u!1 &1022052104
 GameObject:
   m_ObjectHideFlags: 0
@@ -10208,41 +10364,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 147859019}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &1051490047
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051490044}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &1051490050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051490044}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84ad416067a95584ebe3ca163a36c009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movePositionTransform: {fileID: 0}
 --- !u!114 &1051490051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10314,12 +10435,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d51bb4b1a4544b8b156a73f635b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskHint: talk to old man
-  interactableObject: 7
+  taskHint: 
+  interactableObject: 8
   interactKey: 0
   readyToInteract: 1
   questHint: {fileID: 2129776352}
   availableQuest: {fileID: 0}
+--- !u!114 &1051490059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051490044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a67d1115345424db15ae28b0477255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 1051490058}
+  localizeStringEvent: {fileID: 1051490060}
+  hintKey: task_hint_samir_forest
+--- !u!114 &1051490060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051490044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1051490061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051490044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15be7ee3f0b2e8844a6720516192d8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 1051490053}
+  localizeStringEvent: {fileID: 1051490060}
+  npcName: Samir
+  defaultNpcMonologueKey: default_monologue_unknown_npc
+  isUncle: 0
+--- !u!195 &1051490063
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051490044}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!4 &1062576389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 438816, guid: 85ac88d7c46e0ea4583870a98cc13580,
@@ -12944,12 +13147,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d716437e06b4e429f7b9924c602dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskHint: interact with something
+  taskHint: 
   interactableObject: 2
   interactKey: 101
   readyToInteract: 0
   exitCutScene: {fileID: 1558628209}
   gameCanvas: {fileID: 990430591}
+--- !u!114 &1437943129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437943114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1437943130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437943114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a67d1115345424db15ae28b0477255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 1437943128}
+  localizeStringEvent: {fileID: 1437943129}
+  hintKey: task_hint_car
 --- !u!1 &1443758829
 GameObject:
   m_ObjectHideFlags: 0
@@ -13766,6 +14012,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1708279317}
   - component: {fileID: 1708279318}
+  - component: {fileID: 1708279320}
+  - component: {fileID: 1708279319}
   m_Layer: 0
   m_Name: Find the book
   m_TagString: Untagged
@@ -13800,8 +14048,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8667855952d9945d59080a43871adb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Find the book
-  description: Look for the book on the opposite hill
+  title: 
+  description: 
   requiredAmount: 1
   state: 0
   scene: 1
@@ -13817,6 +14065,48 @@ MonoBehaviour:
   Reward:
     itemType: 3
     amount: 1
+--- !u!114 &1708279319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708279316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1708279320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708279316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e475b62ab9e19504b9fe78d3e7f5285a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 1708279318}
+  localizeStringEvent: {fileID: 1708279319}
 --- !u!4 &1741652626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 418126, guid: 85ac88d7c46e0ea4583870a98cc13580,
@@ -14269,6 +14559,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1891042597311444449, guid: 317219b7893e36a419383baef476416f,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2105238617325417092, guid: 317219b7893e36a419383baef476416f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -14279,10 +14574,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayNextSentence
       objectReference: {fileID: 0}
+    - target: {fileID: 2430088520973625481, guid: 317219b7893e36a419383baef476416f,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3120712913890083463, guid: 317219b7893e36a419383baef476416f,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300091071076642537, guid: 317219b7893e36a419383baef476416f,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198594883972033331, guid: 317219b7893e36a419383baef476416f,
+        type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7408333603081384057, guid: 317219b7893e36a419383baef476416f,
         type: 3}
@@ -14417,7 +14727,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5673906543217642077, guid: 317219b7893e36a419383baef476416f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1943477853}
+    - targetCorrespondingSourceObject: {fileID: 1610571565984092272, guid: 317219b7893e36a419383baef476416f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 479516032}
   m_SourcePrefab: {fileID: 100100000, guid: 317219b7893e36a419383baef476416f, type: 3}
 --- !u!114 &1943477848 stripped
 MonoBehaviour:
@@ -14467,6 +14785,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1943477852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5673906543217642077, guid: 317219b7893e36a419383baef476416f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1943477847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943477853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943477852}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a87b9cd994bbab14ea69a351d94f2a87
+    m_TableEntryReference:
+      m_KeyId: 93276069888
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 771319161}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1944788844
 GameObject:
   m_ObjectHideFlags: 0
@@ -15109,6 +15473,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2147475546}
   - component: {fileID: 2147475547}
+  - component: {fileID: 2147475549}
+  - component: {fileID: 2147475548}
   m_Layer: 0
   m_Name: Find help
   m_TagString: Untagged
@@ -15143,8 +15509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84be30a2ad6e4a3a91e5c963478728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Find help
-  description: Seek help in the forest
+  title: TITLE
+  description: DESCR
   requiredAmount: 1
   state: 0
   scene: 1
@@ -15155,8 +15521,50 @@ MonoBehaviour:
   onCompletionDialogue: {fileID: 0}
   interactables:
   - {fileID: 1051490058}
-  interactableTarget: 7
+  interactableTarget: 8
   setInteractableAfterQuest: 1
+--- !u!114 &2147475548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147475545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &2147475549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147475545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117ccdf7b029ee743921f4e182866ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 2147475547}
+  localizeStringEvent: {fileID: 2147475548}
 --- !u!1 &9975132933594822
 GameObject:
   m_ObjectHideFlags: 0

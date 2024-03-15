@@ -18,7 +18,7 @@ namespace Town
             if (interactor.GetCarryingObject() == InteractableObject.None)
             {
                 interactor.PickUp(interactableObject);
-                if (QuestManager.Instance.currentQuest is CarryQuest quest)
+                if (QuestManager.instance.currentQuest is CarryQuest quest)
                 {
                     quest.OnObjectPickUp(interactableObject);
                 }

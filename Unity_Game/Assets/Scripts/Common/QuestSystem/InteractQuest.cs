@@ -19,7 +19,7 @@ namespace Common.QuestSystem
 
         public override void CompleteQuest(Interactor interactor, NPC requester)
         {
-            QuestManager.Instance.CompleteQuest();
+            QuestManager.instance.CompleteQuest();
         }
 
         protected override void CheckObjective()

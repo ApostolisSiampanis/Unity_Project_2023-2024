@@ -48,6 +48,7 @@ namespace Common.InteractionSystem
         private bool _interacting;
         private static readonly int HOLDING_BOX_IDLE = Animator.StringToHash("HoldingBoxIdle");
         private static readonly int HOLDING_BOX_WALK = Animator.StringToHash("HoldingBoxWalk");
+        private static readonly int SPEED = Animator.StringToHash("Speed");
 
         private void Awake()
         {
@@ -140,7 +141,7 @@ namespace Common.InteractionSystem
             switch (_currentInteractable)
             {
                 case ISpeak:
-                    animator.SetFloat("Speed", 0);
+                    animator.SetFloat(SPEED, 0);
                     controller.enabled = false;
                     break;
                 case IFixable fixable when fixable.CanBeFixed(inventory):

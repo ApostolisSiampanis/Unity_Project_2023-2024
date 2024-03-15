@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: FindTheBookQuestTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: FindTheBookQuestTable
+  m_TableCollectionNameGuidString: f916c7f519e2ae54b924dcdb47de6240
+  m_Entries:
+  - m_Id: 394428133376
+    m_Key: title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 429853224960
+    m_Key: description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 454016610304
+    m_Key: intro_dialogue_alex_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500674048000
+    m_Key: intro_dialogue_samir_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 510308364288
+    m_Key: intro_dialogue_samir_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1193455628288
+    m_Key: intro_dialogue_alex_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272325320704
+    m_Key: in_progress_dialogue_samir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1404886298624
+    m_Key: in_progress_dialogue_alex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1451350798336
+    m_Key: on_completion_dialogue_alex_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1545672306688
+    m_Key: on_completion_dialogue_samir_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1603520147456
+    m_Key: on_completion_dialogue_alex_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1666736697344
+    m_Key: on_completion_dialogue_samir_2
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5945854673390927884
+  references:
+    version: 2
+    RefIds:
+    - rid: 5945854673390927884
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1710524007160

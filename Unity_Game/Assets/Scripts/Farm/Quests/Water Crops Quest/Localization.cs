@@ -81,7 +81,7 @@ namespace Farm.Quests.Water_Crops_Quest
             quest.inProgressDialogue.sentences.AddRange(new List<DialogueSentence>
             {
                 new("Grandpa", inProgressMonologueGrandpa),
-                // new("Alex", inProgressMonologueAlex)
+                new("Alex", inProgressMonologueAlex)
             });
 
             // Set the on completion dialogues.

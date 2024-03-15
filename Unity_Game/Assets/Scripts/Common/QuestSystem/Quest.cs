@@ -45,7 +45,7 @@ namespace Common.QuestSystem
         {
             SetupQuest();
             if (requester != null) requester.ShowQuestHint(false);
-            QuestManager.Instance.StartQuest(requester);
+            QuestManager.instance.StartQuest(requester);
         }
 
         protected abstract void SetupQuest();

@@ -55,7 +55,7 @@ namespace Town
                 objectToActivate.SetActive(true);
                 gameObject.SetActive(false);
 
-                if (QuestManager.Instance.currentQuest is CarryQuest quest)
+                if (QuestManager.instance.currentQuest is CarryQuest quest)
                 {
                     quest.OnObjectPlaced(interactableTargetObject);
                 }

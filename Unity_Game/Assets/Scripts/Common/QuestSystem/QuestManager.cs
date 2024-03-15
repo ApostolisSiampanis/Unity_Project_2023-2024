@@ -10,7 +10,7 @@ namespace Common.QuestSystem
 {
     public class QuestManager : MonoBehaviour
     {
-        public static QuestManager Instance { get; private set; }
+        public static QuestManager instance { get; private set; }
 
         public GameObject questPanel;
         public TextMeshProUGUI questTitleText;
@@ -23,13 +23,13 @@ namespace Common.QuestSystem
 
         public Quest currentQuest;
 
-        public void Awake()
+        public void Start()
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = this;
+                instance = this;
                 _currentQuestIdx = -1;
-            
+
                 NextQuest();
             }
             else
@@ -38,7 +38,7 @@ namespace Common.QuestSystem
             }
         }
 
-        private void UpdateQuestUI()
+        public void UpdateQuestUI()
         {
             if (currentQuest == null)
             {
@@ -62,10 +62,10 @@ namespace Common.QuestSystem
         public void CompleteQuest()
         {
             if (currentQuest.responsibleNPC != null) currentQuest.responsibleNPC.availableQuest = null;
-            
+
             // Auto save quest
             AutoSave();
-            
+
             NextQuest();
         }
 
@@ -76,7 +76,7 @@ namespace Common.QuestSystem
             {
                 case Quest.Scene.Farm:
                     List<Collectable> carrots = null;
-                    
+
                     if (currentQuest is CollectQuest { itemType: Item.ItemType.Carrot } quest)
                     {
                         carrots = quest.collectables;
@@ -86,15 +86,17 @@ namespace Common.QuestSystem
                     {
                         SaveSystem.SaveMainProgress(new MainProgressData((int)LevelLoader.Scene.Forest));
                     }
-                    
-                    SaveSystem.SaveFarmProgress(new FarmData(currentQuest.questIndex, player.transform.position , carrots));
-                    
+
+                    SaveSystem.SaveFarmProgress(new FarmData(currentQuest.questIndex, player.transform.position,
+                        carrots));
+
                     break;
                 case Quest.Scene.Forest:
                     if (currentQuest.questIndex == 2)
                     {
                         SaveSystem.SaveMainProgress(new MainProgressData((int)LevelLoader.Scene.Town));
                     }
+
                     SaveSystem.SaveForestProgress(new ForestData(currentQuest.questIndex, player.transform.position));
                     break;
                 case Quest.Scene.Town:
@@ -102,10 +104,10 @@ namespace Common.QuestSystem
                     {
                         SaveSystem.SaveMainProgress(new MainProgressData((int)LevelLoader.Scene.Farm));
                     }
+
                     SaveSystem.SaveTownProgress(new TownData(currentQuest.questIndex, player.transform.position));
                     break;
             }
-            
         }
 
         private void NextQuest()
@@ -117,7 +119,7 @@ namespace Common.QuestSystem
                 UpdateQuestUI();
                 return;
             }
-        
+
             currentQuest = quests[_currentQuestIdx];
 
             if (currentQuest.responsibleNPC == null)
@@ -129,7 +131,7 @@ namespace Common.QuestSystem
                 currentQuest.responsibleNPC.availableQuest = currentQuest;
                 currentQuest.responsibleNPC.ShowQuestHint(true);
             }
-        
+
             UpdateQuestUI();
         }
 

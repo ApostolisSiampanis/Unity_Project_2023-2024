@@ -8,7 +8,7 @@ namespace Common.InteractionSystem
     public abstract class Interactable : MonoBehaviour
     {
         [Header("Interaction")] [SerializeField]
-        public string taskHint = "interact with something";
+        public string taskHint = "Press [#] to interact";
 
         public InteractableObject interactableObject;
 
@@ -37,7 +37,7 @@ namespace Common.InteractionSystem
                 Debug.LogError("Interactor is null");
             }
 
-            if (QuestManager.Instance.currentQuest != null && QuestManager.Instance.currentQuest is InteractQuest quest)
+            if (QuestManager.instance.currentQuest != null && QuestManager.instance.currentQuest is InteractQuest quest)
             {
                 quest.ObjectInteracted(interactableObject);
             }

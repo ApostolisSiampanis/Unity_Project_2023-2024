@@ -56,7 +56,7 @@ namespace Forest
             }
             
             Debug.Log("_forestData.questIndex= " + _forestData.questIndex);
-            QuestManager.Instance.SetCurrentQuestIndex(_forestData.questIndex);
+            QuestManager.instance.SetCurrentQuestIndex(_forestData.questIndex);
         }
     }
 }
