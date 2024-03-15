@@ -23,7 +23,7 @@ namespace Common.QuestSystem
 
         public Quest currentQuest;
 
-        public void Start()
+        public void Awake()
         {
             if (instance == null)
             {

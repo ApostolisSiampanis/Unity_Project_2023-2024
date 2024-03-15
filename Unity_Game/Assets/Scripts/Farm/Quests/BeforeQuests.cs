@@ -32,6 +32,9 @@ namespace Farm.Quests
             // Set the title and description.
             quest.title = title;
             quest.description = description;
+
+            // Update the quest UI.
+            QuestManager.instance.UpdateQuestUI();
         }
 
         private static IEnumerator InitLocalization()

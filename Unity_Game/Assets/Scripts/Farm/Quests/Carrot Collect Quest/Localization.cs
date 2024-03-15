@@ -47,11 +47,6 @@ namespace Farm.Quests.Carrot_Collect_Quest
             localizeStringEvent.StringReference.SetReference(table, "on_completion_dialogue_alex");
             string onCompletionDialogueAlex = localizeStringEvent.StringReference.GetLocalizedString();
 
-            // Set the localized strings to the quest.
-            // Set the title and description.
-            quest.title = title;
-            quest.description = description;
-
             // Clear the dialogue sentences.
             quest.introDialogue.sentences.Clear();
             quest.inProgressDialogue.sentences.Clear();
@@ -76,6 +71,14 @@ namespace Farm.Quests.Carrot_Collect_Quest
                 new("Grandpa", onCompletionDialogueGrandpa),
                 new("Alex", onCompletionDialogueAlex)
             });
+
+            // Set the localized strings to the quest.
+            // Set the title and description.
+            quest.title = title;
+            quest.description = description;
+
+            // Update the quest UI.
+            QuestManager.instance.UpdateQuestUI();
         }
 
         private static IEnumerator InitLocalization()

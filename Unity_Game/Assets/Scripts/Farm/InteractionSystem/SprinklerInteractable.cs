@@ -1,8 +1,7 @@
 using Common.DialogueSystem;
 using Common.InteractionSystem;
-using Common.QuestSystem;
+using Farm.Quests;
 using Inventory;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Farm.InteractionSystem
@@ -12,8 +11,10 @@ namespace Farm.InteractionSystem
         public bool isBroken = true;
         public Item.ItemType requiredItemToFix;
         public Dialogue onBrokenMonologue;
-        
+
         public GameObject waterAnimation;
+
+        [SerializeField] private InteractWithSprinkler _interactWithSprinkler;
 
         private DialogueManager _dialogueManager;
 
@@ -32,17 +33,16 @@ namespace Farm.InteractionSystem
             if (isBroken)
             {
                 // Trigger monologue
-                interactor.TriggerMonologue(onBrokenMonologue);
+                interactor.TriggerMonologue(_interactWithSprinkler.GetMonologue());
             }
             else
             {
                 waterAnimation.SetActive(!isBroken);
                 readyToInteract = false;
-                
+
                 // Instant interaction
                 interactor.EndInteraction(this);
             }
-            
         }
 
         public override void OnEndInteract()

@@ -60,11 +60,6 @@ namespace Farm.Quests.Water_Crops_Quest
             localizeStringEvent.StringReference.SetReference(table, "on_completion_dialogue_alex_3");
             string onCompletionDialogueAlex3 = localizeStringEvent.StringReference.GetLocalizedString();
 
-            // Set the localized strings to the quest.
-            // Set the title and description.
-            quest.title = title;
-            quest.description = description;
-
             // Clear the dialogue sentences.
             quest.introDialogue.sentences.Clear();
             quest.inProgressDialogue.sentences.Clear();
@@ -80,8 +75,7 @@ namespace Farm.Quests.Water_Crops_Quest
             // Set the in progress monologues.
             quest.inProgressDialogue.sentences.AddRange(new List<DialogueSentence>
             {
-                new("Grandpa", inProgressMonologueGrandpa),
-                new("Alex", inProgressMonologueAlex)
+                new("Grandpa", inProgressMonologueGrandpa)
             });
 
             // Set the on completion dialogues.
@@ -93,6 +87,14 @@ namespace Farm.Quests.Water_Crops_Quest
                 new("Grandpa", onCompletionDialogueGrandpa2),
                 new("Alex", onCompletionDialogueAlex3)
             });
+
+            // Set the localized strings to the quest.
+            // Set the title and description.
+            quest.title = title;
+            quest.description = description;
+
+            // Update the quest UI.
+            QuestManager.instance.UpdateQuestUI();
         }
 
         private static IEnumerator InitLocalization()

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4404247371245669473}
   - component: {fileID: 2465844312315684994}
   - component: {fileID: 3997596280568336936}
+  - component: {fileID: -6704491761074566333}
   - component: {fileID: -2173568311699180196}
   - component: {fileID: 437559423447887278}
   m_Layer: 7
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19013b8022df4b1bb0c159f52e087ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskHint: activate sprinkler
+  taskHint: 
   interactableObject: 1
   interactKey: 0
   readyToInteract: 0
@@ -131,6 +132,7 @@ MonoBehaviour:
   requiredItemToFix: 2
   onBrokenMonologue: {fileID: 11400000, guid: fb4a75e6c22514c33a6a25c84b1fb82c, type: 2}
   waterAnimation: {fileID: 4016537893444532875}
+  _interactWithSprinkler: {fileID: -6704491761074566333}
 --- !u!136 &3997596280568336936
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -154,6 +156,19 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: -0.071239226}
+--- !u!114 &-6704491761074566333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689726563822152252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db54d0ee4938b349b5139d2da97d0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizeStringEvent: {fileID: 437559423447887278}
 --- !u!114 &-2173568311699180196
 MonoBehaviour:
   m_ObjectHideFlags: 0
