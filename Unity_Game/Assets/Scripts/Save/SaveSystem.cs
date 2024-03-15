@@ -169,7 +169,7 @@ namespace Save
         public static void SaveForestProgress(ForestData forestData)
         {
             var formatter = new BinaryFormatter();
-            var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
+            var path = Application.persistentDataPath + FOREST_PROGRESS_PATH;
             
             try
             {
@@ -185,7 +185,7 @@ namespace Save
         
         public static ForestData LoadForestProgress()
         {
-            var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
+            var path = Application.persistentDataPath + FOREST_PROGRESS_PATH;
             try
             {
                 if (File.Exists(path))
