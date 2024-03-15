@@ -30,6 +30,7 @@ namespace Common.QuestSystem
 
         [Header("Save Properties")] 
         public Scene scene;
+        public int questIndex;
         
         
         public NPC responsibleNPC;

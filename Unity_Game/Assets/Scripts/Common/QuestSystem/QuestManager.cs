@@ -81,7 +81,7 @@ namespace Common.QuestSystem
                     break;
                 case Quest.Scene.Town:
                     Debug.Log("Town quest");
-                    SaveSystem.SaveTownProgress(new TownData(_currentQuestIdx, player.transform.position));
+                    SaveSystem.SaveTownProgress(new TownData(currentQuest.questIndex, player.transform.position));
                     break;
             }
             
