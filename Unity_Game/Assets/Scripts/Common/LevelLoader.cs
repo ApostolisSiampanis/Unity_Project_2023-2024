@@ -10,6 +10,8 @@ namespace Common
     public abstract class LevelLoader : MonoBehaviour
     {
         public Interactor interactor;
+        public GameObject player;
+        
         // Transition animation
         public Animator transition;
         public float transitionTime = 1f;

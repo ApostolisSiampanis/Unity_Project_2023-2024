@@ -15,7 +15,7 @@ namespace Common.QuestSystem
         public TextMeshProUGUI questTitleText;
         public TextMeshProUGUI questDescriptionText;
 
-        public Interactor interactor;
+        public GameObject player;
 
         public List<Quest> quests;
         private int _currentQuestIdx;
@@ -81,7 +81,7 @@ namespace Common.QuestSystem
                     break;
                 case Quest.Scene.Town:
                     Debug.Log("Town quest");
-                    SaveSystem.SaveTownProgress(new TownData(_currentQuestIdx, interactor.transform.position));
+                    SaveSystem.SaveTownProgress(new TownData(_currentQuestIdx, player.transform.position));
                     break;
             }
             

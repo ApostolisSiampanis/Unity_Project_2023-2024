@@ -62,7 +62,8 @@ namespace Town
             
             var playerPosition = _townData.playerPosition;
             var vectorPlayerPosition = new Vector3(playerPosition[0], playerPosition[1], playerPosition[2]);
-            interactor.transform.position = vectorPlayerPosition;
+            player.transform.position = vectorPlayerPosition;
+            
             Debug.Log("_TownData.questIndex= " + _townData.questIndex);
             QuestManager.Instance.SetCurrentQuestIndex(_townData.questIndex);
             

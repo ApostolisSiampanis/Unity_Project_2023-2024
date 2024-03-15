@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18048619, g: 0.2259574, b: 0.30703798, a: 1}
+  m_IndirectSpecularColor: {r: 0.18048571, g: 0.2259568, b: 0.30703685, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   questPanel: {fileID: 3270832819141624887}
   questTitleText: {fileID: 6213158503215970751}
   questDescriptionText: {fileID: 4382914251045933691}
-  interactor: {fileID: 493562329}
+  player: {fileID: 1098165592}
   quests:
   - {fileID: 1068081978}
   - {fileID: 434757778}
@@ -2462,6 +2462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactor: {fileID: 493562329}
+  player: {fileID: 1098165592}
   transition: {fileID: 8906835922924864325}
   transitionTime: 1
   entryCutscene: {fileID: 1726414321}
