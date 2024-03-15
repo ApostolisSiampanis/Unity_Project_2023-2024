@@ -85,7 +85,7 @@ namespace Common.QuestSystem
                     SaveSystem.SaveFarmProgress(new FarmData(currentQuest.questIndex, player.transform.position , carrots));
                     break;
                 case Quest.Scene.Forest:
-                    Debug.Log("Forest quest");
+                    SaveSystem.SaveForestProgress(new ForestData(currentQuest.questIndex, player.transform.position));
                     break;
                 case Quest.Scene.Town:
                     SaveSystem.SaveTownProgress(new TownData(currentQuest.questIndex, player.transform.position));

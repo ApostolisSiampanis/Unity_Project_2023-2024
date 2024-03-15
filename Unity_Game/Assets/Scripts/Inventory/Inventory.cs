@@ -10,13 +10,10 @@ namespace Inventory
         public event EventHandler onItemListChanged;
 
         private readonly List<Item> _itemList;
-        private readonly QuestManager _questManager;
 
         public Inventory()
         {
             _itemList = new List<Item>();
-            _questManager = QuestManager.Instance;
-            if (_questManager == null) Debug.LogError("Quest Manager is missing");
         }
 
         public void AddItem(Item item)
@@ -43,7 +40,7 @@ namespace Inventory
                 _itemList.Add(item);
             }
 
-            if (_questManager.currentQuest is CollectQuest quest)
+            if (QuestManager.Instance.currentQuest is CollectQuest quest)
             {
                 quest.ItemCollected(item);
             }

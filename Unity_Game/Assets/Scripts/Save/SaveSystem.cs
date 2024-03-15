@@ -11,6 +11,7 @@ namespace Save
         private const string LOCALE_PATH = "/locale.save";
         
         private const string FARM_PROGRESS_PATH = "/farm_progress.save";
+        private const string FOREST_PROGRESS_PATH = "/forest_progress.save";
         private const string TOWN_PROGRESS_PATH = "/town_progress.save";
         
         public static void SaveSettings(SettingsData settingsData)
@@ -89,23 +90,6 @@ namespace Save
             return -1;
         }
 
-        public static void SaveProgress(ProgressData progressData)
-        {
-            // var formatter = new BinaryFormatter();
-            // var path = Application.persistentDataPath + PROGRESS_PATH;
-            //
-            // try
-            // {
-            //     using var stream = new FileStream(path, FileMode.Create);
-            //     formatter.Serialize(stream, progressData);
-            //     Debug.Log("Progress has been saved at " + path);
-            // }
-            // catch (System.Exception e)
-            // {
-            //     Debug.LogError("Error saving progress: " + e.Message);
-            // }
-        }
-
         public static void SaveTownProgress(TownData townData)
         {
             var formatter = new BinaryFormatter();
@@ -179,6 +163,44 @@ namespace Save
             }
             
             Debug.Log("Farm progress save file not found in " + path);
+            return null;
+        }
+        
+        public static void SaveForestProgress(ForestData forestData)
+        {
+            var formatter = new BinaryFormatter();
+            var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
+            
+            try
+            {
+                using var stream = new FileStream(path, FileMode.Create);
+                formatter.Serialize(stream, forestData);
+                Debug.Log("Forest progress has been saved at " + path);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error saving forest progress: " + e.Message);
+            }
+        }
+        
+        public static ForestData LoadForestProgress()
+        {
+            var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
+            try
+            {
+                if (File.Exists(path))
+                {
+                    using var stream = new FileStream(path, FileMode.Open);
+                    var formatter = new BinaryFormatter();
+                    return formatter.Deserialize(stream) as ForestData;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error loading forest progress: " + e.Message);
+            }
+            
+            Debug.Log("Forest progress save file not found in " + path);
             return null;
         }
     }
