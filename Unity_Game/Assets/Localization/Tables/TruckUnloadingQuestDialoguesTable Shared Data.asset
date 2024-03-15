@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: TruckUnloadingQuestDialoguesTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: TruckUnloadingQuestDialoguesTable
+  m_TableCollectionNameGuidString: a6bcb608d1ee2af4cb5c18b8e5a5d121
+  m_Entries:
+  - m_Id: 406151213056
+    m_Key: title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 454977105920
+    m_Key: description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 480725938176
+    m_Key: intro_dialogue_uncle_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5822532792320
+    m_Key: intro_dialogue_alex_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6088854319104
+    m_Key: intro_dialogue_uncle_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6106885632000
+    m_Key: intro_dialogue_alex_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7067704209408
+    m_Key: in_progress_monologue_uncle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7287775145984
+    m_Key: on_completion_dialogue_uncle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7333807632384
+    m_Key: on_completion_dialogue_alex
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5945854668913246216
+  references:
+    version: 2
+    RefIds:
+    - rid: 5945854668913246216
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1710505925687

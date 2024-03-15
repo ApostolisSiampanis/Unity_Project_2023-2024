@@ -10,8 +10,6 @@ namespace Farm.Quests
     {
         [SerializeField] private Quest quest;
         [SerializeField] private LocalizeStringEvent localizeStringEvent;
-        [SerializeField] private string titleKey;
-        [SerializeField] private string descriptionKey;
 
         private void Start()
         {
@@ -22,11 +20,11 @@ namespace Farm.Quests
             const string table = "InteractWithCarDoorQuestTable";
 
             // Quest title.
-            localizeStringEvent.StringReference.SetReference(table, titleKey);
+            localizeStringEvent.StringReference.SetReference(table, "title");
             string title = localizeStringEvent.StringReference.GetLocalizedString();
 
             // Quest description.
-            localizeStringEvent.StringReference.SetReference(table, descriptionKey);
+            localizeStringEvent.StringReference.SetReference(table, "description");
             string description = localizeStringEvent.StringReference.GetLocalizedString();
 
             // Set the title and description.

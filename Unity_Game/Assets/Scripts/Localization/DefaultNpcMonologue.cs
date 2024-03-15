@@ -12,6 +12,7 @@ namespace Localization
         [SerializeField] private LocalizeStringEvent localizeStringEvent;
         [SerializeField] private string npcName;
         [SerializeField] private string defaultNpcMonologueKey;
+        [SerializeField] private bool isUncle;
 
         private void Start()
         {
@@ -27,6 +28,15 @@ namespace Localization
 
             // Remove the previous default monologue.
             dialogueTrigger.greetDialogue.sentences.Clear();
+
+            // If the NPC is Uncle Bob, set the correct name.
+            if (isUncle)
+            {
+                // Check if the selected locale is English, to set the correct name for Uncle Bob.
+                bool isEnglish = LocalizationSettings.SelectedLocale.name == "en";
+                string uncle = isEnglish ? "Uncle Bob" : "Θείος Bob";
+                npcName = uncle;
+            }
 
             // Set the default monologue.
             dialogueTrigger.greetDialogue.sentences.Add(new DialogueSentence(npcName, monologue));
