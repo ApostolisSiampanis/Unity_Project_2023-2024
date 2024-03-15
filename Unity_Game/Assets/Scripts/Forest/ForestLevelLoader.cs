@@ -25,7 +25,7 @@ namespace Forest
             InitScene();
         }
 
-        protected override void InitScene()
+        public override void InitScene()
         {
             if (_forestData == null)
             {

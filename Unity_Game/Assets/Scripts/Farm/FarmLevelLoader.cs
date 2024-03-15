@@ -25,7 +25,7 @@ namespace Farm
             InitScene();
         }
 
-        protected override void InitScene()
+        public override void InitScene()
         {
             if (_farmData == null)
             {

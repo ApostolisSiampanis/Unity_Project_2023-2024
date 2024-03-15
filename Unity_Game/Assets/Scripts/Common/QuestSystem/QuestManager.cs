@@ -81,8 +81,14 @@ namespace Common.QuestSystem
                     {
                         carrots = quest.collectables;
                     }
+
+                    if (currentQuest.questIndex == 5)
+                    {
+                        SaveSystem.SaveMainProgress(new MainProgressData((int)LevelLoader.Scene.Forest));
+                    }
                     
                     SaveSystem.SaveFarmProgress(new FarmData(currentQuest.questIndex, player.transform.position , carrots));
+                    
                     break;
                 case Quest.Scene.Forest:
                     SaveSystem.SaveForestProgress(new ForestData(currentQuest.questIndex, player.transform.position));

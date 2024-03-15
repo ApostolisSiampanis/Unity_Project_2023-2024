@@ -9,6 +9,14 @@ namespace Common
 {
     public abstract class LevelLoader : MonoBehaviour
     {
+        public enum Scene
+        {
+            MainMenu,
+            Farm,
+            Forest,
+            Town
+        }
+        
         public Interactor interactor;
         public GameObject player;
         
@@ -16,18 +24,18 @@ namespace Common
         public Animator transition;
         public float transitionTime = 1f;
 
-        public void LoadNextScene()
+        public void LoadScene(int sceneIndex)
         {
-            StartCoroutine(LoadScreen(SceneManager.GetActiveScene().buildIndex + 1));
+            StartCoroutine(LoadScreen(sceneIndex));
         }
 
-        IEnumerator LoadScreen(int sceneIndex)
+        protected IEnumerator LoadScreen(int sceneIndex)
         {
             transition.SetTrigger("Start");
             yield return new WaitForSeconds(transitionTime);
             SceneManager.LoadScene(sceneIndex);
         }
 
-        protected abstract void InitScene();
+        public abstract void InitScene();
     }
 }

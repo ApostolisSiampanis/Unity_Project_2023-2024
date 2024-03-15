@@ -10,6 +10,7 @@ namespace Save
         private const string SETTINGS_PATH = "/settings.save";
         private const string LOCALE_PATH = "/locale.save";
         
+        private const string MAIN_PROGRESS_PATH = "/main_progress.save";
         private const string FARM_PROGRESS_PATH = "/farm_progress.save";
         private const string FOREST_PROGRESS_PATH = "/forest_progress.save";
         private const string TOWN_PROGRESS_PATH = "/town_progress.save";
@@ -202,6 +203,77 @@ namespace Save
             
             Debug.Log("Forest progress save file not found in " + path);
             return null;
+        }
+        
+        public static void SaveMainProgress(MainProgressData mainProgressData)
+        {
+            var formatter = new BinaryFormatter();
+            var path = Application.persistentDataPath + MAIN_PROGRESS_PATH;
+            
+            try
+            {
+                using var stream = new FileStream(path, FileMode.Create);
+                formatter.Serialize(stream, mainProgressData);
+                Debug.Log("Main progress has been saved at " + path);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error saving main progress: " + e.Message);
+            }
+        }
+        
+        public static MainProgressData LoadMainProgress()
+        {
+            var path = Application.persistentDataPath + MAIN_PROGRESS_PATH;
+            try
+            {
+                if (File.Exists(path))
+                {
+                    using var stream = new FileStream(path, FileMode.Open);
+                    var formatter = new BinaryFormatter();
+                    return formatter.Deserialize(stream) as MainProgressData;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error loading main progress: " + e.Message);
+            }
+            
+            Debug.Log("Main progress save file not found in " + path);
+            return null;
+        }
+
+        public static bool DeleteProgressFiles()
+        {
+            var success = true;
+
+            // Paths to the progress files
+            var progressPaths = new[] { MAIN_PROGRESS_PATH, FARM_PROGRESS_PATH, FOREST_PROGRESS_PATH, TOWN_PROGRESS_PATH };
+
+            foreach (var progressPath in progressPaths)
+            {
+                try
+                {
+                    var fullPath = Application.persistentDataPath + progressPath;
+
+                    if (File.Exists(fullPath))
+                    {
+                        File.Delete(fullPath);
+                        Debug.Log("Deleted progress file: " + fullPath);
+                    }
+                    else
+                    {
+                        Debug.Log("Progress file not found: " + fullPath);
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError("Error deleting progress file: " + e.Message);
+                    success = false; // Set success to false if any deletion fails
+                }
+            }
+
+            return success;
         }
     }
 }

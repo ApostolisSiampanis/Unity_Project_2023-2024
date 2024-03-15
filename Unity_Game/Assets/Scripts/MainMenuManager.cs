@@ -6,13 +6,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
 using Toggle = UnityEngine.UI.Toggle;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private MainLevelLoader mainLevelLoader;
 
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject optionsScreen;
@@ -28,6 +27,7 @@ public class MainMenuManager : MonoBehaviour
     public Toggle fullScreenToggle;
     public TMP_Dropdown qualityDropDown;
     public TMP_Dropdown resolutionDropdown;
+    public Button continueButton;
 
     // Temporary variables to store changes
     private float _tempSoundsVolume;
@@ -35,6 +35,8 @@ public class MainMenuManager : MonoBehaviour
     private int _tempQualityIndex;
     private bool _tempIsFullscreen;
     private int _tempResolutionIndex;
+
+    private MainProgressData _mainProgressData;
 
     // Start is called before the first frame update
     private void Start()
@@ -61,30 +63,45 @@ public class MainMenuManager : MonoBehaviour
         
         // Load saved settings
         var settings = SaveSystem.LoadSettings();
-        if (settings == null) return;
-        
-        _tempSoundsVolume = settings.soundsVolume;
-        _tempMusicVolume = settings.musicVolume;
-        _tempQualityIndex = settings.qualityIndex;
-        _tempIsFullscreen = settings.isFullscreen;
-        _tempResolutionIndex = settings.resolutionIndex;
+        if (settings != null)
+        {
+            _tempSoundsVolume = settings.soundsVolume;
+            _tempMusicVolume = settings.musicVolume;
+            _tempQualityIndex = settings.qualityIndex;
+            _tempIsFullscreen = settings.isFullscreen;
+            _tempResolutionIndex = settings.resolutionIndex;
 
-        soundsVolume.value = _tempSoundsVolume;
-        musicVolume.value = _tempMusicVolume;
-        fullScreenToggle.isOn = _tempIsFullscreen;
-        qualityDropDown.value = _tempQualityIndex;
-        resolutionDropdown.value = _tempResolutionIndex;
+            soundsVolume.value = _tempSoundsVolume;
+            musicVolume.value = _tempMusicVolume;
+            fullScreenToggle.isOn = _tempIsFullscreen;
+            qualityDropDown.value = _tempQualityIndex;
+            resolutionDropdown.value = _tempResolutionIndex;
         
-        UpdateSettings();
+            UpdateSettings();
+        }
+
+        _mainProgressData = SaveSystem.LoadMainProgress();
+        if (_mainProgressData != null)
+        {
+            // Enable continue button
+            continueButton.interactable = true;
+        }
+
     }
 
     // Main Menu Screen
-    public void PlayGame()
+    public void NewGame()
     {
         //SceneManager.LoadScene("FarmScene");
-        levelLoader.LoadNextScene();
+        mainLevelLoader.InitScene();
     }
 
+    public void Continue()
+    {
+        if (_mainProgressData == null) return;
+        Debug.Log("Scene to load: " + _mainProgressData.sceneIndex);
+        mainLevelLoader.LoadScene(_mainProgressData.sceneIndex);
+    }
 
     public void Options()
     {

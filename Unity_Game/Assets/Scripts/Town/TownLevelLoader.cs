@@ -26,7 +26,7 @@ namespace Town
             InitScene();
         }
         
-        protected override void InitScene()
+        public override void InitScene()
         {
             if (_townData == null)
             {
