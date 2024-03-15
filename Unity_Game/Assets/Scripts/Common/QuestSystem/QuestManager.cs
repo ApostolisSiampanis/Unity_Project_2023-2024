@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Common.InteractionSystem;
+using Inventory;
 using Save;
 using Save.Data;
 using TMPro;
@@ -74,13 +75,19 @@ namespace Common.QuestSystem
             switch (scene)
             {
                 case Quest.Scene.Farm:
-                    Debug.Log("Farm quest");
+                    List<Collectable> carrots = null;
+                    
+                    if (currentQuest is CollectQuest { itemType: Item.ItemType.Carrot } quest)
+                    {
+                        carrots = quest.collectables;
+                    }
+                    
+                    SaveSystem.SaveFarmProgress(new FarmData(currentQuest.questIndex, player.transform.position , carrots));
                     break;
                 case Quest.Scene.Forest:
                     Debug.Log("Forest quest");
                     break;
                 case Quest.Scene.Town:
-                    Debug.Log("Town quest");
                     SaveSystem.SaveTownProgress(new TownData(currentQuest.questIndex, player.transform.position));
                     break;
             }

@@ -35,7 +35,8 @@ Transform:
   m_LocalPosition: {x: -35.456, y: 0.07, z: -21.480001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4231702667513042151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0.001, z: 0}
 --- !u!33 &182722772891713475
@@ -129,6 +130,7 @@ MonoBehaviour:
   isBroken: 1
   requiredItemToFix: 2
   onBrokenMonologue: {fileID: 11400000, guid: fb4a75e6c22514c33a6a25c84b1fb82c, type: 2}
+  waterAnimation: {fileID: 4016537893444532875}
 --- !u!136 &3997596280568336936
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -195,3 +197,83 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1001 &8091384827530159176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4250960141614109335}
+    m_Modifications:
+    - target: {fileID: 5185829341875117763, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_Name
+      value: FX_Sprinkler_Large_01 with_sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.323
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000004193611
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000004193611
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a240db54c12374c56ace13c8d30459ce, type: 3}
+--- !u!1 &4016537893444532875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5185829341875117763, guid: a240db54c12374c56ace13c8d30459ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 8091384827530159176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4231702667513042151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5399913288548724911, guid: a240db54c12374c56ace13c8d30459ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 8091384827530159176}
+  m_PrefabAsset: {fileID: 0}

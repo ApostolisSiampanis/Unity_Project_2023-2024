@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Common.InteractionSystem;
 using UnityEngine;
 
 namespace Save.Data

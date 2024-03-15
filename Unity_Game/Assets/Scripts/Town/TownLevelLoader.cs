@@ -15,7 +15,6 @@ namespace Town
         public PlayableDirector entryCutscene;
         
         [Header("Quests")]
-        public InteractQuest talkToUncleQuest;
         public CarryQuest truckUnloadingQuest;
         public CollectQuest findToolBoxQuest;
 

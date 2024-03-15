@@ -1,6 +1,8 @@
 using Common.DialogueSystem;
 using Common.InteractionSystem;
+using Common.QuestSystem;
 using Inventory;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Farm.InteractionSystem
@@ -10,12 +12,15 @@ namespace Farm.InteractionSystem
         public bool isBroken = true;
         public Item.ItemType requiredItemToFix;
         public Dialogue onBrokenMonologue;
+        
+        public GameObject waterAnimation;
 
         private DialogueManager _dialogueManager;
 
         public void Start()
         {
             _dialogueManager = FindObjectOfType<DialogueManager>();
+            waterAnimation.SetActive(!isBroken);
 
             if (_dialogueManager == null) Debug.LogError("Dialogue Manager is missing");
         }
@@ -31,6 +36,9 @@ namespace Farm.InteractionSystem
             }
             else
             {
+                waterAnimation.SetActive(!isBroken);
+                readyToInteract = false;
+                
                 // Instant interaction
                 interactor.EndInteraction(this);
             }

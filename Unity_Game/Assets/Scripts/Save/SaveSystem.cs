@@ -10,6 +10,7 @@ namespace Save
         private const string SETTINGS_PATH = "/settings.save";
         private const string LOCALE_PATH = "/locale.save";
         
+        private const string FARM_PROGRESS_PATH = "/farm_progress.save";
         private const string TOWN_PROGRESS_PATH = "/town_progress.save";
         
         public static void SaveSettings(SettingsData settingsData)
@@ -140,6 +141,44 @@ namespace Save
             }
             
             Debug.Log("Town progress save file not found in " + path);
+            return null;
+        }
+        
+        public static void SaveFarmProgress(FarmData farmData)
+        {
+            var formatter = new BinaryFormatter();
+            var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
+            
+            try
+            {
+                using var stream = new FileStream(path, FileMode.Create);
+                formatter.Serialize(stream, farmData);
+                Debug.Log("Farm progress has been saved at " + path);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error saving farm progress: " + e.Message);
+            }
+        }
+        
+        public static FarmData LoadFarmProgress()
+        {
+            var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
+            try
+            {
+                if (File.Exists(path))
+                {
+                    using var stream = new FileStream(path, FileMode.Open);
+                    var formatter = new BinaryFormatter();
+                    return formatter.Deserialize(stream) as FarmData;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error loading farm progress: " + e.Message);
+            }
+            
+            Debug.Log("Farm progress save file not found in " + path);
             return null;
         }
     }
