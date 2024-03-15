@@ -91,9 +91,17 @@ namespace Common.QuestSystem
                     
                     break;
                 case Quest.Scene.Forest:
+                    if (currentQuest.questIndex == 2)
+                    {
+                        SaveSystem.SaveMainProgress(new MainProgressData((int)LevelLoader.Scene.Town));
+                    }
                     SaveSystem.SaveForestProgress(new ForestData(currentQuest.questIndex, player.transform.position));
                     break;
                 case Quest.Scene.Town:
+                    if (currentQuest.questIndex == 3)
+                    {
+                        SaveSystem.SaveMainProgress(new MainProgressData((int)LevelLoader.Scene.Farm));
+                    }
                     SaveSystem.SaveTownProgress(new TownData(currentQuest.questIndex, player.transform.position));
                     break;
             }

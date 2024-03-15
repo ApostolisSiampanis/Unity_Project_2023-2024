@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18121877, g: 0.22681566, b: 0.30734056, a: 1}
+  m_IndirectSpecularColor: {r: 0.18121825, g: 0.2268151, b: 0.30733937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5784,6 +5784,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 234868170}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &518166046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518166047}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &518166047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518166046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -445.2545, y: 124.19023, z: 3.354992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &537084001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10501,6 +10532,52 @@ MonoBehaviour:
   - {fileID: 1708279318}
   - {fileID: 1526186450}
   currentQuest: {fileID: 0}
+--- !u!1 &1157279605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157279607}
+  - component: {fileID: 1157279606}
+  m_Layer: 0
+  m_Name: TownSceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1157279606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157279605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea233df5b46d244d1b9b52701841bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 3
+  levelLoader: {fileID: 582290142}
+--- !u!4 &1157279607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157279605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -445.2545, y: 124.19023, z: 3.354992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171658488
 GameObject:
   m_ObjectHideFlags: 0
@@ -12421,6 +12498,52 @@ Transform:
   - {fileID: 7010026620835216164}
   m_Father: {fileID: 3497894677052594626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1313425386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313425388}
+  - component: {fileID: 1313425387}
+  m_Layer: 0
+  m_Name: FarmSceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1313425387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313425386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea233df5b46d244d1b9b52701841bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 1
+  levelLoader: {fileID: 582290142}
+--- !u!4 &1313425388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313425386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -445.2545, y: 124.19023, z: 3.354992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322520661
 GameObject:
   m_ObjectHideFlags: 0
@@ -13014,6 +13137,8 @@ PlayableDirector:
     value: {fileID: 1852102754}
   - key: {fileID: -7208329579182894396, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
     value: {fileID: 959556977}
+  - key: {fileID: -5023971633120761688, guid: d089fcb3671ffcb4ea9bf127fd98cf42, type: 2}
+    value: {fileID: 1157279605}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1576701370 stripped
@@ -14939,6 +15064,8 @@ PlayableDirector:
     value: {fileID: 990430591}
   - key: {fileID: -8498978577524308421, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
     value: {fileID: 959556977}
+  - key: {fileID: 3445136974133811353, guid: 726300f7a6ccb5f48b6d52c3b2ceeca0, type: 2}
+    value: {fileID: 1313425386}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &2129776352
@@ -104138,3 +104265,6 @@ SceneRoots:
   - {fileID: 1943477847}
   - {fileID: 660413911}
   - {fileID: 582290143}
+  - {fileID: 518166047}
+  - {fileID: 1157279607}
+  - {fileID: 1313425388}
