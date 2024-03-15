@@ -1,7 +1,5 @@
 using Common.DialogueSystem;
 using Common.InteractionSystem;
-using Inventory;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Common.QuestSystem
