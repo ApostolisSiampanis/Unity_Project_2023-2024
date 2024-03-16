@@ -57,28 +57,24 @@ namespace Town.Quests.Find_toolbox_Quest
             quest.inProgressDialogue.sentences.Clear();
             quest.onCompletionDialogue.sentences.Clear();
 
-            // Check if the selected locale is English, to set the correct name for Uncle Bob.
-            bool isEnglish = LocalizationSettings.SelectedLocale.name == "en";
-            string uncle = isEnglish ? "Uncle Bob" : "Θείος Bob";
-
             // Set the intro dialogue.
             quest.introDialogue.sentences.AddRange(new List<DialogueSentence>
             {
                 new("Alex", introDialogueAlex),
-                new(uncle, introDialogueUncle)
+                new("Uncle Bob", introDialogueUncle)
             });
 
             // Set the in progress monologue.
             quest.inProgressDialogue.sentences.AddRange(new List<DialogueSentence>
             {
-                new(uncle, inProgressMonologueUncle)
+                new("Uncle Bob", inProgressMonologueUncle)
             });
 
             // Set the on completion dialogue.
             quest.onCompletionDialogue.sentences.AddRange(new List<DialogueSentence>
             {
                 new("Alex", onCompletionDialogueAlex),
-                new(uncle, onCompletionDialogueUncle)
+                new("Uncle Bob", onCompletionDialogueUncle)
             });
         }
 

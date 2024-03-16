@@ -63,29 +63,25 @@ namespace Town.Quests.Truck_Unloading_Quest
             quest.inProgressDialogue.sentences.Clear();
             quest.onCompletionDialogue.sentences.Clear();
 
-            // Check if the selected locale is English, to set the correct name for Uncle Bob.
-            bool isEnglish = LocalizationSettings.SelectedLocale.name == "en";
-            string uncle = isEnglish ? "Uncle Bob" : "Θείος Bob";
-
             // Set the intro dialogue.
             quest.introDialogue.sentences.AddRange(new List<DialogueSentence>
             {
-                new(uncle, introDialogueUncle1),
+                new("Uncle Bob", introDialogueUncle1),
                 new("Alex", introDialogueAlex1),
-                new(uncle, introDialogueUncle2),
+                new("Uncle Bob", introDialogueUncle2),
                 new("Alex", introDialogueAlex2)
             });
 
             // Set the in progress monologue.
             quest.inProgressDialogue.sentences.AddRange(new List<DialogueSentence>
             {
-                new(uncle, inProgressMonologueUncle)
+                new("Uncle Bob", inProgressMonologueUncle)
             });
 
             // Set the on completion dialogue.
             quest.onCompletionDialogue.sentences.AddRange(new List<DialogueSentence>
             {
-                new(uncle, onCompletionDialogueUncle),
+                new("Uncle Bob", onCompletionDialogueUncle),
                 new("Alex", onCompletionDialogueAlex)
             });
         }

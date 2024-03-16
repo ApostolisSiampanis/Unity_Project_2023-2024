@@ -131,6 +131,11 @@ namespace Save
         
         public static void SaveFarmProgress(FarmData farmData)
         {
+            if (farmData.questIndex > 3)
+            {
+                farmData.carrotsVisibility = LoadFarmProgress().carrotsVisibility;
+            }
+
             var formatter = new BinaryFormatter();
             var path = Application.persistentDataPath + FARM_PROGRESS_PATH;
             
