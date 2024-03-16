@@ -1,46 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+namespace Inventory
 {
-    public enum ItemType
+    [System.Serializable]
+    public class Item
     {
-        Apple,
-        Carrot,
-        Toolbox,
-        Hammer,
-        Book
-    }
-
-    public ItemType itemType;
-    public int amount;
-
-    public Sprite GetSprite()
-    {
-        switch (itemType)
+        public enum ItemType
         {
-            default:
-            case ItemType.Apple: return ItemAssets.Instance.appleSprite;
-            case ItemType.Carrot: return ItemAssets.Instance.carrotsSprite;
-            case ItemType.Toolbox: return ItemAssets.Instance.toolboxSprite;
-            case ItemType.Hammer: return ItemAssets.Instance.hammerSprite;
-            case ItemType.Book: return ItemAssets.Instance.bookSprite;
+            Apple,
+            Carrot,
+            Toolbox,
+            Hammer,
+            Book,
+            Box,
+            None
         }
-    }
 
-    public bool IsStackable()
-    {
-        switch (itemType) 
+        public ItemType itemType;
+        public int amount;
+
+        public Sprite GetSprite()
         {
-            default:
-            case ItemType.Apple:
-            case ItemType.Carrot:
-                return true;
-            case ItemType.Hammer:
-            case ItemType.Toolbox:
-            case ItemType.Book:
-                return false;
+            switch (itemType)
+            {
+                default:
+                case ItemType.Apple: return ItemAssets.instance.appleSprite;
+                case ItemType.Carrot: return ItemAssets.instance.carrotsSprite;
+                case ItemType.Toolbox: return ItemAssets.instance.toolboxSprite;
+                case ItemType.Hammer: return ItemAssets.instance.hammerSprite;
+                case ItemType.Book: return ItemAssets.instance.bookSprite;
+            }
+        }
+
+        public bool IsStackable()
+        {
+            switch (itemType)
+            {
+                default:
+                case ItemType.Apple:
+                case ItemType.Carrot:
+                    return true;
+                case ItemType.Hammer:
+                case ItemType.Toolbox:
+                case ItemType.Book:
+                    return false;
+            }
         }
     }
 }

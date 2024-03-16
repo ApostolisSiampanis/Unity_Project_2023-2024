@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: FixWateringSystemQuestTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: FixWateringSystemQuestTable
+  m_TableCollectionNameGuidString: bd116909aa0b9d0469850e56515ec853
+  m_Entries:
+  - m_Id: 44258275328
+    m_Key: title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67079483392
+    m_Key: description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134452588544
+    m_Key: intro_dialogue_alex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170380996608
+    m_Key: intro_dialogue_grandpa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 245425483776
+    m_Key: in_progress_dialogue_grandpa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 259937775616
+    m_Key: in_progress_dialogue_alex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 397368340480
+    m_Key: on_completion_dialogue_alex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 411356344320
+    m_Key: on_completion_dialogue_grandpa
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5945854675490439191
+  references:
+    version: 2
+    RefIds:
+    - rid: 5945854675490439191
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1710536560799

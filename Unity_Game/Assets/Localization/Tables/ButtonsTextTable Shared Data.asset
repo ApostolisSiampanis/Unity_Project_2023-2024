@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: ButtonsTextTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: ButtonsTextTable
+  m_TableCollectionNameGuidString: 89bc889cf4865f24d8251c993b7377d5
+  m_Entries:
+  - m_Id: 136066359296
+    m_Key: continue_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274255311790080
+    m_Key: continue_uppercase_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274381107355648
+    m_Key: settings_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274585676144640
+    m_Key: help_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274660779352064
+    m_Key: quit_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 289810349547520
+    m_Key: save_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 307638314196992
+    m_Key: resume_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 308459546337280
+    m_Key: quit_sentence_case_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 310057634881536
+    m_Key: settings_sentence_case_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 310491451744256
+    m_Key: help_sentence_case_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 718753436250112
+    m_Key: new_game_button
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5945854632781152273
+  references:
+    version: 2
+    RefIds:
+    - rid: 5945854632781152273
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1710369655711

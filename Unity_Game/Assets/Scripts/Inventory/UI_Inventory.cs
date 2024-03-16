@@ -1,66 +1,66 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class UI_Inventory : MonoBehaviour
+namespace Inventory
 {
-    private Inventory inventory;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
-
-    private void Awake()
+    public class UI_Inventory : MonoBehaviour
     {
-        itemSlotContainer = transform.Find("itemSlotContainer");
-        itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
-    }
+        private Inventory _inventory;
+        private Transform _itemSlotContainer;
+        private Transform _itemSlotTemplate;
 
-    public void SetInventory(Inventory inventory)
-    {
-        this.inventory = inventory;
-        inventory.OnItemListChanged += Inventory_OnItemListChanged;
-        RefreshInventoryItems();
-    }
-
-    private void Inventory_OnItemListChanged(object sender, EventArgs e)
-    {
-        RefreshInventoryItems();
-    }
-
-    private void RefreshInventoryItems()
-    {
-        foreach (Transform child in itemSlotContainer)
+        private void Awake()
         {
-            if (child == itemSlotTemplate) continue;
-            Destroy(child.gameObject);
+            _itemSlotContainer = transform.Find("itemSlotContainer");
+            _itemSlotTemplate = _itemSlotContainer.Find("itemSlotTemplate");
         }
-        int x = 0;
-        int y = 0;
-        float itemSlotCellSize = 60f;
-        foreach (Item item in inventory.GetItemList())
+
+        public void SetInventory(Inventory inventory)
         {
-            RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.gameObject.SetActive(true);
+            this._inventory = inventory;
+            inventory.onItemListChanged += Inventory_OnItemListChanged;
+            RefreshInventoryItems();
+        }
 
-            // We have only one item to set on a slot
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-            image.sprite = item.GetSprite();
+        private void Inventory_OnItemListChanged(object sender, EventArgs e)
+        {
+            RefreshInventoryItems();
+        }
 
-            TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
-            if (item.amount > 1)
+        private void RefreshInventoryItems()
+        {
+            foreach (Transform child in _itemSlotContainer)
             {
-                uiText.SetText(item.amount.ToString());
-            } 
-            else
-            {
-                uiText.SetText("");
+                if (child == _itemSlotTemplate) continue;
+                Destroy(child.gameObject);
             }
-            
+
+            int x = 0;
+            int y = 0;
+            const float itemSlotCellSize = 60f;
+            foreach (Item item in _inventory.GetItemList())
+            {
+                RectTransform itemSlotRectTransform =
+                    Instantiate(_itemSlotTemplate, _itemSlotContainer).GetComponent<RectTransform>();
+                itemSlotRectTransform.gameObject.SetActive(true);
+
+                // We have only one item to set on a slot
+                itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+                Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
+                image.sprite = item.GetSprite();
+
+                TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
+                if (item.amount > 1)
+                {
+                    uiText.SetText(item.amount.ToString());
+                }
+                else
+                {
+                    uiText.SetText("");
+                }
+            }
         }
     }
-
-
 }
