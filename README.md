@@ -1,5 +1,5 @@
 # Unity_Project_2023-2024
-## [University of Piraeus](https://www.unipi.gr/unipi/en/)<br>[Department of Informatics](https://www.cs.unipi.gr/index.php?lang=en)
+## [University of Piraeus](https://www.unipi.gr/en/home/)<br>[Department of Informatics](https://cs.unipi.gr/en/)
 ### Courses: Virtual Reality - Computer Games
 ### Semester: 7
 ### Project Completion Year: 2024
