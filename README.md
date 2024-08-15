@@ -4,6 +4,19 @@
 
 This project is a team assignment for the "Computer Games" and "Virtual Reality" courses, offered in the 7th semester of the 2023 academic year at the University of Piraeus, Department of Informatics. The project is Unity 3D game with basic features, such as an entry screen, in-game menus, and HUD elements. The game simulates the daily life of a farmer named Alex.
 
+## Course Information
+
+- **Institution:** University of Piraeus
+- **Department:** Department of Informatics
+- **Courses:** Computer Games & Virtual Reality (2023)
+- **Semester:** 7th
+
+## Technologies Used
+
+- C#
+- Unity
+
+
 ### **Game Description**
 The game is set in 1995, in Texas, and follows a day in the life of a farmer, Alex, as he deals with daily challenges on his farm. The game features three different maps representing different stages of Alex's journey to fix a problem on his farm. Along the way, Alex meets friends and family who help him overcome obstacles and achieve his goals. The game offers a warm, nostalgic experience, touching on themes such as friendship and connection with the past.
 
