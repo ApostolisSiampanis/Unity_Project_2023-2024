@@ -17,10 +17,10 @@ This project is a team assignment for the "Computer Games" and "Virtual Reality"
 - Unity
 
 
-### **Game Description**
+## **Game Description**
 The game is set in 1995, in Texas, and follows a day in the life of a farmer, Alex, as he deals with daily challenges on his farm. The game features three different maps representing different stages of Alex's journey to fix a problem on his farm. Along the way, Alex meets friends and family who help him overcome obstacles and achieve his goals. The game offers a warm, nostalgic experience, touching on themes such as friendship and connection with the past.
 
-### **Development Phases**
+## **Development Phases**
 
 **Analysis**:
 - The team decided early on the basic storyline of the game.
@@ -42,7 +42,7 @@ The game is set in 1995, in Texas, and follows a day in the life of a farmer, Al
 - **Forest**: Includes nature sounds, water and air effects, moving cars with NPCs, and predefined paths.
 - **City**: Added moving cars and NPCs with predefined paths using NavMeshPath, and unique interactions when the player approaches or looks at certain NPCs using RayCast.
 
-### **Final Environments**
+## **Final Environments**
 - **Farm Pictures**
   ![Farm 1](./images/farm_1.png)
   ![Farm 2](./images/farm_2.png)
