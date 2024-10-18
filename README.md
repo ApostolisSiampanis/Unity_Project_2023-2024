@@ -1,14 +1,14 @@
-# Computer Games & Virtual Reality (2023) - Quest Explorer
+# Computer Games (2023) - Quest Explorer
 
 ### **Project Overview**
 
-This project is a team assignment for the "Computer Games" and "Virtual Reality" courses, offered in the 7th semester of the 2023 academic year at the University of Piraeus, Department of Informatics. The project is Unity 3D game with basic features, such as an entry screen, in-game menus, and HUD elements. The game simulates the daily life of a farmer named Alex.
+This project is a team assignment for the "Computer Games" course, offered in the 7th semester of the 2023 academic year at the University of Piraeus, Department of Informatics. The project is a Unity 3D game with basic features, such as an entry screen, in-game menus, and HUD elements. The game simulates the daily life of a farmer named Alex.
 
 ## Course Information
 
 - **Institution:** University of Piraeus
 - **Department:** Department of Informatics
-- **Courses:** Computer Games & Virtual Reality (2023)
+- **Course:** Computer Games (2023)
 - **Semester:** 7th
 
 ## Technologies Used
@@ -60,6 +60,7 @@ The game is set in 1995, in Texas, and follows a day in the life of a farmer, Al
   ![City 2](./images/city_2.png)
   ![City 3](./images/city_3.png)
   ![City 4](./images/city_4.png)
+
 ## Contributors
 
 <table>
