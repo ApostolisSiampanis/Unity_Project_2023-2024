@@ -42,6 +42,11 @@ The game is set in 1995, in Texas, and follows a day in the life of a farmer, Al
 - **Forest**: Includes nature sounds, water and air effects, moving cars with NPCs, and predefined paths.
 - **City**: Added moving cars and NPCs with predefined paths using NavMeshPath, and unique interactions when the player approaches or looks at certain NPCs using RayCast.
 
+## Documentation and Resources
+
+- Full project details can be found in the [Project-documentation.pdf](./docs/Project-documentation.pdf)
+- A small presentation can be found in the: [Project-presentation.pdf](./docs/Project-presentation.pdf)
+
 ## **Final Environments**
 - **Farm Pictures**
   ![Farm 1](./images/farm_1.png)
