@@ -46,6 +46,7 @@ The game is set in 1995, in Texas, and follows a day in the life of a farmer, Al
 
 - Full project details can be found in the [Project-documentation.pdf](./docs/Project-documentation.pdf)
 - A small presentation can be found in the: [Project-presentation.pdf](./docs/Project-presentation.pdf)
+- A detailed walkthrough video is available: [Project-video.mp4](./video/Project-video.mp4)
 
 ## **Final Environments**
 - **Farm Pictures**
