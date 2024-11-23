@@ -6,8 +6,8 @@ This project is a team assignment for the "Computer Games" course, offered in th
 
 ## Course Information
 
-- **Institution:** University of Piraeus
-- **Department:** Department of Informatics
+- **Institution:** [University of Piraeus](https://www.unipi.gr/en/home/)
+- **Department:** [Department of Informatics](https://cs.unipi.gr/en/)
 - **Course:** Computer Games (2023)
 - **Semester:** 7th
 
